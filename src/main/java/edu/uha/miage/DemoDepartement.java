@@ -21,11 +21,12 @@ import org.springframework.transaction.annotation.Transactional;
  * @author victo
  */
 @Order(1)
-@Component 
+@Component
 @Profile("dev")
-public class DemoDepartement  implements CommandLineRunner {
+public class DemoDepartement implements CommandLineRunner {
+
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoDepartement.class);
-    
+
     @Autowired
     private DepartementService departementService;
 
@@ -36,6 +37,7 @@ public class DemoDepartement  implements CommandLineRunner {
         createDepartement("Ressources Humaines");
         createDepartement("Comptabilité");
         createDepartement("Informatique");
+        createDepartement("Sécurité");
     }
 
     private void createDepartement(String libelle) {
