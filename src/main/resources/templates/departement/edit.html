@@ -1,21 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-            <div th:replace="fragments/common :: [//div[@id='head']]"></div>
-            <title>Départements</title>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Départements</title>
     <head/>
     <body>
-        <h1>Département</h1>
-       
-        <form action="#" th:object="${departement}" method="post" role="form">
-           
-            <input type="hidden" th:field="*{id}"/>
-            <label for="libelle">Nom du département</label>
-            
-            <input id="libelle" type="text" th:field="*{libelle}" placeholder="(de 2 à 30 caractères) "/>
-            <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
-            <button type="submit" class="btn btn-success">Valider</button>
-            <a th:href="@{/departement}">Fermer</a>
-        </form>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Département</h1>
+
+            <form action="#" th:object="${departement}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                <label for="libelle">Nom du département</label>
+
+                <input id="libelle" type="text" th:field="*{libelle}" placeholder="(de 2 à 30 caractères) "/>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+                <button type="submit" class="btn btn-success">Valider</button>
+                <a th:href="@{/departement}">Fermer</a>
+            </form>
+        </div>
     </body>
 </html>
