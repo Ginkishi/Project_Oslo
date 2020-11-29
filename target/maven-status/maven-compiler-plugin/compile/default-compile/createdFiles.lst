@@ -1,4 +1,5 @@
 edu\uha\miage\core\repository\DomaineRepository.class
+edu\uha\miage\DemoDepartement.class
 edu\uha\miage\web\controller\PersonneController.class
 edu\uha\miage\core\repository\DepartementRepository.class
 edu\uha\miage\core\entity\Role.class
@@ -6,6 +7,7 @@ edu\uha\miage\core\service\impl\DomaineServiceImpl.class
 edu\uha\miage\core\repository\PersonneRepository.class
 edu\uha\miage\core\service\DepartementService.class
 edu\uha\miage\web\controller\StatutDemandeController.class
+edu\uha\miage\config\WebSecurityConfigDev.class
 edu\uha\miage\core\repository\StatutDemandeRepository.class
 edu\uha\miage\core\service\impl\RoleServiceImpl.class
 edu\uha\miage\web\controller\FonctionController.class
