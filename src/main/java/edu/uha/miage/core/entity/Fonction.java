@@ -6,14 +6,11 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -22,9 +19,7 @@ import javax.validation.constraints.Size;
  * @author victo
  */
 @Entity
-@Table(uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"libelle"})})
-public class Departement implements Serializable {
+public class Fonction implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -32,17 +27,17 @@ public class Departement implements Serializable {
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom du Département
+    // Nom de la Fonction
     private String libelle;
 
-    @OneToMany(mappedBy = "departement")
-    private List<Fonction> fonctions;
+    @ManyToOne
+    private Departement departement;
 
-    public Departement(String libelle) {
+    public Fonction(String libelle) {
         this.libelle = libelle;
     }
 
-    public Departement() {
+    public Fonction() {
     }
 
     public Long getId() {
@@ -61,12 +56,13 @@ public class Departement implements Serializable {
         this.libelle = libelle;
     }
 
-    public List<Fonction> getFonctions() {
-        return fonctions;
+    public Departement getDepartement() {
+        return departement;
     }
 
-    public void setFonctions(List<Fonction> fonctions) {
-        this.fonctions = fonctions;
+    public void setDepartement(Departement departement) {
+        this.departement = departement;
     }
-
+    
+    
 }
