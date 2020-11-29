@@ -1,21 +1,24 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
-            <div th:replace="fragments/common :: [//div[@id='head']]"></div>
-            <title>OSLO - Départements</title>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Départements</title>
     <head/>
     <body>
-        <h1>Départements</h1>
-        <ul>
-            <!-- V0.0 La liste d'items des départements est créée à l'aide de th:each -->
-            <!-- V0.0 qui parcourt les département (la liste envoyée par le modèle) -->
-            <li th:each="departement : ${departements}">
-                <span th:text="${departement.libelle}"></span>
-                <a th:href="@{/departement/edit(id=${departement.id})}">[Modifier]</a>
-                <a th:href="@{'/departement/delete/' + ${departement.id}}">[Supprimer]</a>
-            </li>
-        </ul>
-        <!-- V0.0 Un bouton pour ouvrir la page de création de département -->
-        <a th:href="@{/departement/create}">Créer un nouveau département</a>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Départements</h1>
+            <ul>
+                <!-- V0.0 La liste d'items des départements est créée à l'aide de th:each -->
+                <!-- V0.0 qui parcourt les département (la liste envoyée par le modèle) -->
+                <li th:each="departement : ${departements}">
+                    <span th:text="${departement.libelle}"></span>
+                    <a th:href="@{/departement/edit(id=${departement.id})}">[Modifier]</a>
+                    <a th:href="@{'/departement/delete/' + ${departement.id}}">[Supprimer]</a>
+                </li>
+            </ul>
+            <!-- V0.0 Un bouton pour ouvrir la page de création de département -->
+            <a th:href="@{/departement/create}">Créer un nouveau département</a>
+        </div>
     </body>
 </html>
