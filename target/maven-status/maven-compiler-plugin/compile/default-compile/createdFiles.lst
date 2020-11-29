@@ -29,6 +29,7 @@ edu\uha\miage\Application.class
 edu\uha\miage\core\service\StatutDemandeService.class
 edu\uha\miage\core\service\impl\DepartementServiceImpl.class
 edu\uha\miage\core\service\DomaineService.class
+edu\uha\miage\DemoRole.class
 edu\uha\miage\core\service\impl\PersonneServiceImpl.class
 edu\uha\miage\core\repository\RoleRepository.class
 edu\uha\miage\core\service\RoleService.class
