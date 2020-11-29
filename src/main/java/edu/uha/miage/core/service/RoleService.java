@@ -18,6 +18,6 @@ public interface RoleService {
     void delete(Long id);
     List<Role> findAll();
     Optional<Role> findById(Long id);
-    Role findByLibelle(String nom);
+    Role findByLibelle(String libelle);
     Role getOne(Long id);
 }

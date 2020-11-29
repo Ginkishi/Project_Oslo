@@ -5,7 +5,7 @@
  */
 package edu.uha.miage.core.service;
 
-import edu.uha.miage.core.entity.Departement;
+import edu.uha.miage.core.entity.Domaine;
 import java.util.List;
 import java.util.Optional;
 
@@ -13,17 +13,18 @@ import java.util.Optional;
  *
  * @author victo
  */
-public interface DepartementService {
+public interface DomaineService {
 
-    Departement save(Departement entity);
+    Domaine save(Domaine entity);
 
     void delete(Long id);
 
-    List<Departement> findAll();
+    List<Domaine> findAll();
 
-    Optional<Departement> findById(Long id);
+    Optional<Domaine> findById(Long id);
 
-    Departement findByLibelle(String Libelle);
+    Domaine findByLibelle(String libelle);
 
-    Departement getOne(Long id);
+    Domaine getOne(Long id);
+    
 }

@@ -11,11 +11,13 @@ import edu.uha.miage.core.service.DepartementService;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 /**
  *
  * @author victo
  */
+@Service
 public class DepartementServiceImpl implements DepartementService {
 
     @Autowired

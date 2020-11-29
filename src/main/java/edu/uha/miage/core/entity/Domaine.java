@@ -18,9 +18,8 @@ import javax.validation.constraints.Size;
  * @author victo
  */
 @Entity
-public class Departement implements Serializable {
-
-    @Id
+public class Domaine implements Serializable{
+        @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -29,11 +28,11 @@ public class Departement implements Serializable {
     // Nom du Role
     private String libelle;
 
-    public Departement(String libelle) {
+    public Domaine(String libelle) {
         this.libelle = libelle;
     }
 
-    public Departement() {
+    public Domaine() {
     }
 
     public Long getId() {
