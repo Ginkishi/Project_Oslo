@@ -31,8 +31,8 @@ public class PersonneController {
     @GetMapping("/create")
     public String create(Model model) {
         Personne personne = new Personne();
-        model.addAttribute("customer", personne);
-        return "customer/edit";
+        model.addAttribute("personne", personne);
+        return "personne/edit";
     }
 
 

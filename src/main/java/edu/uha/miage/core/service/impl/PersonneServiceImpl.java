@@ -14,35 +14,35 @@ import edu.uha.miage.core.service.PersonneService;
 public class PersonneServiceImpl implements PersonneService {
 
     @Autowired
-    PersonneRepository customerRepository;
+    PersonneRepository personneRepository;
 
     @Override
     public Personne save(Personne entity) {
-        return customerRepository.save(entity);
+        return personneRepository.save(entity);
     }
 
     @Override
     public void delete(Long id) {
-        customerRepository.deleteById(id);
+        personneRepository.deleteById(id);
     }
 
     @Override
     public List<Personne> findAll() {
-        return (List<Personne>) customerRepository.findAll();
+        return (List<Personne>) personneRepository.findAll();
     }
 
     @Override
     public Optional<Personne> findById(Long id) {
-        return customerRepository.findById(id);
+        return personneRepository.findById(id);
     }
 
     @Override
     public Personne findByNom(String nom) {
-        return customerRepository.findByNom(nom);
+        return personneRepository.findByNom(nom);
     }
 
     @Override
     public Personne getOne(Long id) {
-        return customerRepository.getOne(id);
+        return personneRepository.getOne(id);
     }
 }
