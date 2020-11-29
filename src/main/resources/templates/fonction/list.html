@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Fonction</title>
+    <head/>
+    <body>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <ul>                
+                <li th:each="fonction : ${fonctions}">                   
+                    <span th:text="${fonction}"></span>                      
+                    <a th:href="@{/fonction/edit(id=${fonction.id})}"><i class="fa fa-pencil"></i></a>                    
+                    <a  th:href="@{'/fonction/delete/' + ${fonction.id}}"><i class="fa fa-remove"><!-- V0.3 --></i></a>
+                </li>
+            </ul>            
+            <a th:href="@{/fonction/create}"  >Créer une nouvelle fonction</a>        
+        </div>        
+    </body>
+</html>
+
