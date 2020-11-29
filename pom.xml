@@ -34,7 +34,7 @@
         </profile>
         <profile>
             <id>prod</id>
-             
+            
             <properties>
                 <maven.profile>prod</maven.profile>
             </properties>      

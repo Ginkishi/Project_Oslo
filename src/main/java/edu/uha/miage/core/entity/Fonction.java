@@ -64,5 +64,12 @@ public class Fonction implements Serializable {
         this.departement = departement;
     }
     
-    
+    @Override
+    public String toString() {
+        if (departement == null) {
+            return libelle;
+        } else {
+            return libelle + " (" + departement + ")";
+        }
+    }
 }

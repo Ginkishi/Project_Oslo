@@ -6,6 +6,7 @@
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Fonction;
+import edu.uha.miage.core.service.DepartementService;
 import edu.uha.miage.core.service.FonctionService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,9 @@ public class FonctionController {
     @Autowired
     FonctionService fonctionService;
 
+    @Autowired
+    DepartementService departementService;
+
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Model model) {
         model.addAttribute("fonctions", fonctionService.findAll());
@@ -40,13 +44,15 @@ public class FonctionController {
     public String create(Model model) {
         Fonction fonction = new Fonction();
         model.addAttribute("fonction", fonction);
+        model.addAttribute("departements", departementService.findAll());
         return "fonction/edit";
     }
 
     @PostMapping("/create")
-    public String created(@Valid Fonction fonction, BindingResult br) {
+    public String created(@Valid Fonction fonction, BindingResult br, Model model) {
 
         if (br.hasErrors()) {
+            model.addAttribute("departements", departementService.findAll());
             return "fonction/edit";
         }
         fonctionService.save(fonction);
@@ -56,12 +62,14 @@ public class FonctionController {
     @GetMapping("/edit")
     public String edit(@RequestParam(name = "id") Long id, Model model) {
         model.addAttribute("fonction", fonctionService.findById(id).get());
+        model.addAttribute("departements", departementService.findAll());
         return "fonction/edit";
     }
 
     @PostMapping("/edit")
-    public String edited(@Valid Fonction fonction, BindingResult br) {
+    public String edited(@Valid Fonction fonction, BindingResult br, Model model) {
         if (br.hasErrors()) {
+            model.addAttribute("departements", departementService.findAll());
             return "fonction/edit";
         }
 

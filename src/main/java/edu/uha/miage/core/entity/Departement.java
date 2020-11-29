@@ -68,5 +68,10 @@ public class Departement implements Serializable {
     public void setFonctions(List<Fonction> fonctions) {
         this.fonctions = fonctions;
     }
+    
+    @Override
+    public String toString() {
+        return libelle;
+    }
 
 }

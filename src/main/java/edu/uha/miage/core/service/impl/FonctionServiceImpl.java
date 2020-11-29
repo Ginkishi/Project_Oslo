@@ -5,6 +5,7 @@
  */
 package edu.uha.miage.core.service.impl;
 
+import edu.uha.miage.core.entity.Departement;
 import edu.uha.miage.core.entity.Fonction;
 import edu.uha.miage.core.repository.FonctionRepository;
 import edu.uha.miage.core.service.FonctionService;
@@ -35,7 +36,7 @@ public class FonctionServiceImpl implements FonctionService {
 
     @Override
     public List<Fonction> findAll() {
-        return (List<Fonction>) fonctionRepository.findAll();
+        return (List<Fonction>) fonctionRepository.findAllByOrderByLibelle();
     }
 
     @Override
@@ -51,6 +52,11 @@ public class FonctionServiceImpl implements FonctionService {
     @Override
     public Fonction getOne(Long id) {
         return fonctionRepository.getOne(id);
+    }
+    @Override
+    public List<Fonction> findByDepartement(Departement departement) {
+        return fonctionRepository.findByDepartementOrderByLibelle(departement);
+
     }
     
 }

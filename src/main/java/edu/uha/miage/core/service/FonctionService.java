@@ -5,6 +5,7 @@
  */
 package edu.uha.miage.core.service;
 
+import edu.uha.miage.core.entity.Departement;
 import edu.uha.miage.core.entity.Fonction;
 import java.util.List;
 import java.util.Optional;
@@ -25,4 +26,6 @@ public interface FonctionService {
     Fonction findByLibelle(String libelle);
 
     Fonction getOne(Long id);
+    
+        public List<Fonction> findByDepartement(Departement departement);
 }
