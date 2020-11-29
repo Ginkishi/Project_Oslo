@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Rôles</title>
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Rôles</h1>
+            <ul>
+                <!-- V0.0 La liste d'items des départements est créée à l'aide de th:each -->
+                <!-- V0.0 qui parcourt les département (la liste envoyée par le modèle) -->
+                <li th:each="role : ${roles}">
+                    <span th:text="${role.libelle}"></span>
+                    <a th:href="@{/role/edit(id=${role.id})}">[Modifier]</a>
+                    <a th:href="@{'/role/delete/' + ${role.id}}">[Supprimer]</a>
+                </li>
+            </ul>
+            <!-- V0.0 Un bouton pour ouvrir la page de création de département -->
+            <a th:href="@{/role/create}">Créer un nouveau rôle</a>
+        </div>
+    </body>
+</html>
