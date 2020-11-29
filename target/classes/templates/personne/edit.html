@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head/>
+    <body>
+        <h1>Clients</h1>
+       
+        <form action="#" th:object="${personne}" method="post" role="form">
+           
+            <input type="hidden" th:field="*{id}"/>
+            <label for="name">Nom</label>
+            
+            <input id="nom" type="text" th:field="*{nom}" placeholder="(de 2 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" />
+            <button type="submit" class="btn btn-success">Valider</button>
+            <a th:href="@{/personne}">Fermer</a>
+        </form>
+    </body>
+</html>

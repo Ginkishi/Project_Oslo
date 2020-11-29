@@ -1,0 +1,7 @@
+edu\uha\miage\web\controller\PersonneController.class
+edu\uha\miage\core\entity\Personne.class
+edu\uha\miage\core\service\PersonneService.class
+edu\uha\miage\web\controller\RootController.class
+edu\uha\miage\core\repository\PersonneRepository.class
+edu\uha\miage\core\service\impl\PersonneServiceImpl.class
+edu\uha\miage\Application.class
