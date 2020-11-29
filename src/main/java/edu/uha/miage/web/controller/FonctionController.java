@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author victo
  */
 @Controller
+@RequestMapping("/fonction")
 public class FonctionController {
 
     @Autowired

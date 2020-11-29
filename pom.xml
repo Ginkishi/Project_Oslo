@@ -71,10 +71,7 @@
             <artifactId>hamcrest-core</artifactId>
             <scope>test</scope>
         </dependency>
-        <dependency><!-- OK -->
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-        </dependency>
+
         
 
         <!-- Spring Thymeleaf -->
