@@ -26,7 +26,7 @@ public class Departement implements Serializable {
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom du Role
+    // Nom du Département
     private String libelle;
 
     public Departement(String libelle) {

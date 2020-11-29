@@ -25,7 +25,7 @@ public class Domaine implements Serializable{
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom du Role
+    // Nom du Domaine
     private String libelle;
 
     public Domaine(String libelle) {

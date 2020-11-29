@@ -24,7 +24,7 @@ public class StatutDemande {
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom du Role
+    // Nom du statut de la demande
     private String libelle;
 
     public StatutDemande(String libelle) {
