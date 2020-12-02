@@ -1,0 +1,24 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Statuts des demandes</title>
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Statut des demandes</h1>
+
+            <form action="#" th:object="${statutDemande}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                <label for="libelle">Nom du statut de la demande</label>
+
+                <input id="libelle" type="text" th:field="*{libelle}" placeholder="(de 2 à 30 caractères) "/>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+                <button type="submit" class="btn btn-success">Valider</button>
+                <a th:href="@{/statutDemande}">Fermer</a>
+            </form>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Service</title>
+    <head/>
+    <body>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <ul>                
+                <li th:each="service : ${services}">                   
+                    <span th:text="${service}"></span>                      
+                    <a th:href="@{/service/edit(id=${service.id})}"><i class="fa fa-pencil"></i></a>                    
+                    <a  th:href="@{'/service/delete/' + ${service.id}}"><i class="fa fa-remove"><!-- V0.3 --></i></a>
+                </li>
+            </ul>            
+            <a th:href="@{/service/create}"  >Créer un nouveau service</a>        
+        </div>        
+    </body>
+</html>
+
