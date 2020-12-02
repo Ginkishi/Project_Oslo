@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Catégories</title>
+    <head/>
+    <body>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <ul>                
+                <li th:each="categorie : ${categories}">                   
+                    <span th:text="${categorie}"></span>                      
+                    <a th:href="@{/categorie/edit(id=${categorie.id})}"><i class="fa fa-pencil"></i></a>                    
+                    <a  th:href="@{'/categorie/delete/' + ${categorie.id}}"><i class="fa fa-remove"><!-- V0.3 --></i></a>
+                </li>
+            </ul>            
+            <a th:href="@{/categorie/create}"  >Créer une nouvelle catégorie</a>        
+        </div>        
+    </body>
+</html>
+
