@@ -1,0 +1,52 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- V0.2 Avec th:include dans <head ... , le fragment <head>...</head> 
+    du fichier "fragments/common.html" devient le <head>...</head> de ce fichier.
+    -->
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Services</title>
+    <head/>
+    <body>
+
+        <div th:replace="fragments/menu"></div>
+        <div class="main"><!-- V0.3 -->
+
+            <h1>Services</h1>
+
+            <form  th:action="@{''}" th:object="${service}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                <label  for="libelle">Nom de la service</label>
+
+                <input id="libelle" type="text" th:field="*{libelle}" />
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+
+                <label  for="placeholder">Placeholder</label>
+
+                <input id="placeholder" type="text" th:field="*{placeholder}" />
+                <span th:if="${#fields.hasErrors('placeholder')}" th:errors="*{placeholder}" />
+                
+                <p>
+                    <label for="categorie">Nom de la catégorie</label>
+
+                    <select th:field="*{categorie}" id="categorie">
+                        <option th:value="null" >Vide</option>
+                        <option th:each="categorie : ${categories}" th:value="${categorie.id}" th:text="${categorie.libelle}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}" />
+                </p>
+                 <p>
+                    <label for="categorie">Priorité</label>
+
+                    <select th:field="*{priorite}" id="priorite">
+                        <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
+                    </select>
+                    <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}" />
+                </p>
+                <button type="submit" class="btn btn-success">Valider</button>
+                <a th:href="@{/service}">Fermer</a>
+            </form>  
+        </div>       
+    </body>
+</html>

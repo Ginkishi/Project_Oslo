@@ -1,3 +1,4 @@
+edu\uha\miage\core\entity\Services.class
 edu\uha\miage\web\controller\CategorieController.class
 edu\uha\miage\core\service\impl\CompteServiceImpl.class
 edu\uha\miage\core\service\DepartementService.class
@@ -5,10 +6,12 @@ edu\uha\miage\web\controller\StatutDemandeController.class
 edu\uha\miage\core\repository\StatutDemandeRepository.class
 edu\uha\miage\config\SpringWebConfig.class
 edu\uha\miage\model\Inscription.class
+edu\uha\miage\core\service\ServiceService.class
 edu\uha\miage\core\service\PersonneService.class
 edu\uha\miage\web\controller\DepartementController.class
 edu\uha\miage\web\controller\RootController.class
 edu\uha\miage\core\repository\CategorieRepository.class
+edu\uha\miage\core\service\impl\ServiceServiceImpl.class
 edu\uha\miage\core\service\impl\StatutDemandeServiceImpl.class
 edu\uha\miage\core\repository\FonctionRepository.class
 edu\uha\miage\web\controller\DomaineController.class
@@ -37,10 +40,12 @@ edu\uha\miage\core\entity\Compte.class
 edu\uha\miage\core\service\impl\DepartementServiceImpl.class
 edu\uha\miage\core\service\DomaineService.class
 edu\uha\miage\DemoRole.class
+edu\uha\miage\core\repository\ServiceRepository.class
 edu\uha\miage\web\controller\InscriptionController.class
 edu\uha\miage\core\service\impl\PersonneServiceImpl.class
 edu\uha\miage\core\repository\RoleRepository.class
 edu\uha\miage\core\service\CompteService.class
+edu\uha\miage\web\controller\ServiceController.class
 edu\uha\miage\core\entity\Categorie.class
 edu\uha\miage\core\service\RoleService.class
 edu\uha\miage\core\service\CategorieService.class
