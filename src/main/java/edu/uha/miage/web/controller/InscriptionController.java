@@ -49,7 +49,7 @@ public class InscriptionController {
     @RequestMapping(method = RequestMethod.GET)
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
-        return "inscription";
+        return "inscription2";
     }
         
     @RequestMapping(method = RequestMethod.POST)
@@ -58,7 +58,7 @@ public class InscriptionController {
         //Users user = new Users(inscription.getUsername(), "{noop}"+inscription.getPassword());
         
          if (br.hasErrors()) {
-            return "/inscription";
+            return "inscription2";
         }
          
          

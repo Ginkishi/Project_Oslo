@@ -28,12 +28,11 @@ public class Inscription implements Serializable {
 
     @NotNull
     @Size(min = 8)
-    
+
     private String confirmPassword;
 
     private PasswordData passwordData;
-    
-    
+
     @NotNull
     @Size(min = 2, max = 50)
     // Nom de la Personne
@@ -44,11 +43,14 @@ public class Inscription implements Serializable {
     // Prénom de la Personne
     private String prenom;
 
-
+    @NotNull
+    @Size(min = 2, max = 50)
     // Adresse de la Personne
     private String adresse;
 
     @Email
+    @NotNull
+    @Size(min = 2, max = 50)
     // Email de la Personne
     private String email;
 
@@ -86,7 +88,7 @@ public class Inscription implements Serializable {
 
     public void setConfirmPassword(String confirmPassword) {
         this.confirmPassword = confirmPassword;
-    }    
+    }
 
     public String getNom() {
         return nom;
@@ -119,6 +121,5 @@ public class Inscription implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
-    
-    
+
 }
