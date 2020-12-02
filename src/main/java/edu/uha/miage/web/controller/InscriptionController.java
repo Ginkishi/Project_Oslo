@@ -8,6 +8,7 @@ package edu.uha.miage.web.controller;
 import edu.uha.miage.core.entity.Compte;
 import edu.uha.miage.core.entity.Personne;
 import edu.uha.miage.core.service.CompteService;
+import edu.uha.miage.core.service.DepartementService;
 
 import edu.uha.miage.core.service.PersonneService;
 import edu.uha.miage.core.service.RoleService;
@@ -40,6 +41,9 @@ public class InscriptionController {
     @Autowired
     PersonneService personneService;
     
+     @Autowired
+    DepartementService departementService;
+    
     @Autowired
     CompteService compteService;
     
@@ -49,6 +53,7 @@ public class InscriptionController {
     @RequestMapping(method = RequestMethod.GET)
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
+        model.addAttribute("departements", departementService.findAll());
         return "inscription2";
     }
         
