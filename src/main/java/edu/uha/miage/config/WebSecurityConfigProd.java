@@ -48,6 +48,5 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
                 .formLogin().permitAll()
                 .and()
                 .logout().permitAll();
-        http.csrf().disable(); // TODO: Enlever quand csrf token present sur le page d'inscription!
     }
 }

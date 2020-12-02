@@ -77,6 +77,6 @@ public class InscriptionController {
         compteService.save(compte);
         
         LOGGER.warn("Super j'ai bien fini l'inscription");
-        return "home";
+        return "redirect:/login";
     }
 }
