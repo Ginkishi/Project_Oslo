@@ -36,7 +36,7 @@ body {
 .main form .btn.btn-success:hover {
     background-color: #007e33;
     color: #ffffff;
-    transition: 0.3s background-color ease-in-out;
+    /*transition: 0.3s background-color ease-in-out;*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 .main form .btn.btn-danger {
@@ -48,7 +48,7 @@ body {
 .main form .btn.btn-danger:hover {
     background-color: #cc0000;
     color: #ffffff;
-    transition: 0.3s background-color ease-in-out;
+   /* transition: 0.3s background-color ease-in-out;*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
@@ -116,30 +116,30 @@ td > .buttons > a .btn {
 td > .buttons > a .btn.btn-success {
     background-color: #5cb85c;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+    /*transition: 0.5s ease-in-out;*/
 }
 td > .buttons > a .btn.btn-success:hover {
     background-color: #007e33;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+    /*transition: 0.5s ease-in-out;*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
 td > .buttons > a .btn.btn-warning {
     background-color: #ffbb33;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+   /* transition: 0.5s ease-in-out;*/
 }
 td > .buttons > a .btn.btn-warning:hover {
     background-color: #ff8800;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+   /* transition: 0.5s ease-in-out;*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 .btn.btn-danger {
     background-color: #ff4444;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+    /*transition: 0.5s ease-in-out;*/
 }
 td > .buttons {
     margin: 0;
@@ -148,7 +148,7 @@ td > .buttons {
 td > .buttons > a .btn.btn-danger:hover {
     background-color: #cc0000;
     color: #ffffff;
-    transition: 0.5s ease-in-out;
+    /*transition: 0.5s ease-in-out;*/
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
 }
 
