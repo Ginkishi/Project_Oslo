@@ -22,6 +22,7 @@ import javax.validation.constraints.Size;
  * @author victo
  */
 @Entity
+
 @Table(uniqueConstraints = {
     @UniqueConstraint(columnNames = {"libelle"})})
 public class Categorie {

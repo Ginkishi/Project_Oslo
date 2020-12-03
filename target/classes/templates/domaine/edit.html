@@ -2,6 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+            <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <title>OSLO - Domaines</title>
     <head/>
     <body>
@@ -12,12 +13,15 @@
             <form action="#" th:object="${domaine}" method="post" role="form">
 
                 <input type="hidden" th:field="*{id}"/>
-                <label for="libelle">Nom du domaine</label>
-
-                <input id="libelle" type="text" th:field="*{libelle}" placeholder="(de 2 à 30 caractères) "/>
+                  <div class="input-field">
+                    <label for="libelle">Nom du domaine</label>
+                    <input id="libelle" type="text" th:field="*{libelle}" />
+                </div>
                 <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
-                <button type="submit" class="btn btn-success">Valider</button>
-                <a th:href="@{/domaine}">Fermer</a>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/domaine}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
             </form>
         </div>
     </body>

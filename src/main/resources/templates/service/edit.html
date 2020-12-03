@@ -6,6 +6,7 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Services</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
 
@@ -16,36 +17,35 @@
 
             <form  th:action="@{''}" th:object="${service}" method="post" role="form">
 
-                <input type="hidden" th:field="*{id}"/>
-                <label  for="libelle">Nom de la service</label>
-
-                <input id="libelle" type="text" th:field="*{libelle}" />
-                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
-
-                <label  for="placeholder">Placeholder</label>
-
-                <input id="placeholder" type="text" th:field="*{placeholder}" />
-                <span th:if="${#fields.hasErrors('placeholder')}" th:errors="*{placeholder}" />
-                
-                <p>
+                <input type="hidden" th:field="*{id}" />
+                <div class="input-field">
+                    <label for="libelle">Nom du service</label>
+                    <input id="libelle" type="text" th:field="*{libelle}" />
+                </div>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}"></span>
+                <div class="input-field">
+                    <label  for="placeholder">Placeholder</label>
+                    <input id="placeholder" type="text" th:field="*{placeholder}" />
+                </div>                    
+                <span th:if="${#fields.hasErrors('placeholder')}" th:errors="*{placeholder}"></span>
+                <div class="input-field">
                     <label for="categorie">Nom de la catégorie</label>
-
                     <select th:field="*{categorie}" id="categorie">
-                        <option th:value="null" >Vide</option>
                         <option th:each="categorie : ${categories}" th:value="${categorie.id}" th:text="${categorie.libelle}"></option>
                     </select>
-                    <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}" />
-                </p>
-                 <p>
+                </div>                        
+                <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></span>
+                <div class="input-field">
                     <label for="categorie">Priorité</label>
-
                     <select th:field="*{priorite}" id="priorite">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
-                    <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}" />
-                </p>
-                <button type="submit" class="btn btn-success">Valider</button>
-                <a th:href="@{/service}">Fermer</a>
+                </div>                        
+                <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></span>
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/service}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
             </form>  
         </div>       
     </body>

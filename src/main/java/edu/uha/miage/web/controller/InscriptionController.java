@@ -55,13 +55,13 @@ public class InscriptionController {
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
         model.addAttribute("departements", departementService.findAll());
-        LOGGER.warn("ATTENTION GET FAIT SUR INSCRIPTION");
+        //LOGGER.warn("ATTENTION GET FAIT SUR INSCRIPTION");
         return "inscription2";
     }
     
     @RequestMapping(method = RequestMethod.POST)
     public String inscrit(@Valid Inscription inscription,BindingResult br) {
-        LOGGER.warn("J'ai mis recu un post");
+        //LOGGER.warn("J'ai mis recu un post");
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         //Users user = new Users(inscription.getUsername(), "{noop}"+inscription.getPassword());
         
@@ -69,14 +69,14 @@ public class InscriptionController {
             return "inscription2";
         }
          
-        LOGGER.warn("Je suis la!!!");
+        //LOGGER.warn("Je suis la!!!");
         Personne user = new Personne(inscription.getNom(), inscription.getPrenom(),inscription.getAdresse(),inscription.getEmail());
         personneService.save(user);
-        LOGGER.warn("BB JAI SAVE LA PERSONNE");
+        //LOGGER.warn("BB JAI SAVE LA PERSONNE");
         Compte compte = new Compte(inscription.getUsername(),encoder.encode(inscription.getPassword()), user,roleService.findByLibelle("ROLE_COLLABORATEUR"));
         compteService.save(compte);
         
-        LOGGER.warn("Super j'ai bien fini l'inscription");
+        //LOGGER.warn("Super j'ai bien fini l'inscription");
         return "redirect:/login";
     }
 }

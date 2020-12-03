@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+
+        <meta charset='UTF-8'>
+        <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+        <meta http-equiv='X-UA-Compatible' content='IE-edge'>
+        <title>OSLO - Login</title>
+        <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+        <link rel="stylesheet" type="text/css" th:href="@{static/css/login.css}" />
+    <head/>
+    <body>
+        <div class="container">
+            <div class="forms-container">
+                <div class="signin-signup">
+                    <form th:action="@{''}" class="sign-in-form" method="post" role="form">
+                        <div class="logo">
+                            <img th:src="@{static/img/avatar.svg}" alt="">
+                        </div>
+                        <h2 class="title">Connexion</h2>
+                        <div class="input-field">
+                            <i class="bx bxs-user"></i>
+                            <input type="text"   id="username" placeholder="Username" name="username">
+                        </div>
+                        <div class="input-field">
+                            <i class="bx bxs-lock"></i>
+                            <input type="password" placeholder="Password"  id="password" name="password" >
+                        </div>
+                        <input type="submit" value="Connexion" class="btn solid">
+                    </form>
+                </div>
+            </div>
+            <div class="panels-container">
+                <div class="panel left-panel">
+                    <div class="content">
+                        <h3>Nouveau ici ?</h3>
+                        <p>Rejoignez nous, nous sommes déjà des milliers d'utilisateurs à avoir choisi cette plateforme</p>
+                        <a th:href="@{/inscription}"><div class="btn transparent" id="sign-up-btn">S'inscrire</div></a>
+                    </div>
+                    <img th:src="@{static/img/auth.svg}" class="image" alt="">
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
