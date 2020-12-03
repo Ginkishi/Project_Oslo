@@ -6,10 +6,12 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -19,6 +21,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 public class Domaine implements Serializable{
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -27,6 +30,9 @@ public class Domaine implements Serializable{
     @Size(min = 2, max = 50)
     // Nom du Domaine
     private String libelle;
+    
+    @OneToMany(mappedBy = "domaine")
+    private List<Incident> incidents;
 
     public Domaine(String libelle) {
         this.libelle = libelle;
@@ -55,5 +61,12 @@ public class Domaine implements Serializable{
     public String toString() {
         return libelle;
     }
-    
+
+    public List<Incident> getIncidents() {
+        return incidents;
+    }
+
+    public void setIncidents(List<Incident> incidents) {
+        this.incidents = incidents;
+    }
 }

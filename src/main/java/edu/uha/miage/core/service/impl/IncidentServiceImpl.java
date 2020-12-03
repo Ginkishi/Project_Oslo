@@ -32,4 +32,14 @@ public class IncidentServiceImpl implements IncidentService {
     public Optional<Incident> findByLibelle(String libelle) {
         return incidentRepository.findByLibelle(libelle);
     }
+
+    @Override
+    public Optional<Incident> findById(Long id) {
+        return incidentRepository.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        incidentRepository.deleteById(id);
+    }
 }

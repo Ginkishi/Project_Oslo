@@ -6,10 +6,14 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -32,6 +36,13 @@ public class Fonction implements Serializable {
 
     @ManyToOne
     private Departement departement;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "occupeIncident", 
+        joinColumns = @JoinColumn(name = "fonction_id"),
+        inverseJoinColumns = @JoinColumn(name = "incident_id"))
+    List<Incident> typeIncidents;
 
     public Fonction(String libelle) {
         this.libelle = libelle;

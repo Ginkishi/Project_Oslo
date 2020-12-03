@@ -1,10 +1,13 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -24,7 +27,7 @@ public class Incident implements Serializable {
     
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Fonction
+
     private String libelle;
     
     @NotNull
@@ -34,6 +37,9 @@ public class Incident implements Serializable {
 
     @ManyToOne
     private Domaine domaine;
+    
+    @ManyToMany(mappedBy = "typeIncidents")
+    List<Fonction> fonctions;
     
     public Incident() {}
     
@@ -74,4 +80,19 @@ public class Incident implements Serializable {
     public void setDomaine(Domaine domaine) {
         this.domaine = domaine;
     }
+    
+    @Override
+    public String toString() {
+        return this.libelle;
+    }
+
+    public List<Fonction> getFonctions() {
+        return fonctions;
+    }
+
+    public void setFonctions(List<Fonction> fonctions) {
+        this.fonctions = fonctions;
+    }
+    
+    
 }
