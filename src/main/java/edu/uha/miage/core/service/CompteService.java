@@ -13,4 +13,5 @@ import edu.uha.miage.core.entity.Compte;
  */
 public interface CompteService {
     Compte save(Compte entity);
+    Compte findByUsername(String username);
 }

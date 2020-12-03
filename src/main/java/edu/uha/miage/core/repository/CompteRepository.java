@@ -17,4 +17,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface CompteRepository extends JpaRepository<Compte, Long>{
 
     Optional<Compte> findById(Long id);
+    Compte findByUsername(String username);
 }
