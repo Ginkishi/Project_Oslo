@@ -3,6 +3,7 @@ D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repositor
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DomaineRepository.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\InscriptionController.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\PersonneController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ProfilController.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\WebSecurityConfigDev.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\RoleServiceImpl.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DepartementController.java
@@ -23,8 +24,10 @@ D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\CategorieService.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoRole.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\RoleService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoCompte.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\PersonneServiceImpl.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\ServiceService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoPersonne.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Role.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\SpringWebConfig.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DomaineController.java

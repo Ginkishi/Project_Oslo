@@ -3,7 +3,6 @@ package edu.uha.miage.core.service.impl;
 import edu.uha.miage.core.entity.Personne;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 import edu.uha.miage.core.repository.PersonneRepository;
@@ -44,5 +43,10 @@ public class PersonneServiceImpl implements PersonneService {
     @Override
     public Personne getOne(Long id) {
         return personneRepository.getOne(id);
+    }
+    
+    @Override
+    public Personne findByNomAndPrenomAndEmailAndAdresse(String Nom, String prenom, String email, String adresse) {
+        return personneRepository.findByNomAndPrenomAndEmailAndAdresse(Nom, prenom, email, adresse);
     }
 }
