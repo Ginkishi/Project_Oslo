@@ -3,20 +3,45 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Service</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
-      
+
         <div th:replace="fragments/menu"></div>
 
         <div class="main">          
-            <ul>                
-                <li th:each="service : ${services}">                   
-                    <span th:text="${service}"></span>                      
-                    <a th:href="@{/service/edit(id=${service.id})}"><i class="fa fa-pencil"></i></a>                    
-                    <a  th:href="@{'/service/delete/' + ${service.id}}"><i class="fa fa-remove"><!-- V0.3 --></i></a>
-                </li>
-            </ul>            
-            <a th:href="@{/service/create}"  >Créer un nouveau service</a>        
+            <h1>Listes des services</h1>
+            <a th:href="@{/service/create}">
+                <div class="btn btn-primary">Ajouter un nouveau service
+                </div>
+            </a>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Catégorie</th>
+                        <th>Priorité</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="service : ${services}">
+                        <td th:text="${service}"></td>
+                        <td th:text="${service.categorie}"></td>
+                        <td th:text="${service.priorite}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/service/edit(id=${service.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/service/delete/' + ${service.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>        
         </div>        
     </body>
 </html>

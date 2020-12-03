@@ -84,10 +84,8 @@ public class Categorie {
 
     @Override
     public String toString() {
-        if (parent == null) {
-            return libelle;
-        }
-        return parent+" - "+libelle;
+       
+        return libelle;
     }
 
 }
