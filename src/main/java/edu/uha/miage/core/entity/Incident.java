@@ -1,10 +1,14 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -34,6 +38,13 @@ public class Incident implements Serializable {
 
     @ManyToOne
     private Domaine domaine;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "fonction_occupe_incident", 
+        joinColumns = @JoinColumn(name = "incident_id"), 
+        inverseJoinColumns = @JoinColumn(name = "fonction_id"))
+    private List<Fonction> fonctionOccupe;
     
     public Incident() {}
     
