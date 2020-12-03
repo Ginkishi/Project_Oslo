@@ -1,7 +1,7 @@
 
 .main {
     display: grid;
-    justify-content: center;
+    justify-content:  center;
 }
 body {
     background-color: #f0f0f0af;
@@ -144,6 +144,7 @@ td > .buttons > a .btn.btn-warning:hover {
 td > .buttons {
     margin: 0;
     justify-content: center;
+    width: auto;
 }
 td > .buttons > a .btn.btn-danger:hover {
     background-color: #cc0000;
@@ -156,8 +157,13 @@ td > .buttons > a .btn.btn-danger:hover {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
     font-size: 1.3rem;
     background: #2e2e2e;
-    width: 75vw;
+    width: auto;
 }
+
+.table.fluid{
+   width: auto;
+}
+
 
 .table tbody {
     background: #ffff;
@@ -171,12 +177,11 @@ td > .buttons > a .btn.btn-danger:hover {
 .table thead th {
     background: #2e2e2e;
     padding: 5px 0px;
-
 }
 
 .table tbody td {
     border-bottom: 1px solid gray;
-    padding: 10px 20px;
+    padding: 10px 30px;
 }
 
 .table tbody tr:nth-child(even) {
