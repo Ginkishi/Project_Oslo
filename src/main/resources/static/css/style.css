@@ -1,0 +1,115 @@
+
+.main {
+  display: grid;
+  justify-content: center;
+}
+body {
+  background-color: #f0f0f0af;
+}
+.main h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 20px;
+}
+
+.main form .btn {
+  height: 60px;
+  padding: 10px 20px;
+  font-size: 1.3rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  width: 275px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  text-align: center;
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.main form .btn.btn-success {
+  background-color: #5cb85c;
+  color: #ffffff;
+
+}
+.main form .btn.btn-success:hover {
+  background-color: #007e33;
+  color: #ffffff;
+  transition: 0.3s background-color ease-in-out;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.main form .btn.btn-danger {
+  background-color: #d9537f;
+  color: #ffffff;
+
+}
+
+.main form .btn.btn-danger:hover {
+  background-color: #cc0000;
+  color: #ffffff;
+  transition: 0.3s background-color ease-in-out;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+a {
+  display: block;
+}
+
+.main form .input-field {
+  display: grid;
+  grid-template-columns: 500px;
+  font-size: 1.5rem;
+  padding: 10px;
+  margin-bottom: 20px;
+  justify-items: center;
+  justify-content: center;
+}
+.main form .input-field input,
+.main form .input-field select {
+  height: 45px;
+  outline: none;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  min-width: 320px;
+  width: 700px;
+  color: #7952b3;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+.main form .input-field label {
+  color: #1d1d1ddc;
+  font-size: 1.3rem;
+  text-align: left;
+  min-width: 320px;
+  width: 700px;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  width: 700px;
+}
+@media screen and (max-width: 720px) {
+  .main form .input-field {
+    grid-template-columns: 320px;
+  }
+  .main form .input-field label {
+    width: 320px;
+  }
+
+  .main form .input-field input,
+  .main form .input-field select {
+    width: 320px;
+  }
+  .buttons {
+    width: 100%;
+  }
+}
