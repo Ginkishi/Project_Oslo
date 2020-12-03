@@ -12,4 +12,5 @@ public interface PersonneService {
     Optional<Personne> findById(Long id);
     Personne findByNom(String nom);
     Personne getOne(Long id);
+    Personne findByNomAndPrenomAndEmailAndAdresse(String Nom, String prenom, String email, String adresse);
 }

@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Rôles</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Rôles</h1>
+
+            <form action="#" th:object="${role}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                <div class="input-field">
+                    <label for="libelle">Nom du rôle</label>
+                    <input id="libelle" type="text" th:field="*{libelle}" placeholder="ROLE_ADMIN, ROLE_COLLAB"/>
+                </div>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+                 <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/role}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

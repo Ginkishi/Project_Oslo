@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <!-- V0.2 Avec th:include dans <head ... , le fragment <head>...</head> 
+    du fichier "fragments/common.html" devient le <head>...</head> de ce fichier.
+    -->
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Fonction</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+
+        <div th:replace="fragments/menu"></div>
+        <div class="main"><!-- V0.3 -->
+
+            <h1>Fonction</h1>
+
+            <form  th:action="@{''}" th:object="${fonction}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                 <div class="input-field">
+                    <label for="libelle">Nom de la fonction</label>
+                    <input id="libelle" type="text" th:field="*{libelle}" />
+                </div>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+
+                <div class="input-field">
+                    <label for="departement">Nom du département</label>
+
+                    <select th:field="*{departement}" id="departement">
+                        <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.libelle}"></option>
+                    </select>
+                </div>
+                 <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/fonction}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
+            </form>  
+        </div>       
+    </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head/>
+    <body>
+        <h1>Inscription</h1>
+
+        <form action="#" th:object="${inscription}" method="post" role="form">          
+            <label for="nom">Nom</label>            
+            <input id="nom" type="text" th:field="*{nom}" placeholder="(de 2 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" />
+
+            <label for="prenom">Prenom</label>            
+            <input id="prenom" type="text" th:field="*{prenom}" placeholder="(de 2 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" />
+
+            <label for="adresse">Adresse</label>            
+            <input id="adresse" type="text" th:field="*{adresse}" placeholder=""/>
+            <span th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}" />
+
+            <label for="email">Email</label>            
+            <input id="email" type="text" th:field="*{email}" placeholder=""/>
+            <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+
+            <label for="username">Nom d'utilisateur</label>            
+            <input id="username" type="text" th:field="*{username}" placeholder="(de 2 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
+            
+            <label for="password">Mot de passe</label>            
+            <input id="password" type="password" th:field="*{password}" placeholder="(de 8 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" />
+            
+            <label for="confirmPassword">Confirmer le Mot de passe</label>            
+            <input id="confirmPassword" type="password" th:field="*{confirmPassword}" placeholder="(de 8 à 30 caractères) "/>
+            <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" />
+
+            <button type="submit" class="btn btn-success">Valider</button>
+            <a th:href="@{/}">Fermer</a>
+        </form>
+    </body>
+</html>
