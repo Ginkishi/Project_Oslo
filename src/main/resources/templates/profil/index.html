@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Accueil</title>
+    <head/>
+    <body>
+         <div th:replace="fragments/menu"></div>
+         <div class="main">
+        <h1>Profil</h1>
+        <form action="#" th:object="${compte}">
+            <label>Nom</label><input type="text" th:field="*{personne.nom}"/>
+            <label>Prenom</label><input type="text" th:field="*{personne.prenom}"/>
+            <label>Adresse</label><input type="text" th:field="*{personne.adresse}"/>
+            <label>Email</label><input type="text" th:field="*{personne.email}"/>
+            <label>Nom de compte</label><input type="text" th:field="*{username}"/>
+            <lable>Role</label><input type="text" th:field="*{role.libelle}"/>
+        </form>
+        </div>
+    </body>
+</html>

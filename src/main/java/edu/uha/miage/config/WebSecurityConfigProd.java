@@ -26,7 +26,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 @Profile("prod")
 @Order(1)
 public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
-
+    
     @Autowired
     private DataSource dataSource;
     

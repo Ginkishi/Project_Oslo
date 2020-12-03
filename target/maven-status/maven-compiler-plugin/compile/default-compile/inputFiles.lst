@@ -1,3 +1,4 @@
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ProfilController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\ServiceRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DepartementServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Categorie.java
@@ -9,6 +10,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\RoleController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Role.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\StatutDemandeController.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoCompte.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DomaineController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Fonction.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Departement.java
@@ -20,6 +22,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\PersonneController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\CategorieController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\RootController.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoPersonne.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoDepartement.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\CategorieServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\PersonneService.java

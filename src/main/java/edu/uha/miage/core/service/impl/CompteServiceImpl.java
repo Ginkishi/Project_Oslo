@@ -26,5 +26,8 @@ public class CompteServiceImpl implements CompteService{
         return compteRepository.save(entity);
     }
     
-    
+    @Override
+    public Compte findByUsername(String username) {
+        return compteRepository.findByUsername(username);
+    }
 }
