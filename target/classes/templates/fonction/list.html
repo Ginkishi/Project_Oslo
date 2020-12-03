@@ -3,20 +3,43 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Fonction</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
-      
+
         <div th:replace="fragments/menu"></div>
 
         <div class="main">          
-            <ul>                
-                <li th:each="fonction : ${fonctions}">                   
-                    <span th:text="${fonction}"></span>                      
-                    <a th:href="@{/fonction/edit(id=${fonction.id})}"><i class="fa fa-pencil"></i></a>                    
-                    <a  th:href="@{'/fonction/delete/' + ${fonction.id}}"><i class="fa fa-remove"><!-- V0.3 --></i></a>
-                </li>
-            </ul>            
-            <a th:href="@{/fonction/create}"  >Créer une nouvelle fonction</a>        
+            <h1>Listes des fonctions</h1>
+            <a th:href="@{/fonction/create}">
+                <div class="btn btn-primary">Ajouter une nouvelle fonction
+                </div>
+            </a>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Département</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="fonction : ${fonctions}">
+                        <td th:text="${fonction}"></td>
+                        <td th:text="${fonction.departement}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/fonction/edit(id=${fonction.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/fonction/delete/' + ${fonction.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>        
         </div>        
     </body>
 </html>

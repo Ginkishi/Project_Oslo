@@ -3,22 +3,41 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Statuts des demandes</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
         <div th:replace="fragments/menu"></div>
         <div class="main">
-            <h1>Statuts des demandes</h1>
-            <ul>
-                <!-- V0.0 La liste d'items des départements est créée à l'aide de th:each -->
-                <!-- V0.0 qui parcourt les département (la liste envoyée par le modèle) -->
-                <li th:each="statutDemande : ${statutDemandes}">
-                    <span th:text="${statutDemande.libelle}"></span>
-                    <a th:href="@{/statutDemande/edit(id=${statutDemande.id})}">[Modifier]</a>
-                    <a th:href="@{'/statutDemande/delete/' + ${statutDemande.id}}">[Supprimer]</a>
-                </li>
-            </ul>
-            <!-- V0.0 Un bouton pour ouvrir la page de création de département -->
-            <a th:href="@{/statutDemande/create}">Créer un nouveau statut de demande</a>
+             <h1>Listes des statuts de demande</h1>
+            <a th:href="@{/statutDemande/create}">
+                <div class="btn btn-primary">Ajouter un statut de demande
+                </div>
+            </a>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="statutDemande : ${statutDemandes}">
+                        <td th:text="${statutDemande}"></td>
+
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/statutDemande/edit(id=${statutDemande.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/statutDemande/delete/' + ${statutDemande.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

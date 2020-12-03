@@ -3,22 +3,41 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Rôles</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
         <div th:replace="fragments/menu"></div>
         <div class="main">
-            <h1>Rôles</h1>
-            <ul>
-                <!-- V0.0 La liste d'items des départements est créée à l'aide de th:each -->
-                <!-- V0.0 qui parcourt les département (la liste envoyée par le modèle) -->
-                <li th:each="role : ${roles}">
-                    <span th:text="${role.libelle}"></span>
-                    <a th:href="@{/role/edit(id=${role.id})}">[Modifier]</a>
-                    <a th:href="@{'/role/delete/' + ${role.id}}">[Supprimer]</a>
-                </li>
-            </ul>
-            <!-- V0.0 Un bouton pour ouvrir la page de création de département -->
-            <a th:href="@{/role/create}">Créer un nouveau rôle</a>
+             <h1>Listes des rôles</h1>
+            <a th:href="@{/role/create}">
+                <div class="btn btn-primary">Ajouter un nouveau rôle
+                </div>
+            </a>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="role : ${roles}">
+                        <td th:text="${role}"></td>
+
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/role/edit(id=${role.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/role/delete/' + ${role.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>
         </div>
     </body>
 </html>

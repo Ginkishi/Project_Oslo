@@ -19,15 +19,15 @@ import org.passay.PasswordData;
 public class Inscription implements Serializable {
 
     @NotNull
-    @Size(min = 2)
+    @Size(min = 2, max = 25, message ="Le nom d'utilisateur doit être entre 2 et 25 caractères")
     private String username;
 
     @NotNull
-    @Size(min = 8)
+    @Size(min = 8, message ="Le mot de passe doit être de minimum 8 caractères")
     private String password;
 
     @NotNull
-    @Size(min = 8)
+    @Size(min = 8, message ="Le mot de passe doit pareil")
 
     private String confirmPassword;
 

@@ -24,12 +24,14 @@ edu\uha\miage\core\service\FonctionService.class
 edu\uha\miage\core\service\impl\CategorieServiceImpl.class
 edu\uha\miage\core\repository\DomaineRepository.class
 edu\uha\miage\DemoDepartement.class
+edu\uha\miage\DemoPersonne.class
 edu\uha\miage\web\controller\PersonneController.class
 edu\uha\miage\core\repository\DepartementRepository.class
 edu\uha\miage\core\entity\Role.class
 edu\uha\miage\core\service\impl\DomaineServiceImpl.class
 edu\uha\miage\core\repository\PersonneRepository.class
 edu\uha\miage\config\WebSecurityConfigDev.class
+edu\uha\miage\web\controller\ProfilController.class
 edu\uha\miage\core\service\impl\RoleServiceImpl.class
 edu\uha\miage\web\controller\FonctionController.class
 edu\uha\miage\core\entity\Departement.class
@@ -43,6 +45,7 @@ edu\uha\miage\DemoRole.class
 edu\uha\miage\core\repository\ServiceRepository.class
 edu\uha\miage\web\controller\InscriptionController.class
 edu\uha\miage\core\service\impl\PersonneServiceImpl.class
+edu\uha\miage\DemoCompte.class
 edu\uha\miage\core\repository\RoleRepository.class
 edu\uha\miage\core\service\CompteService.class
 edu\uha\miage\web\controller\ServiceController.class
