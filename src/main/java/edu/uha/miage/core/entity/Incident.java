@@ -10,6 +10,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -38,6 +39,9 @@ public class Incident implements Serializable {
 
     @ManyToOne
     private Domaine domaine;
+    
+    @OneToOne(mappedBy = "incident")
+    private DemandeServices demande_incident;
     
     @ManyToMany
     @JoinTable(
@@ -85,4 +89,22 @@ public class Incident implements Serializable {
     public void setDomaine(Domaine domaine) {
         this.domaine = domaine;
     }
+
+    public List<Fonction> getFonctionOccupe() {
+        return fonctionOccupe;
+    }
+
+    public void setFonctionOccupe(List<Fonction> fonctionOccupe) {
+        this.fonctionOccupe = fonctionOccupe;
+    }
+
+    public DemandeServices getDemande_incident() {
+        return demande_incident;
+    }
+
+    public void setDemande_incident(DemandeServices demande_incident) {
+        this.demande_incident = demande_incident;
+    }
+    
+    
 }

@@ -11,6 +11,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
@@ -40,6 +42,14 @@ public class Fonction implements Serializable {
     
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Incident> occupeIncident;
+    
+    @ManyToMany
+    @JoinTable(
+        name = "personne_occupe_fonction", 
+        joinColumns = @JoinColumn(name = "fonction_id"), 
+        inverseJoinColumns = @JoinColumn(name = "personne_id"))
+    private List<Personne> occupationDePersonne;
+    
     
     public Fonction(String libelle) {
         this.libelle = libelle;
@@ -71,6 +81,32 @@ public class Fonction implements Serializable {
     public void setDepartement(Departement departement) {
         this.departement = departement;
     }
+
+    public List<Services> getOccupeServices() {
+        return occupeServices;
+    }
+
+    public void setOccupeServices(List<Services> occupeServices) {
+        this.occupeServices = occupeServices;
+    }
+
+    public List<Incident> getOccupeIncident() {
+        return occupeIncident;
+    }
+
+    public void setOccupeIncident(List<Incident> occupeIncident) {
+        this.occupeIncident = occupeIncident;
+    }
+
+    public List<Personne> getOccupationDePersonne() {
+        return occupationDePersonne;
+    }
+
+    public void setOccupationDePersonne(List<Personne> occupationDePersonne) {
+        this.occupationDePersonne = occupationDePersonne;
+    }
+    
+    
     
     @Override
     public String toString() {
