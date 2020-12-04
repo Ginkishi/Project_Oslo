@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Accueil</title>
+            <link rel="stylesheet" type="text/css" th:href="@{/static/css/profil.css}" />
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">            
+            <h1>MON PROFIL</h1>
+            <div class="img-lg"><img th:src="@{static/img/personal_data_.svg}" alt=""></div>
+            <h2>COORDONNEES & IDENTIFIANTS</h2>
+            <div class="wrapper">
+                <div class="sub-wrapper">
+                    <div class="img"><img th:src="@{static/img/map.svg}"  alt=""></div>
+                    <h3 class="lg" th:text="*{compte.personne}"></h3>
+                    <h3>
+                        <span>Adresse :</span> <span th:text="*{compte.personne.adresse}"></span>
+                    </h3>
+                    <h3><span>Email :</span> <span th:text="*{compte.personne.email}"></span></h3>
+                    <!-- <a th:href="@{/personne/edit(id=${compte.personne.id})}">
+                        <div class="btn btn-primary">Modifier informations</div>
+                    </a> -->
+                </div>
+                <div class="sub-wrapper">
+                    <div class="img"><img th:src="@{static/img/authentication.svg}" alt=""></div>
+                    <h3><span>Nom d'utilisateur :</span> <span th:text="*{compte.username}"></span></h3>
+                    <h3><span>Role de compte :</span> <span th:text="*{compte.role.libelle}"></span></h3>
+                    <!-- <a th:href="@{/compte/edit(id=${compte.id})}">
+                        <div class="btn btn-primary">Modifier compte</div>
+                    </a> -->
+                </div>
+            </div>
+                      <!--  <h2>FONCTION(S)</h2>
+  <div class="fonction-container">
+                <div class="flex">
+                    <div class="fonction">
+                        <div class="img"><img th:src="@{static/img/hero_employee_.svg}"  alt=""></div>
+                        Developpeur
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    </body>
+</html>

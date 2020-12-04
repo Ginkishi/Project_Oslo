@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <title>OSLO - Départements</title>
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1>Département</h1>
+
+            <form th:action="@{''}" th:object="${departement}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                <div class="input-field">
+                    <label for="libelle">Nom du département</label>
+                    <input id="libelle" type="text" th:field="*{libelle}" />
+                </div>
+                <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}" />
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/departement}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
+            </form>
+        </div>
+    </body>
+</html>

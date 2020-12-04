@@ -1,0 +1,238 @@
+
+.main {
+    display: grid;
+    justify-content:  center;
+}
+body {
+    background-color: #f0f0f0af;
+}
+.main h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 20px;
+}
+
+.main form .btn {
+    height: 60px;
+    padding: 10px 20px;
+    font-size: 1.3rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 275px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.main form .btn.btn-success {
+    background-color: #5cb85c;
+    color: #ffffff;
+
+}
+.main form .btn.btn-success:hover {
+    background-color: #007e33;
+    color: #ffffff;
+    /*transition: 0.3s background-color ease-in-out;*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.main form .btn.btn-danger {
+    background-color: #d9537f;
+    color: #ffffff;
+
+}
+
+.main form .btn.btn-danger:hover {
+    background-color: #cc0000;
+    color: #ffffff;
+   /* transition: 0.3s background-color ease-in-out;*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+a {
+    display: block;
+}
+
+.main form .input-field {
+    display: grid;
+    grid-template-columns: 500px;
+    font-size: 1.5rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    justify-items: center;
+    justify-content: center;
+}
+.main form .input-field input,
+.main form .input-field select {
+    height: 45px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    min-width: 320px;
+    width: 700px;
+    color: #7952b3;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+.main form .input-field label {
+    color: #1d1d1ddc;
+    font-size: 1.3rem;
+    text-align: left;
+    min-width: 320px;
+    width: 700px;
+    font-weight: bold;
+    font-family: "Poppins", sans-serif;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    width: 700px;
+}
+td > .buttons > a .btn {
+    height: 55px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 135px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+td > .buttons > a .btn.btn-success {
+    background-color: #5cb85c;
+    color: #ffffff;
+    /*transition: 0.5s ease-in-out;*/
+}
+td > .buttons > a .btn.btn-success:hover {
+    background-color: #007e33;
+    color: #ffffff;
+    /*transition: 0.5s ease-in-out;*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+td > .buttons > a .btn.btn-warning {
+    background-color: #ffbb33;
+    color: #ffffff;
+   /* transition: 0.5s ease-in-out;*/
+}
+td > .buttons > a .btn.btn-warning:hover {
+    background-color: #ff8800;
+    color: #ffffff;
+   /* transition: 0.5s ease-in-out;*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+.btn.btn-danger {
+    background-color: #ff4444;
+    color: #ffffff;
+    /*transition: 0.5s ease-in-out;*/
+}
+td > .buttons {
+    margin: 0;
+    justify-content: center;
+    width: auto;
+}
+td > .buttons > a .btn.btn-danger:hover {
+    background-color: #cc0000;
+    color: #ffffff;
+    /*transition: 0.5s ease-in-out;*/
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+}
+
+.table {
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    font-size: 1.3rem;
+    background: #2e2e2e;
+    width: auto;
+}
+
+.table.fluid{
+   width: auto;
+}
+
+
+.table tbody {
+    background: #ffff;
+
+}
+.table thead tr {
+    background: #2e2e2e;
+
+    color: #ffff;
+}
+.table thead th {
+    background: #2e2e2e;
+    padding: 5px 0px;
+}
+
+.table tbody td {
+    border-bottom: 1px solid gray;
+    padding: 10px 30px;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: rgb(236, 236, 236);
+}
+
+.main a .btn.btn-primary {
+    height: 55px;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    width: 75%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #4285f4;
+    color: #ffff;
+}
+.main a:hover .btn.btn-primary {
+    background-color: #0d47a1;
+}
+@media screen and (max-width: 720px) {
+    .main form .input-field {
+        grid-template-columns: 320px;
+    }
+    .main form .input-field label {
+        width: 320px;
+    }
+
+    .main form .input-field input,
+    .main form .input-field select {
+        width: 320px;
+    }
+    .buttons {
+        width: 100%;
+    }
+    .table {
+        width: auto;
+        font-size: 1.1rem;
+    }
+    .table tbody td {
+        padding: 5px 10px;
+    }
+    td > .buttons > a .btn {
+        margin: 5px;
+    }
+}
