@@ -6,10 +6,12 @@
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
@@ -29,6 +31,10 @@ public class Role implements Serializable{
     // Nom du Role
     private String libelle;
 
+    @OneToMany(mappedBy = "role")
+    private List<Compte> comptes;
+
+    
     public Role(String libelle) {
         this.libelle = libelle;
     }
@@ -51,6 +57,15 @@ public class Role implements Serializable{
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
+    
+    public List<Compte> getComptes() {
+        return comptes;
+    }
+
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
+    }
+    
 
     @Override
     public String toString() {

@@ -41,6 +41,9 @@ public class Categorie {
 
     @OneToMany(mappedBy = "parent")
     private List<Categorie> enfants;
+    
+    @OneToMany(mappedBy = "categorie")
+    private List<Services> services;
 
     public Categorie(String libelle, Categorie parent) {
         this.libelle = libelle;
@@ -81,6 +84,16 @@ public class Categorie {
     public void setEnfants(List<Categorie> enfants) {
         this.enfants = enfants;
     }
+
+    public List<Services> getServices() {
+        return services;
+    }
+
+    public void setServices(List<Services> services) {
+        this.services = services;
+    }
+    
+    
 
     @Override
     public String toString() {
