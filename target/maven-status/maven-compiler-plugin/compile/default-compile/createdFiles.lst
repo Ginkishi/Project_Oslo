@@ -9,10 +9,12 @@ edu\uha\miage\core\repository\DemandeIncidentRepository.class
 edu\uha\miage\core\service\impl\ServiceServiceImpl.class
 edu\uha\miage\core\service\impl\StatutDemandeServiceImpl.class
 edu\uha\miage\core\entity\StatutDemande.class
+edu\uha\miage\web\controller\CatalogueService.class
 edu\uha\miage\DemoDepartement.class
 edu\uha\miage\DemoPersonne.class
 edu\uha\miage\core\entity\Role.class
 edu\uha\miage\core\repository\PersonneRepository.class
+edu\uha\miage\core\service\DemandeServiceService.class
 edu\uha\miage\core\entity\Demande.class
 edu\uha\miage\web\controller\AdministrationController.class
 edu\uha\miage\core\service\impl\FonctionServiceImpl.class
@@ -22,6 +24,7 @@ edu\uha\miage\core\repository\ServiceRepository.class
 edu\uha\miage\core\service\impl\PersonneServiceImpl.class
 edu\uha\miage\DemoCompte.class
 edu\uha\miage\web\controller\ServiceController.class
+edu\uha\miage\core\service\impl\DemandeServiceServiceImpl.class
 edu\uha\miage\core\service\RoleService.class
 edu\uha\miage\core\service\impl\DemandeIncidentServiceImpl.class
 edu\uha\miage\core\repository\IncidentRepository.class
@@ -44,6 +47,7 @@ edu\uha\miage\web\controller\DomaineController.class
 edu\uha\miage\web\controller\RoleController.class
 edu\uha\miage\core\entity\Personne.class
 edu\uha\miage\core\repository\CompteRepository.class
+edu\uha\miage\web\controller\DemandeServiceController.class
 edu\uha\miage\core\entity\Fonction.class
 edu\uha\miage\core\service\FonctionService.class
 edu\uha\miage\core\service\impl\CategorieServiceImpl.class
@@ -62,6 +66,7 @@ edu\uha\miage\core\service\StatutDemandeService.class
 edu\uha\miage\core\entity\Compte.class
 edu\uha\miage\core\service\impl\DepartementServiceImpl.class
 edu\uha\miage\web\controller\IncidentController.class
+edu\uha\miage\core\repository\DemandeServiceRepository.class
 edu\uha\miage\web\controller\InscriptionController.class
 edu\uha\miage\core\entity\Incident.class
 edu\uha\miage\core\repository\RoleRepository.class

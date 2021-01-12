@@ -27,7 +27,7 @@ public class Inscription implements Serializable {
     private String password;
 
     @NotNull
-    @Size(min = 8, message ="Le mot de passe doit pareil")
+    @Size(min = 8, message ="Le mot de passe doit être pareil")
 
     private String confirmPassword;
 

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Catalogue</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <div class="card-container" th:if="${categories != null}">
+                <th:block th:each="cs : ${categories}">
+                    <a th:href="@{/catalogue(category=${parent}+','+${cs.libelle})}" class="card">
+                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                        <div class="title" th:text="${cs.libelle}"></div>
+                    </a>
+                </th:block>
+            </div>
+            <div class="card-container" th:if="${services != null}">
+                <th:block th:each="cs : ${services}">
+                    <a th:href="@{/demandeService/createDemandeServiceFromCatalogue(serviceName=${cs.libelle})}" class="card">
+                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                        <div class="title" th:text="${cs.libelle}"></div>
+                    </a>
+                </th:block>
+            </div>
+        </div>        
+    </body>
+</html>
+

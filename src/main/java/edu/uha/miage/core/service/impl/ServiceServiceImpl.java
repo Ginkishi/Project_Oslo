@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
  * @author victo
  */
 @Service
-public class ServiceServiceImpl implements ServiceService{
+public class ServiceServiceImpl implements ServiceService {
     @Autowired
     ServiceRepository fonctionRepository;
 

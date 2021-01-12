@@ -26,4 +26,5 @@ public interface CategorieRepository extends JpaRepository<Categorie, Long> {
     List<Categorie> findAllByOrderByLibelle();
 
     public List<Categorie> findByParentOrderByLibelle(Categorie parent);
+    public List<Categorie> findByEnfantsIsNull();
 }

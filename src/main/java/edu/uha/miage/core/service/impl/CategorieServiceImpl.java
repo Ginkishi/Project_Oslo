@@ -56,7 +56,10 @@ public class CategorieServiceImpl implements CategorieService{
     @Override
     public List<Categorie> findByParent(Categorie parent) {
         return categorieRepository.findByParentOrderByLibelle(parent);
+    }    
 
+    @Override
+    public List<Categorie> findByEnfantsIsNull() {
+        return categorieRepository.findByEnfantsIsNull();
     }
-    
 }
