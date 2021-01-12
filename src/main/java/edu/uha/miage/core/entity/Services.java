@@ -31,7 +31,8 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(columnNames = {"libelle"})})
-public class Services implements Serializable{
+public class Services implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -40,30 +41,29 @@ public class Services implements Serializable{
     @Size(min = 2, max = 50)
     // Nom de la Fonction
     private String libelle;
-    
+
     @NotNull
     @Min(1)
     @Max(10)
     private int priorite;
-    
+
     //private String image;
-    
     @NotNull
     private String placeholder;
 
     @OneToMany(mappedBy = "service")
     private List<DemandeServices> demande_service;
-    
+
     @ManyToOne
     private Categorie categorie;
 
     @ManyToMany
     @JoinTable(
-        name = "fonction_occupe_service", 
-        joinColumns = @JoinColumn(name = "services_id"), 
-        inverseJoinColumns = @JoinColumn(name = "fonction_id"))
+            name = "fonction_occupe_service",
+            joinColumns = @JoinColumn(name = "services_id"),
+            inverseJoinColumns = @JoinColumn(name = "fonction_id"))
     private List<Fonction> fonctionOccupe;
-    
+
     public Services() {
     }
 
@@ -129,15 +129,10 @@ public class Services implements Serializable{
     public void setDemande_service(List<DemandeServices> demande_service) {
         this.demande_service = demande_service;
     }
-    
-    
 
     @Override
     public String toString() {
         return libelle;
     }
-    
-    
-    
-    
+
 }
