@@ -54,6 +54,9 @@ public class Demande {
 
     @ManyToOne
     private StatutDemande statut_demande;
+    
+    @ManyToOne
+    private Personne createur;
 
     public Demande() {
     }
@@ -118,6 +121,14 @@ public class Demande {
 
     public void setStatut_demande(StatutDemande statut_demande) {
         this.statut_demande = statut_demande;
+    }
+
+    public Personne getCreateur() {
+        return createur;
+    }
+
+    public void setCreateur(Personne createur) {
+        this.createur = createur;
     }
     
     

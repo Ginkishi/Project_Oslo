@@ -7,6 +7,7 @@ package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.DemandeIncident;
 import edu.uha.miage.core.entity.Incident;
+import edu.uha.miage.core.service.CompteService;
 import edu.uha.miage.core.service.DemandeIncidentService;
 import edu.uha.miage.core.service.DomaineService;
 import edu.uha.miage.core.service.FonctionService;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -50,6 +52,9 @@ public class DemandeIncidentController {
     
     @Autowired
     FonctionService fonctionService;
+    
+    @Autowired
+    CompteService compteService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Model model) {
@@ -76,6 +81,7 @@ public class DemandeIncidentController {
             return "demande/edit";
         }
         demandeIncident.setStatut_demande(statutDemandeService.findByLibelle("Ouvert"));
+        demandeIncident.setCreateur(compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne());
         demandeIncidentService.save(demandeIncident);
         return "redirect:/demande";
     }
