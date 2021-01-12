@@ -23,17 +23,18 @@
                         <th>Sujet</th>
                         <th>Incident</th>
                         <th>Importance</th>
-                        <th>Status</th>
+                        <th>Statut</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="demande : ${demandeIncidents}">
-                        <td th:text="${demande}"></td>
-                        <td th:text="#+${demande.id}"></td>
+                        <td th:text="${demande.id}"></td>
                         <td th:text="${demande.date_creation}"></td>
                         <td th:text="${demande.sujet}"></td>
                         <td th:text="${demande.incident.libelle}"></td>
-                        <td th:text="${demande.incident.priorite}"></td>
+                        <td th:text="${demande.importance}"></td>
+                        <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
                                 <a th:href="@{/demande/edit(id=${demande.id})}">
