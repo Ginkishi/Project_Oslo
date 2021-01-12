@@ -43,7 +43,7 @@ public class ServiceController {
     public String create(Model model) {
         Services service = new Services();
         model.addAttribute("service", service);
-        model.addAttribute("categories", categorieService.findAll());
+        model.addAttribute("categories", categorieService.findByEnfantsIsNull());
         return "service/edit";
     }
 

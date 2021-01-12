@@ -10,7 +10,6 @@ import edu.uha.miage.core.entity.Categorie;
 
 import java.util.List;
 import java.util.Optional;
-import org.springframework.stereotype.Service;
 
 /**
  *
@@ -32,5 +31,6 @@ Categorie save(Categorie entity);
     
 
     
-        public List<Categorie> findByParent(Categorie parent);
+    public List<Categorie> findByParent(Categorie parent);
+    public List<Categorie> findByEnfantsIsNull();
 }

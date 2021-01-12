@@ -7,15 +7,21 @@
         <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
     <head/>
     <body>
-      
         <div th:replace="fragments/menu"></div>
-
-        <div class="main">          
-            <div class="card-container">
-                <th:block th:each="svc : ${services}">
-                    <a th:href="@{/categorie}" class="card">
+        <div class="main">
+            <div class="card-container" th:if="${categories != null}">
+                <th:block th:each="cs : ${categories}">
+                    <a th:href="@{/catalogue(category=${parent}+','+${cs.libelle})}" class="card">
                         <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
-                        <div class="title" th:text="${svc.libelle}"></div>
+                        <div class="title" th:text="${cs.libelle}"></div>
+                    </a>
+                </th:block>
+            </div>
+            <div class="card-container" th:if="${services != null}">
+                <th:block th:each="cs : ${services}">
+                    <a th:href="@{/createTaReum}" class="card">
+                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                        <div class="title" th:text="${cs.libelle}"></div>
                     </a>
                 </th:block>
             </div>
