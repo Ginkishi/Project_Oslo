@@ -6,7 +6,9 @@
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Domaine;
+import edu.uha.miage.core.entity.StatutDemande;
 import edu.uha.miage.core.service.DomaineService;
+import edu.uha.miage.core.service.StatutDemandeService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,7 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("/statutDemande")
 public class StatutDemandeController {
          @Autowired
-    DomaineService statutDemandeService;
+    StatutDemandeService statutDemandeService;
     
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Model model) {
@@ -37,14 +39,14 @@ public class StatutDemandeController {
 
     @GetMapping("/create")
     public String create(Model model) {
-        Domaine statutDemande = new Domaine();
+        StatutDemande statutDemande = new StatutDemande();
         model.addAttribute("statutDemande", statutDemande);
         return "statutDemande/edit";
     }
 
 
     @PostMapping("/create")
-    public String created(@Valid Domaine statutDemande, BindingResult br) {
+    public String created(@Valid StatutDemande statutDemande, BindingResult br) {
 
         if (br.hasErrors()) {
             return "statutDemande/edit";
@@ -60,7 +62,7 @@ public class StatutDemandeController {
     }
 
     @PostMapping("/edit")
-    public String edited(@Valid Domaine statutDemande, BindingResult br) {
+    public String edited(@Valid StatutDemande statutDemande, BindingResult br) {
         if (br.hasErrors()) {
             return "statutDemande/edit";
         }

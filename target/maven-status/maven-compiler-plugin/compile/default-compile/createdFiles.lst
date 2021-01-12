@@ -1,9 +1,11 @@
 edu\uha\miage\web\controller\CategorieController.class
+edu\uha\miage\web\controller\DemandeIncidentController.class
 edu\uha\miage\config\SpringWebConfig.class
 edu\uha\miage\model\Inscription.class
 edu\uha\miage\core\service\ServiceService.class
 edu\uha\miage\core\service\PersonneService.class
 edu\uha\miage\web\controller\RootController.class
+edu\uha\miage\core\repository\DemandeIncidentRepository.class
 edu\uha\miage\core\service\impl\ServiceServiceImpl.class
 edu\uha\miage\core\service\impl\StatutDemandeServiceImpl.class
 edu\uha\miage\core\entity\StatutDemande.class
@@ -21,6 +23,7 @@ edu\uha\miage\core\service\impl\PersonneServiceImpl.class
 edu\uha\miage\DemoCompte.class
 edu\uha\miage\web\controller\ServiceController.class
 edu\uha\miage\core\service\RoleService.class
+edu\uha\miage\core\service\impl\DemandeIncidentServiceImpl.class
 edu\uha\miage\core\repository\IncidentRepository.class
 edu\uha\miage\core\service\CategorieService.class
 edu\uha\miage\config\WebSecurityConfigProd.class
@@ -31,6 +34,7 @@ edu\uha\miage\core\service\impl\CompteServiceImpl.class
 edu\uha\miage\core\service\DepartementService.class
 edu\uha\miage\web\controller\StatutDemandeController.class
 edu\uha\miage\core\service\IncidentService.class
+edu\uha\miage\core\service\DemandeIncidentService.class
 edu\uha\miage\core\repository\StatutDemandeRepository.class
 edu\uha\miage\core\entity\DemandeServices.class
 edu\uha\miage\web\controller\DepartementController.class

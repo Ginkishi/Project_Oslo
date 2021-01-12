@@ -66,7 +66,7 @@ a {
     justify-content: center;
 }
 .main form .input-field input,
-.main form .input-field select {
+.main form .input-field select{
     height: 45px;
     outline: none;
     padding: 5px 10px;
@@ -80,6 +80,24 @@ a {
     font-weight: 600;
     font-family: "Poppins", sans-serif;
 }
+
+.main form .input-field textarea{
+    height: 45px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    min-width: 320px;
+    width: 700px;
+    min-height: 200px;
+    height: 200px;
+    color: #7952b3;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
 .main form .input-field label {
     color: #1d1d1ddc;
     font-size: 1.3rem;

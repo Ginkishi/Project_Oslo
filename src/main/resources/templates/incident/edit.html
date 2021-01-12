@@ -10,7 +10,7 @@
         <div th:replace="fragments/menu"></div>
         <div class="main">
 
-            <h1>Incident</h1>
+            <h1>Demande d'incident</h1>
 
             <form  th:action="@{''}" th:object="${incident}" method="post" role="form">
 
@@ -39,11 +39,11 @@
                 
                 <div class="input-field">
                     <label for="fonction">Fonction</label>
-                    <select th:field="*{fonctions}" id="fonction">
+                    <select th:field="*{fonctionOccupe}" id="fonction">
                         <option th:each="fonction : ${fonctions}" th:value="${fonction.id}" th:text="${fonction.libelle}"></option>
                     </select>
                 </div>                        
-                <span th:if="${#fields.hasErrors('fonctions')}" th:errors="*{fonctions}"></span>
+                <span th:if="${#fields.hasErrors('fonctionOccupe')}" th:errors="*{fonctionOccupe}"></span>
                 
                 <div class="buttons">
                     <button type="submit" class="btn btn-success">Valider</button>
