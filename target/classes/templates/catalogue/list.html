@@ -19,7 +19,7 @@
             </div>
             <div class="card-container" th:if="${services != null}">
                 <th:block th:each="cs : ${services}">
-                    <a th:href="@{/createTaReum}" class="card">
+                    <a th:href="@{/demandeService/createDemandeServiceFromCatalogue(serviceName=${cs.libelle})}" class="card">
                         <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
                         <div class="title" th:text="${cs.libelle}"></div>
                     </a>

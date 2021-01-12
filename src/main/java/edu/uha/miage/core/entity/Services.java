@@ -31,7 +31,7 @@ import javax.validation.constraints.Size;
 @Table(uniqueConstraints = {
     @UniqueConstraint(columnNames = {"libelle"})})
 public class Services implements Serializable{
-     @Id
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 

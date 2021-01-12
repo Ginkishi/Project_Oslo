@@ -15,7 +15,7 @@ import java.util.Optional;
  * @author victo
  */
 public interface ServiceService {
-            Services save(Services entity);
+    Services save(Services entity);
 
     void delete(Long id);
 
@@ -27,5 +27,5 @@ public interface ServiceService {
 
     Services getOne(Long id);
     
-        public List<Services> findByCategorie(Categorie categorie);
+    public List<Services> findByCategorie(Categorie categorie);
 }
