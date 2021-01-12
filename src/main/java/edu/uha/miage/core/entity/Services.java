@@ -122,11 +122,11 @@ public class Services implements Serializable{
         this.fonctionOccupe = fonctionOccupe;
     }
 
-    public DemandeServices getDemande_service() {
+    public List<DemandeServices> getDemande_service() {
         return demande_service;
     }
 
-    public void setDemande_service(DemandeServices demande_service) {
+    public void setDemande_service(List<DemandeServices> demande_service) {
         this.demande_service = demande_service;
     }
     
