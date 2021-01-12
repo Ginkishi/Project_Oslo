@@ -48,7 +48,7 @@ public class Services implements Serializable{
     //private String image;
     
     @NotNull
-     private String placeholder;
+    private String placeholder;
 
     @OneToOne(mappedBy = "service")
     private DemandeServices demande_service;

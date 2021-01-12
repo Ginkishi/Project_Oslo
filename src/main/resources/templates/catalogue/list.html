@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Catalogue</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+        <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+    <head/>
+    <body>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <div class="card-container">
+                <th:block th:each="svc : ${services}">
+                    <a th:href="@{/categorie}" class="card">
+                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                        <div class="title" th:text="${svc.libelle}"></div>
+                    </a>
+                </th:block>
+            </div>
+        </div>        
+    </body>
+</html>
+
