@@ -9,10 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -21,14 +18,9 @@ import javax.validation.constraints.NotNull;
 @Entity
 public class DemandeServices extends Demande implements Serializable{
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "services_id", referencedColumnName = "id")
     private Services service;
-    
-    @Min(0)
-    @Max(10)
-    @NotNull
-    int priorite;
 
     public DemandeServices() {
     }
@@ -43,13 +35,5 @@ public class DemandeServices extends Demande implements Serializable{
 
     public void setService(Services service) {
         this.service = service;
-    }
-    
-    public void setPriorite(int v) {
-        this.priorite = v;
-    }
-    
-    public int getPriorite() {
-        return this.priorite;
     }
 }
