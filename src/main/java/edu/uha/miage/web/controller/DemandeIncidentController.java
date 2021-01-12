@@ -87,7 +87,7 @@ public class DemandeIncidentController {
     @PostMapping("/edit")
     public String edited(@Valid DemandeIncident demandeIncident, BindingResult br, Model model) {
         if (br.hasErrors()) {
-            model.addAttribute("categories", domaineService.findAll());
+            model.addAttribute("domaine", domaineService.findAll());
             return "demande/edit";
         }
 

@@ -10,7 +10,9 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
 import javax.validation.constraints.NotNull;
 
 /**
@@ -19,10 +21,12 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 public class DemandeIncident extends Demande implements Serializable {
-    
+
     @NotNull
     private String localisation;
-    
+
+
+
     @ManyToOne
     @JoinColumn(name = "incident_id", referencedColumnName = "id")
     private Incident incident;
@@ -34,7 +38,7 @@ public class DemandeIncident extends Demande implements Serializable {
     public void setIncident(Incident incident) {
         this.incident = incident;
     }
-    
+
     public DemandeIncident(String localisation, String sujet, String description, Date date_creation) {
         super(sujet, description, date_creation);
         this.localisation = localisation;
@@ -42,7 +46,7 @@ public class DemandeIncident extends Demande implements Serializable {
 
     public DemandeIncident() {
     }
-    
+
     public String getLocalisation() {
         return localisation;
     }
@@ -50,7 +54,7 @@ public class DemandeIncident extends Demande implements Serializable {
     public void setLocalisation(String localisation) {
         this.localisation = localisation;
     }
-    
-    
+
+
     
 }

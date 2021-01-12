@@ -51,8 +51,8 @@
                 <span th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}"></span>
                 
                 <div class="input-field">
-                    <label for="categorie">Importance</label>
-                    <select th:field="*{incident.priorite}" id="priorite">
+                    <label for="domaine">Importance</label>
+                    <select th:field="*{importance}" id="priorite">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
                 </div>                        
