@@ -10,7 +10,7 @@
         <div class="main">
             <h1>Statut des demandes</h1>
 
-            <form action="#" th:object="${statutDemande}" method="post" role="form">
+            <form th:action="@{''}" th:object="${statutDemande}" method="post" role="form">
 
                 <input type="hidden" th:field="*{id}"/>
                 <div class="input-field">

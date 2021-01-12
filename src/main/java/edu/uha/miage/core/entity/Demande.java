@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -34,8 +35,10 @@ public class Demande {
     private String description;
     
     @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date_creation;
     
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date_cloture;
 
     public Demande() {

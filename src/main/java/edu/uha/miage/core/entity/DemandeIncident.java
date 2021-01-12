@@ -24,13 +24,13 @@ public class DemandeIncident extends Demande implements Serializable {
     
     @OneToOne
     @JoinColumn(name = "incident_id", referencedColumnName = "id")
-    private Services incident;
+    private Incident incident;
 
-    public Services getIncident() {
+    public Incident getIncident() {
         return incident;
     }
 
-    public void setIncident(Services incident) {
+    public void setIncident(Incident incident) {
         this.incident = incident;
     }
     
