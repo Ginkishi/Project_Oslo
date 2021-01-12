@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -46,8 +47,9 @@ public class Incident implements Serializable {
     /*@ManyToMany(mappedBy = "typeIncidents")
     List<Fonction> fonctions;*/
 
-    @OneToOne(mappedBy = "incident")
-    private DemandeIncident demande_incident;
+    @OneToMany(mappedBy = "incident")
+    private List<DemandeIncident> demandeIncidents;
+
     
     @ManyToMany
     @JoinTable(
@@ -118,15 +120,16 @@ public class Incident implements Serializable {
     public void setFonctionOccupe(List<Fonction> fonctionOccupe) {
         this.fonctionOccupe = fonctionOccupe;
     }
-
-    public DemandeIncident getDemande_incident() {
-        return demande_incident;
+    
+    public List<DemandeIncident> getDemandeIncidents() {
+        return demandeIncidents;
     }
 
-    public void setDemande_incident(DemandeIncident demande_incident) {
-        this.demande_incident = demande_incident;
-
+    public void setDemandeIncidents(List<DemandeIncident> demandeIncidents) {
+        this.demandeIncidents = demandeIncidents;
     }
+
+   
     
     
 }

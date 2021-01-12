@@ -98,6 +98,6 @@ public class DemandeIncidentController {
     @GetMapping("/cloture/{id}")
     public String cloture(@PathVariable("id") Long id) {
         demandeIncidentService.cloture(id);
-        return "redirect:/demandeIncident";
+        return "redirect:/demande";
     }
 }
