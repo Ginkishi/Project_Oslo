@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Incident</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+
+            <h1>Demande d'incident</h1>
+
+            <form  th:action="@{''}" th:object="${demandeIncident}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}" />
+                
+                <div class="input-field">
+                    <label for="sujet">Sujet</label>
+                    <input id="sujet" type="text" th:field="*{sujet}" />
+                </div>
+                <span th:if="${#fields.hasErrors('sujet')}" th:errors="*{sujet}"></span>
+                
+                <div class="input-field">
+                    <label for="date_creation">Date de la Demande</label>
+                    <input id="date_creation" type="date" th:field="*{date_creation}" />
+                </div>
+                <span th:if="${#fields.hasErrors('date_creation')}" th:errors="*{date_creation}"></span>
+                
+                <div class="input-field">
+                    <label for="domaine">Domaine</label>
+                    <select th:field="*{incident.domaine}" id="domaine">
+                        <option th:each="domaine : ${domaines}" th:value="${domaine.id}" th:text="${domaine.libelle}"></option>
+                    </select>
+                </div>                        
+                <span th:if="${#fields.hasErrors('incident')}" th:errors="*{incident}"></span>
+                
+                <div class="input-field">
+                    <label for="incident">Incident</label>
+                    <select th:field="*{incident}" id="incidents">
+                        <option th:each="incident : ${incidents}" th:value="${incident.id}" th:text="${incident.libelle}"></option>
+                    </select>
+                </div>
+                <span th:if="${#fields.hasErrors('incident')}" th:errors="*{incident}"></span>
+                
+                <div class="input-field">
+                    <label for="localisation">Localisation</label>
+                    <input id="localisation" type="text" th:field="*{localisation}" />
+                </div>
+                <span th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}"></span>
+                
+                <div class="input-field">
+                    <label for="domaine">Importance</label>
+                    <select th:field="*{importance}" id="priorite">
+                        <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
+                    </select>
+                </div>                        
+                
+                <div class="input-field">
+                    <label for="description">Description</label>
+                    <textarea id="description" type="text" th:field="*{description}"></textarea>
+                </div>
+                <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+                
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/demande}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
+            </form>  
+        </div>
+    </body>
+</html>

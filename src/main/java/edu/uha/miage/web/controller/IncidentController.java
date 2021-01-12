@@ -63,6 +63,7 @@ public class IncidentController {
     public String edit(@RequestParam(name = "id") Long id, Model model) {
         model.addAttribute("incident", incidentService.findById(id).get());
         model.addAttribute("domaines", domaineService.findAll());
+        model.addAttribute("fonctions", fonctionService.findAll());
         return "incident/edit";
     }
 

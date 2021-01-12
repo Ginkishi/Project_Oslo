@@ -12,8 +12,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.springframework.format.annotation.DateTimeFormat;
 
 /**
  *
@@ -21,21 +24,28 @@ import javax.validation.constraints.Size;
  */
 @MappedSuperclass
 public class Demande {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    
+
     @NotNull
     @Size(min = 2, max = 50)
     private String sujet;
-    
+
     @NotNull
     private String description;
-    
+
     @NotNull
+    @Min(1)
+    @Max(10)
+    private int importance;
+
+    @NotNull
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date_creation;
-    
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date_cloture;
 
     public Demande() {
@@ -46,8 +56,7 @@ public class Demande {
         this.description = description;
         this.date_creation = date_creation;
     }
-    
-    
+
     public Long getId() {
         return id;
     }
@@ -87,7 +96,15 @@ public class Demande {
     public void setDate_cloture(Date date_cloture) {
         this.date_cloture = date_cloture;
     }
+
+    public int getImportance() {
+        return importance;
+    }
+
+    public void setImportance(int importance) {
+        this.importance = importance;
+    }
     
     
-    
+
 }
