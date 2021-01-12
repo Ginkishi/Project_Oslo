@@ -200,6 +200,7 @@ td > .buttons > a .btn.btn-danger:hover {
 .table tbody td {
     border-bottom: 1px solid gray;
     padding: 10px 30px;
+    text-align: center;
 }
 
 .table tbody tr:nth-child(even) {
