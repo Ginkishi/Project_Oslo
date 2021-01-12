@@ -29,10 +29,10 @@ public class StatutDemande {
     // Nom du statut de la demande
     private String libelle;
 
-    /**
+    
     @OneToMany(mappedBy = "statut_demande")
     private List<Demande> demandes;
-    */
+    
     
     public StatutDemande(String libelle) {
         this.libelle = libelle;
@@ -56,7 +56,9 @@ public class StatutDemande {
     public void setLibelle(String libelle) {
         this.libelle = libelle;
     }
-     /**
+
+
+
     public List<Demande> getDemandes() {
         return demandes;
     }
@@ -64,5 +66,11 @@ public class StatutDemande {
     public void setDemandes(List<Demande> demandes) {
         this.demandes = demandes;
     }
-    */
+
+    @Override
+    public String toString() {
+        return libelle;
+    }
+    
+    
 }

@@ -22,6 +22,7 @@
                         <th>Domaine</th>
                         <th>Priorité</th>
                         <th>Action</th>
+                        <th>Fonction</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -29,6 +30,7 @@
                         <td th:text="${incident}"></td>
                         <td th:text="${incident.domaine}"></td>
                         <td th:text="${incident.priorite}"></td>
+                        <td th:text="${incident.fonctionOccupe}"></td>
                         <td>
                             <div class="buttons">
                                 <a th:href="@{/incident/edit(id=${incident.id})}">
