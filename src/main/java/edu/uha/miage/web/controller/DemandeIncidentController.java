@@ -12,6 +12,7 @@ import edu.uha.miage.core.service.DomaineService;
 import edu.uha.miage.core.service.FonctionService;
 import edu.uha.miage.core.service.IncidentService;
 import java.time.LocalDate;
+import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,7 +49,8 @@ public class DemandeIncidentController {
 
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Model model) {
-        model.addAttribute("demandeIncident", demandeIncidentService.findAll());
+        List<DemandeIncident> d = demandeIncidentService.findAll();
+        model.addAttribute("demandeIncidents", demandeIncidentService.findAll());
         return "demande/list";
     }
 
