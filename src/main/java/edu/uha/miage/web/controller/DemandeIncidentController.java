@@ -14,6 +14,7 @@ import edu.uha.miage.core.service.FonctionService;
 import edu.uha.miage.core.service.IncidentService;
 import edu.uha.miage.core.service.StatutDemandeService;
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,24 +36,24 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Kalictong
  */
 @Controller
-@RequestMapping("/demande")
+@RequestMapping("/demande/incident")
 public class DemandeIncidentController {
-    
+
     @Autowired
     DemandeIncidentService demandeIncidentService;
-    
+
     @Autowired
     IncidentService incidentService;
-    
+
     @Autowired
     StatutDemandeService statutDemandeService;
 
     @Autowired
     DomaineService domaineService;
-    
+
     @Autowired
     FonctionService fonctionService;
-    
+
     @Autowired
     CompteService compteService;
 
@@ -66,6 +67,7 @@ public class DemandeIncidentController {
     @GetMapping("/create")
     public String create(Model model) {
         DemandeIncident demandeIncident = new DemandeIncident();
+        demandeIncident.setDate_creation(new Date());
         model.addAttribute("demandeIncident", demandeIncident);
         model.addAttribute("incidents", incidentService.findAll());
         model.addAttribute("domaines", domaineService.findAll());
@@ -77,13 +79,15 @@ public class DemandeIncidentController {
     public String created(@Valid DemandeIncident demandeIncident, BindingResult br, Model model) {
 
         if (br.hasErrors()) {
-            model.addAttribute("categories", domaineService.findAll());
+            model.addAttribute("incidents", incidentService.findAll());
+            model.addAttribute("domaines", domaineService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
             return "demande/edit";
         }
         demandeIncident.setStatut_demande(statutDemandeService.findByLibelle("Ouvert"));
         demandeIncident.setCreateur(compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne());
         demandeIncidentService.save(demandeIncident);
-        return "redirect:/demande";
+        return "redirect:/demande/incident";
     }
 
     @GetMapping("/edit")
@@ -98,17 +102,19 @@ public class DemandeIncidentController {
     @PostMapping("/edit")
     public String edited(@Valid DemandeIncident demandeIncident, BindingResult br, Model model) {
         if (br.hasErrors()) {
-            model.addAttribute("domaine", domaineService.findAll());
+            model.addAttribute("incidents", incidentService.findAll());
+            model.addAttribute("domaines", domaineService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
             return "demande/edit";
         }
 
         demandeIncidentService.save(demandeIncident);
-        return "redirect:/demande";
+        return "redirect:/demande/incident";
     }
 
     @GetMapping("/cloture/{id}")
     public String cloture(@PathVariable("id") Long id) {
         demandeIncidentService.cloture(id);
-        return "redirect:/demande";
+        return "redirect:/demande/incident";
     }
 }
