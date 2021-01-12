@@ -15,6 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
@@ -50,8 +51,8 @@ public class Services implements Serializable{
     @NotNull
     private String placeholder;
 
-    @OneToOne(mappedBy = "service")
-    private DemandeServices demande_service;
+    @OneToMany(mappedBy = "service")
+    private List<DemandeServices> demande_service;
     
     @ManyToOne
     private Categorie categorie;

@@ -6,6 +6,7 @@
 package edu.uha.miage.core.service.impl;
 
 import edu.uha.miage.core.entity.DemandeServices;
+import edu.uha.miage.core.entity.Personne;
 import edu.uha.miage.core.repository.DemandeServiceRepository;
 import edu.uha.miage.core.service.DemandeServiceService;
 import java.util.List;
@@ -41,6 +42,11 @@ public class DemandeServiceServiceImpl implements DemandeServiceService {
     @Override
     public void cloture(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<DemandeServices> findByCreateur(Personne p) {
+        return this.repo.findByCreateur(p);
     }
     
 }
