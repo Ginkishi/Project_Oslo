@@ -11,6 +11,7 @@ import edu.uha.miage.core.service.DemandeIncidentService;
 import edu.uha.miage.core.service.DomaineService;
 import edu.uha.miage.core.service.FonctionService;
 import edu.uha.miage.core.service.IncidentService;
+import edu.uha.miage.core.service.StatutDemandeService;
 import java.time.LocalDate;
 import java.util.List;
 import javax.validation.Valid;
@@ -40,6 +41,9 @@ public class DemandeIncidentController {
     
     @Autowired
     IncidentService incidentService;
+    
+    @Autowired
+    StatutDemandeService statutDemandeService;
 
     @Autowired
     DomaineService domaineService;
@@ -71,6 +75,7 @@ public class DemandeIncidentController {
             model.addAttribute("categories", domaineService.findAll());
             return "demande/edit";
         }
+        demandeIncident.setStatut_demande(statutDemandeService.findByLibelle("Ouvert"));
         demandeIncidentService.save(demandeIncident);
         return "redirect:/demande";
     }

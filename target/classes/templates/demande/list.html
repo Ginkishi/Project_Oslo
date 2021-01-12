@@ -34,7 +34,7 @@
                         <td th:text="${demande.sujet}"></td>
                         <td th:text="${demande.incident.libelle}"></td>
                         <td th:text="${demande.importance}"></td>
-                        <td></td>
+                        <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
                                 <a th:href="@{/demande/edit(id=${demande.id})}">

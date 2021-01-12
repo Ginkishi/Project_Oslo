@@ -11,6 +11,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -22,7 +25,8 @@ import org.springframework.format.annotation.DateTimeFormat;
  *
  * @author Lilian
  */
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Demande {
 
     @Id
@@ -47,6 +51,9 @@ public class Demande {
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date_cloture;
+
+    @ManyToOne
+    private StatutDemande statut_demande;
 
     public Demande() {
     }
@@ -103,6 +110,14 @@ public class Demande {
 
     public void setImportance(int importance) {
         this.importance = importance;
+    }
+
+    public StatutDemande getStatut_demande() {
+        return statut_demande;
+    }
+
+    public void setStatut_demande(StatutDemande statut_demande) {
+        this.statut_demande = statut_demande;
     }
     
     
