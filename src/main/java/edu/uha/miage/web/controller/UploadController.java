@@ -1,8 +1,6 @@
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.service.StorageService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UploadController {
-    private final Logger LOGGER = LoggerFactory.getLogger(UploadController.class);
     private final StorageService storageService;
     @Autowired
     public UploadController(StorageService storageService) {
@@ -24,9 +21,7 @@ public class UploadController {
     @GetMapping("/upload/{filename:.+}")
     @ResponseBody
     public ResponseEntity<Resource> getFile(@PathVariable String filename) {
-        LOGGER.error("GET IN UPLOAD");
         Resource f = storageService.loadAsResource(filename);
-        LOGGER.error(f.getFilename());
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + filename + "\"").body(f);
     }
 }

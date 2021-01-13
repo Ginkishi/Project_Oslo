@@ -17,16 +17,12 @@ import edu.uha.miage.core.service.RoleService;
 
 import edu.uha.miage.model.Inscription;
 import javax.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Profile;
 import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -39,7 +35,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @RequestMapping("/inscription")
 public class InscriptionController {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(InscriptionController.class);
+    
 
     @Autowired
     PersonneService personneService;
@@ -59,14 +55,18 @@ public class InscriptionController {
     @RequestMapping(method = RequestMethod.GET)
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
+
         model.addAttribute("fonctions", fonctiontService.findAll());
         //LOGGER.warn("ATTENTION GET FAIT SUR INSCRIPTION");
+
         return "inscription2";
     }
 
     @RequestMapping(method = RequestMethod.POST)
+
     public String inscrit(@Valid Inscription inscription, BindingResult br, Model model) {
         //LOGGER.warn("J'ai mis recu un post");
+
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         //Users user = new Users(inscription.getUsername(), "{noop}"+inscription.getPassword());
 
@@ -74,6 +74,7 @@ public class InscriptionController {
             model.addAttribute("fonctions", fonctiontService.findAll());
             return "inscription2";
         }
+
 
         //LOGGER.warn("Je suis la!!!");
         Personne user = new Personne(inscription.getNom(), inscription.getPrenom(), inscription.getAdresse(), inscription.getEmail());
@@ -89,6 +90,9 @@ public class InscriptionController {
         compteService.save(compte);
 
         //LOGGER.warn("Super j'ai bien fini l'inscription");
+
+        
+
         return "redirect:/login";
     }
 }

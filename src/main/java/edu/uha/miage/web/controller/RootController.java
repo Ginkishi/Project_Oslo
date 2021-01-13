@@ -1,4 +1,3 @@
-
 package edu.uha.miage.web.controller;
 
 import javax.servlet.ServletException;
@@ -12,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping()
 public class RootController {    
+    
     @RequestMapping(path = {"", "/home"}, method = RequestMethod.GET)
 // #### V0.0 Une requête HTTP/GET sur / utilise le template src/main/resources/templates/home.html
     public String home() {
