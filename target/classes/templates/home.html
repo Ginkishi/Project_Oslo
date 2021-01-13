@@ -2,12 +2,40 @@
 <html xmlns:th="http://www.thymeleaf.org">
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/home.css}" />
     <title>OSLO - Accueil</title>
     <head/>
     <body>
-         <div th:replace="fragments/menu"></div>
-         <div class="main">
-        <h1>Bienvenue !</h1>
+        <div th:replace="fragments/menu"></div>
+        <div class="main">
+            <h1 class="home-title">Bienvenue <span th:remove="tag"  th:text="*{user}"></span> !</h1>
+            <h2>Nous sommes le <span class="date" th:text="*{#dates.format(date, 'EEEE DD MMMM yyyy')}"></span></h2>
+            <div class="svc-container">
+                <a class="card" th:href="@{/demandeService}">
+                    <div class="logo-card">
+                        <img th:src="@{static/img/Architect_Monochromatic.svg}" class="image" alt="">
+                    </div>
+                    <div class="title-card">
+                            Mes demandes de services
+                    </div> 
+                </a>
+                 <a class="card" th:href="@{/demande/incident}">
+                    <div class="logo-card">
+                        <img th:src="@{static/img/CTO_Monochromatic.svg}" class="image" alt="">
+                    </div>
+                    <div class="title-card">
+                            Mes demandes d'incident
+                    </div> 
+                </a>
+                 <a class="card" th:href="@{/viewDemandes}">
+                    <div class="logo-card">
+                        <img th:src="@{static/img/Startup_Monochromatic.svg}" class="image" alt="">
+                    </div>
+                    <div class="title-card">
+                            Mes fonctions
+                    </div> 
+                </a>
+            </div>
         </div>
     </body>
 </html>

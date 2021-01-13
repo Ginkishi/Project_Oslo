@@ -27,10 +27,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Psyrkoz
  */
 @Controller
-
-// ("/demandes/service")
-
-@RequestMapping("/demandeService")
+@RequestMapping("/demande/service")
 public class DemandeServiceController {
     @Autowired
     DemandeServiceService demandeServiceService;
@@ -47,7 +44,7 @@ public class DemandeServiceController {
     @Autowired
     CompteService compteService;
 
-    @GetMapping("/createDemandeServiceFromCatalogue")
+    @GetMapping("/create")
     public String createFromCatalogue(@RequestParam(required = true) String serviceName, Model model) {
         DemandeServices demande = new DemandeServices();
         Services svc = serviceService.findByLibelle(serviceName);
@@ -70,7 +67,7 @@ public class DemandeServiceController {
             ds.setStatut_demande(statutDemandeService.findByLibelle("Ouvert"));
             demandeServiceService.save(ds);
         }
-        return "home.html";
+        return "redirect:/demande/service";
     }
 
    
@@ -104,6 +101,6 @@ public class DemandeServiceController {
             deman.setDescription(ds.getDescription());
             demandeServiceService.save(deman);
         }
-        return "redirect:/demandeService";
+        return "redirect:/demande/service";
     }
 }

@@ -2,6 +2,7 @@ edu\uha\miage\web\controller\CategorieController.class
 edu\uha\miage\DemoStatut.class
 edu\uha\miage\web\controller\DemandeIncidentController.class
 edu\uha\miage\config\SpringWebConfig.class
+edu\uha\miage\web\controller\CompteController.class
 edu\uha\miage\model\Inscription.class
 edu\uha\miage\core\Exception\StorageException.class
 edu\uha\miage\core\service\ServiceService.class
@@ -21,6 +22,7 @@ edu\uha\miage\core\repository\PersonneRepository.class
 edu\uha\miage\core\service\DemandeServiceService.class
 edu\uha\miage\core\entity\Demande.class
 edu\uha\miage\web\controller\AdministrationController.class
+edu\uha\miage\core\service\DemandeService.class
 edu\uha\miage\core\service\impl\FonctionServiceImpl.class
 edu\uha\miage\core\service\DomaineService.class
 edu\uha\miage\DemoRole.class
@@ -45,6 +47,7 @@ edu\uha\miage\core\service\DepartementService.class
 edu\uha\miage\web\controller\StatutDemandeController.class
 edu\uha\miage\core\service\IncidentService.class
 edu\uha\miage\core\service\DemandeIncidentService.class
+edu\uha\miage\core\service\impl\DemandeServiceImpl.class
 edu\uha\miage\core\repository\StatutDemandeRepository.class
 edu\uha\miage\core\entity\DemandeServices.class
 edu\uha\miage\web\controller\DepartementController.class
@@ -68,6 +71,7 @@ edu\uha\miage\web\controller\ProfilController.class
 edu\uha\miage\core\service\impl\UserDetailsServiceImpl.class
 edu\uha\miage\core\service\impl\RoleServiceImpl.class
 edu\uha\miage\web\controller\FonctionController.class
+edu\uha\miage\core\repository\DemandeRepository.class
 edu\uha\miage\core\entity\DemandeIncident.class
 edu\uha\miage\core\entity\Departement.class
 edu\uha\miage\Application.class
@@ -79,7 +83,9 @@ edu\uha\miage\core\service\impl\DepartementServiceImpl.class
 edu\uha\miage\web\controller\IncidentController.class
 edu\uha\miage\core\repository\DemandeServiceRepository.class
 edu\uha\miage\web\controller\InscriptionController.class
+edu\uha\miage\web\controller\DemandeController.class
 edu\uha\miage\core\entity\Incident.class
 edu\uha\miage\core\repository\RoleRepository.class
 edu\uha\miage\core\service\CompteService.class
 edu\uha\miage\core\entity\Categorie.class
+edu\uha\miage\DemoFonction.class

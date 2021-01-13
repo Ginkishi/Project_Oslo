@@ -33,6 +33,9 @@
                         <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
+                                 <a th:href="@{'/demandes/' + ${demande.id} + '/intervient'}">
+                                    <div class="btn btn-primary">Intervenir</div>
+                                </a>
                                 <a th:href="@{/demande/incident/edit(id=${demande.id})}">
                                     <div class="btn btn-warning">Editer</div>
                                 </a>
@@ -69,6 +72,9 @@
                         <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
+                                 <a th:href="@{/demande/${demande.id}/intervient}">
+                                    <div class="btn btn-primary">Intervenir</div>
+                                </a>
                                 <a th:href="@{/demande/edit(id=${demande.id})}">
                                     <div class="btn btn-warning">Editer</div>
                                 </a>
