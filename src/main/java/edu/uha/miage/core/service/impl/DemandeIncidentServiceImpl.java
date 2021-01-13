@@ -43,9 +43,6 @@ public class DemandeIncidentServiceImpl implements DemandeIncidentService{
         return demandeIncidentRepository.findById(id);
     }
 
-    @Override
-    public void cloture(Long id) {
-        demandeIncidentRepository.findById(id);
-    }
+    
     
 }

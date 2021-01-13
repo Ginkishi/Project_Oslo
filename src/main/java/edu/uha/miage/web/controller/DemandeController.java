@@ -86,7 +86,7 @@ public class DemandeController {
     public String PersonneIntervientPour(@PathVariable("id") Long id, Model model) {
         Personne userPersonne = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne();
         Demande d = demandeService.findById(id).get();
-        if (!d.getStatut_demande().getLibelle().equals("Clôturée")) {
+        if (d.getDate_cloture() == null) {
             StatutDemande sd = statusDemandeService.findByLibelle("En cours");
             d.setStatut_demande(sd);
             List<Personne> l = d.getIntervenants();

@@ -19,5 +19,4 @@ public interface DemandeIncidentService {
     List<DemandeIncident> findAll();
     Optional<DemandeIncident> findByLocalisation(String localisation);
     Optional<DemandeIncident> findById(Long id);
-    void cloture(Long id);
 }
