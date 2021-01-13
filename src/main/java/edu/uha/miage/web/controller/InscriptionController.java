@@ -6,9 +6,11 @@
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Compte;
+import edu.uha.miage.core.entity.Fonction;
 import edu.uha.miage.core.entity.Personne;
 import edu.uha.miage.core.service.CompteService;
 import edu.uha.miage.core.service.DepartementService;
+import edu.uha.miage.core.service.FonctionService;
 
 import edu.uha.miage.core.service.PersonneService;
 import edu.uha.miage.core.service.RoleService;
@@ -46,6 +48,9 @@ public class InscriptionController {
     DepartementService departementService;
 
     @Autowired
+    FonctionService fonctiontService;
+
+    @Autowired
     CompteService compteService;
 
     @Autowired
@@ -54,7 +59,7 @@ public class InscriptionController {
     @RequestMapping(method = RequestMethod.GET)
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
-        model.addAttribute("departements", departementService.findAll());
+        model.addAttribute("fonctions", fonctiontService.findAll());
         //LOGGER.warn("ATTENTION GET FAIT SUR INSCRIPTION");
         return "inscription2";
     }
@@ -66,12 +71,18 @@ public class InscriptionController {
         //Users user = new Users(inscription.getUsername(), "{noop}"+inscription.getPassword());
 
         if (br.hasErrors()) {
-            model.addAttribute("departements", departementService.findAll());
+            model.addAttribute("fonctions", fonctiontService.findAll());
             return "inscription2";
         }
 
         //LOGGER.warn("Je suis la!!!");
         Personne user = new Personne(inscription.getNom(), inscription.getPrenom(), inscription.getAdresse(), inscription.getEmail());
+
+        user.setOccupations(inscription.getFonctions());
+
+        for (Fonction f : inscription.getFonctions()) {
+            f.getOccupationDePersonne().add(user);
+        }
         personneService.save(user);
         //LOGGER.warn("BB JAI SAVE LA PERSONNE");
         Compte compte = new Compte(inscription.getUsername(), encoder.encode(inscription.getPassword()), user, roleService.findByLibelle("ROLE_COLLABORATEUR"));
