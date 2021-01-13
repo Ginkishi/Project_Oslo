@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.service;
 
 import edu.uha.miage.core.entity.DemandeIncident;
-import edu.uha.miage.core.entity.Incident;
 import java.util.List;
 import java.util.Optional;
 

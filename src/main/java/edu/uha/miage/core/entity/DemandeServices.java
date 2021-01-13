@@ -15,7 +15,7 @@ import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
- * @author Lilian
+ * @author GreyFox
  */
 @Entity
 public class DemandeServices extends Demande implements Serializable{

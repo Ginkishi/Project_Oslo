@@ -14,5 +14,4 @@ public interface DemandeServiceService {
     List<DemandeServices> findAll();
     Optional<DemandeServices> findById(Long id);
     List<DemandeServices> findByCreateur(Personne p);
-    void cloture(Long id);
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Demande;
@@ -56,6 +51,7 @@ public class DemandeController {
     @Autowired
     StatutDemandeService statusDemandeService;
     
+    // ("/demandes")
     @GetMapping("/viewDemandes")
     public String findAll(Model model) {
         Personne userPersonne = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne();

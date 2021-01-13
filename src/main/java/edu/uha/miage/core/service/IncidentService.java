@@ -6,7 +6,7 @@ import java.util.Optional;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 public interface IncidentService {
     Incident save(Incident entity);

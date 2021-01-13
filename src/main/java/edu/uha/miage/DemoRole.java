@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage;
 
 import edu.uha.miage.core.entity.Role;
@@ -41,12 +36,9 @@ public class DemoRole implements CommandLineRunner {
         if (c == null) {
             c = new Role(libelle);
             roleService.save(c);
-            // #### V1.1 Log pour indiquer que le département a été créée
             LOGGER.info("BDD DEMO - Création du role {}", libelle);
         } else {
             LOGGER.info("BDD DEMO - Le role {} existait déjà", libelle);
-            // #### V1.1 Remarque : {} est remplacé par libelle dans la chaîne.
-            // #### V1.1 C'est une façon de formater.
         }
     }
 }

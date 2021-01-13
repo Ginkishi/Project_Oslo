@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Service
 public class IncidentServiceImpl implements IncidentService {
