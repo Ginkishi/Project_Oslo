@@ -45,6 +45,10 @@ public class Personne implements Serializable {
         @OneToMany(mappedBy = "createur")
     private List<Demande> demandes;
     
+        
+    @ManyToMany(mappedBy = "intervenants")
+    List<Demande> demandeIntervenu;
+        
     public Personne(String nom, String prenom, String adresse, String email) {
         this.nom = nom;
         this.prenom = prenom;
@@ -116,6 +120,14 @@ public class Personne implements Serializable {
 
     public void setDemandes(List<Demande> demandes) {
         this.demandes = demandes;
+    }
+
+    public List<Demande> getDemandeIntervenu() {
+        return demandeIntervenu;
+    }
+
+    public void setDemandeIntervenu(List<Demande> demandeIntervenu) {
+        this.demandeIntervenu = demandeIntervenu;
     }
 
     

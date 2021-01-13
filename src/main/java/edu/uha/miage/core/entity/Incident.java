@@ -48,9 +48,7 @@ public class Incident implements Serializable {
     private Domaine domaine;
     
 
-    /*@ManyToMany(mappedBy = "typeIncidents")
-    List<Fonction> fonctions;*/
-
+    
     @OneToMany(mappedBy = "incident")
     private List<DemandeIncident> demandeIncidents;
 
@@ -109,13 +107,7 @@ public class Incident implements Serializable {
         return this.libelle;
     }
 
-   /* public List<Fonction> getFonctions() {
-        return fonctions;
-    }
-
-    public void setFonctions(List<Fonction> fonctions) {
-        this.fonctions = fonctions;
-*/
+   
 
     public List<Fonction> getFonctionOccupe() {
         return fonctionOccupe;

@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Ma Fonction</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <h1>Listes des tickets incidents</h1>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Ticket</th>
+                        <th>Date</th>
+                        <th>Sujet</th>
+                        <th>Incident</th>
+                        <th>Importance</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="demande : ${demandesIncidents}">
+                        <td th:text="${demande.id}"></td>
+                        <td th:text="${#dates.format(demande.date_creation, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${demande.sujet}"></td>
+                        <td th:text="${demande.incident.libelle}"></td>
+                        <td th:text="${demande.importance}"></td>
+                        <td th:text="${demande.statut_demande}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/demande/incident/edit(id=${demande.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/demande/incident/cloturer/' + ${demande.id}}">
+                                    <div class="btn btn-danger">Clôturer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>        
+        </div>
+        <div class="main">          
+            <h1>Listes des tickets de services</h1>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Ticket</th>
+                        <th>Date</th>
+                        <th>Sujet</th>
+                        <th>Service</th>
+                        <th>Importance</th>
+                        <th>Statut</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="demande : ${demandesServiceses}">
+                        <td th:text="${demande.id}"></td>
+                        <td th:text="${#dates.format(demande.date_creation, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${demande.sujet}"></td>
+                        <td th:text="${demande.service.libelle}"></td>
+                        <td th:text="${demande.importance}"></td>
+                        <td th:text="${demande.statut_demande}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/demande/edit(id=${demande.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/demande/cloturer/' + ${demande.id}}">
+                                    <div class="btn btn-danger">Clôturer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>        
+        </div>
+    </body>
+</html>
+
