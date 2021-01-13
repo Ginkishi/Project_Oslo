@@ -10,14 +10,9 @@
     <!-- menu -->
     <ul class="menu">
         <li><a th:href="@{/home}">Accueil</a></li>
-        <li><a th:href="@{/demande/incident}">Mes demandes d'incident</a></li>
         <li><a th:href="@{/catalogue}">Catalogue de service</a></li>
         <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/administration}">Administration</a></li>
         <li><a th:href="@{/profil}">Mon profil</a></li>
-
-        <li><a th:href="@{/demande/service}">Mes demandes de services</a></li>
-        <li sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_INTERVENANT')"><a th:href="@{/demandes}">Mes Fonctions</a></li>
-
         <li><a th:href="@{/logout}">Déconnexion</a></li>
     </ul>
 </nav>

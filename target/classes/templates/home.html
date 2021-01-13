@@ -11,7 +11,7 @@
             <h1 class="home-title">Bienvenue <span th:remove="tag"  th:text="*{user}"></span> !</h1>
             <h2>Nous sommes le <span class="date" th:text="*{#dates.format(date, 'EEEE DD MMMM yyyy')}"></span></h2>
             <div class="svc-container">
-                <a class="card" th:href="@{/demandeService}">
+                <a class="card" th:href="@{/demande/service}">
                     <div class="logo-card">
                         <img th:src="@{static/img/Architect_Monochromatic.svg}" class="image" alt="">
                     </div>
@@ -24,10 +24,10 @@
                         <img th:src="@{static/img/CTO_Monochromatic.svg}" class="image" alt="">
                     </div>
                     <div class="title-card">
-                            Mes demandes d'incident
+                            Mes demandes d'incidents
                     </div> 
                 </a>
-                 <a class="card" th:href="@{/viewDemandes}">
+                 <a class="card" th:href="@{/demandes}" sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_INTERVENANT')">
                     <div class="logo-card">
                         <img th:src="@{static/img/Startup_Monochromatic.svg}" class="image" alt="">
                     </div>

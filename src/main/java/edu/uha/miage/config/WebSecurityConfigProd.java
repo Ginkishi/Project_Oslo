@@ -54,7 +54,7 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
                 .antMatchers("/role").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/service").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/statutDemande").hasAuthority("ROLE_ADMIN")
-                .antMatchers("/viewDemandes").hasAnyAuthority("ROLE_ADMIN", "ROLE_INTERVENANT")
+                .antMatchers("/demandes").hasAnyAuthority("ROLE_ADMIN", "ROLE_INTERVENANT")
                 .antMatchers("/demandes/**/cloture").permitAll()
                 .anyRequest().authenticated()
                 .and()
