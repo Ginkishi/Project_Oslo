@@ -86,18 +86,20 @@ public class DemandeController {
     public String PersonneIntervientPour(@PathVariable("id") Long id, Model model) {
         Personne userPersonne = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne();
         Demande d = demandeService.findById(id).get();
-        StatutDemande sd = statusDemandeService.findByLibelle("En cours");
-        d.setStatut_demande(sd);
-        List<Personne> l = d.getIntervenants();
-        l.add(userPersonne);
-        d.setIntervenants(l);
-        demandeService.save(d);
-        
+        if (!d.getStatut_demande().getLibelle().equals("Clôturée")) {
+            StatutDemande sd = statusDemandeService.findByLibelle("En cours");
+            d.setStatut_demande(sd);
+            List<Personne> l = d.getIntervenants();
+            l.add(userPersonne);
+            d.setIntervenants(l);
+            demandeService.save(d);
+        }
         return findAll(model);
     }
     
     @GetMapping("/demandes/{id}/cloture")
     public String Cloture(@PathVariable("id") Long id, Model model) {
+        //TODO Check si le mec est intervenant sur la demande
         Optional<DemandeServices> ds = demandeServiceService.findById(id);
         Demande d = demandeService.findById(id).get();
         StatutDemande sd = statusDemandeService.findByLibelle("Clôturée");
