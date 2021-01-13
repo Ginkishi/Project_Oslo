@@ -126,7 +126,7 @@ function findService(element) {
 
                 img.setAttribute("alt", "");
                 logo.appendChild(img);
-                card.setAttribute("href", "/demandeService/createDemandeServiceFromCatalogue?serviceName=" + d.libelle);
+                card.setAttribute("href", "/demande/service/create?serviceName=" + d.libelle);
                 card.appendChild(logo);
                 card.appendChild(title);
                 container.appendChild(card);

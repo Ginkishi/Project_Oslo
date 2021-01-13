@@ -26,9 +26,6 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Kalictong
  */
 @Controller
-
-// ("/demandes/incident")
-
 @RequestMapping("/demande/incident")
 public class DemandeIncidentController {
 
@@ -104,8 +101,10 @@ public class DemandeIncidentController {
             model.addAttribute("fonctions", fonctionService.findAll());
             return "demande/edit";
         }
-        
-        if (demandeIncident.getDate_cloture() == null) 
+        DemandeIncident d = demandeIncidentService.findById(demandeIncident.getId()).get();
+        demandeIncident.setStatut_demande(d.getStatut_demande());
+        demandeIncident.setCreateur(d.getCreateur());
+        if (demandeIncident.getDate_cloture() == null)
             demandeIncidentService.save(demandeIncident);
         return "redirect:/demande/incident";
     }

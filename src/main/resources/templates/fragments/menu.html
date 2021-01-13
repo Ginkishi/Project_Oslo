@@ -14,14 +14,8 @@
         <li><a th:href="@{/catalogue}">Catalogue de service</a></li>
         <li sec:authorize="hasAuthority('ROLE_ADMIN')"><a th:href="@{/administration}">Administration</a></li>
         <li><a th:href="@{/profil}">Mon profil</a></li>
-        <li><a th:href="@{/demandeService}">Mes demandes de services</a></li>
-<<<<<<< HEAD
-
-        <li><a th:href="@{/viewDemandes}">Ma Fonction</a></li>
-
-=======
-        <li sec:authorize="hasAuthority('ROLE_INTERVENANT')"><a th:href="@{/viewDemandes}">Mes Fonctions</a></li>
->>>>>>> 5d1ed3c38b157e3ddc616bd0dba822d31bf5ccff
+        <li><a th:href="@{/demande/service}">Mes demandes de services</a></li>
+        <li sec:authorize="hasAnyAuthority('ROLE_ADMIN', 'ROLE_INTERVENANT')"><a th:href="@{/demandes}">Mes Fonctions</a></li>
         <li><a th:href="@{/logout}">Déconnexion</a></li>
     </ul>
 </nav>

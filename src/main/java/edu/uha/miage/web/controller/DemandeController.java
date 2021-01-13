@@ -50,9 +50,8 @@ public class DemandeController {
 
     @Autowired
     StatutDemandeService statusDemandeService;
-    
-    // ("/demandes")
-    @GetMapping("/viewDemandes")
+
+    @GetMapping("/demandes")
     public String findAll(Model model) {
         Personne userPersonne = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne();
         Set<DemandeServices> demandesServiceses = new LinkedHashSet<>();
@@ -103,7 +102,7 @@ public class DemandeController {
         d.setDate_cloture(new Date());
         demandeService.save(d);
         if (ds.isPresent())
-            return "redirect:/demandeService";        
+            return "redirect:/demande/service";        
         return "redirect:/demande/incident";
     }
 }
