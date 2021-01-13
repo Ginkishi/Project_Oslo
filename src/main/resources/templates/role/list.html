@@ -18,23 +18,14 @@
                     <tr>
                         <th>Nom</th>
 
-                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="role : ${roles}">
                         <td th:text="${role}"></td>
 
-                        <td>
-                            <div class="buttons">
-                                <a th:href="@{/role/edit(id=${role.id})}">
-                                    <div class="btn btn-warning">Editer</div>
-                                </a>
-                                <a  th:href="@{'/role/delete/' + ${role.id}}">
-                                    <div class="btn btn-danger">Supprimer</div>
-                                </a>
-                            </div>
-                        </td>
+                     
                     </tr>                   
                 </tbody>
             </table>
