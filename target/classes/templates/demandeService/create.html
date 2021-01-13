@@ -12,7 +12,7 @@
 
             <h1>Demande de service</h1>
 
-            <form  th:action="@{/demandeService/create}" th:object="${demandeService}" method="post" role="form">
+            <form  th:action="@{/demande/service/create}" th:object="${demandeService}" method="post" role="form">
 
                 <input type="hidden" th:field="*{id}" />
                 <input id="service" type="text" th:field="*{service}" hidden/>

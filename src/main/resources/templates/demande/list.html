@@ -36,7 +36,7 @@
                         <td th:text="${demande.importance}"></td>
                         <td th:text="${demande.statut_demande}"></td>
                         <td>
-                            <div class="buttons">
+                            <div class="buttons" th:if="${demande.statut_demande.libelle != 'Clôturée'}">
                                 <a th:href="@{/demande/incident/edit(id=${demande.id})}">
                                     <div class="btn btn-warning">Editer</div>
                                 </a>

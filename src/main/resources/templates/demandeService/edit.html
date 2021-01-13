@@ -12,7 +12,7 @@
 
             <h1>Demande de service</h1>
 
-            <form  th:action="@{/demandeService/edit}" th:object="${demandeService}" method="post" role="form">
+            <form  th:action="@{/demande/service/edit}" th:object="${demandeService}" method="post" role="form">
 
                 <input type="hidden" th:field="*{id}" />
                 <input id="service" type="text" th:field="*{service}" hidden/>
@@ -52,7 +52,7 @@
                 
                 <div class="buttons">
                     <button type="submit" class="btn btn-success">Valider</button>
-                    <a th:href="@{/demandeService}" ><div class="btn btn-danger">Fermer</div></a>
+                    <a th:href="@{/demande/service}" ><div class="btn btn-danger">Fermer</div></a>
                 </div>
             </form>  
         </div>
