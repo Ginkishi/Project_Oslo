@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Catalogue</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+
+    <head/>
+    <body>
+        <div th:replace="fragments/menu"></div>
+        <div class="catalog">
+            <div class="tree">
+                <ul>
+                    <li th:each="cs : ${categories}">
+                        <div th:cat_id="${cs.id}"  th:cat_parent="test" class="branch hide">
+                            <span><i class="bx bxs-folder"></i> <div th:text="${cs.libelle}" th:remove="tag"></div></span>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div id="services" class="card-container">
+                
+            </div>
+        </div> 
+        <script th:src="@{static/js/hello.js}"></script>
+    </body>
+</html>
+

@@ -20,6 +20,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\IncidentService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DemandeIncidentController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Departement.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoCategorie.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeServiceRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\CategorieService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\ServiceService.java
@@ -49,6 +50,8 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Incident.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeIncidentRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\DemandeIncidentService.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoDomaine.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoStatut.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\RoleService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DepartementController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\FonctionRepository.java
