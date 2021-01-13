@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Quentin
  */
-@Order(2)
+@Order(4)
 @Component
 public class DemoPersonne implements CommandLineRunner {
 
