@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.entity;
 
 import edu.uha.miage.config.SecurityUser;
@@ -33,12 +28,10 @@ public class Compte implements Serializable {
 
     @NotNull
     @Size(max = 25)
-    // Nom d'utilisateur
     private String username;
 
     @NotNull
     @Size(min = 8)
-    // Mot de passe
     private String password;
     
     @ManyToOne

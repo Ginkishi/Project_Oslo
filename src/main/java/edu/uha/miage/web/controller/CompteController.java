@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Controller
 @RequestMapping("/compte")

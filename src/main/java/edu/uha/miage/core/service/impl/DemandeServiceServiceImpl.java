@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.service.impl;
 
 import edu.uha.miage.core.entity.DemandeServices;
@@ -16,7 +11,7 @@ import org.springframework.stereotype.Service;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Service
 public class DemandeServiceServiceImpl implements DemandeServiceService {
@@ -37,11 +32,6 @@ public class DemandeServiceServiceImpl implements DemandeServiceService {
     @Override
     public Optional<DemandeServices> findById(Long id) {
         return repo.findById(id);
-    }
-
-    @Override
-    public void cloture(Long id) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
