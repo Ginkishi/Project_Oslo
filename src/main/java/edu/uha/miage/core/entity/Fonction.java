@@ -36,30 +36,34 @@ public class Fonction implements Serializable {
 
     @ManyToOne
     private Departement departement;
-    
+
     @ManyToMany
     @JoinTable(
-        name = "occupeIncident", 
-        joinColumns = @JoinColumn(name = "fonction_id"),
-        inverseJoinColumns = @JoinColumn(name = "incident_id"))
+            name = "occupeIncident",
+            joinColumns = @JoinColumn(name = "fonction_id"),
+            inverseJoinColumns = @JoinColumn(name = "incident_id"))
     List<Incident> typeIncidents;
 
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Services> occupeServices;
-    
+
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Incident> occupeIncident;
-    
+
     @ManyToMany
     @JoinTable(
-        name = "personne_occupe_fonction", 
-        joinColumns = @JoinColumn(name = "fonction_id"), 
-        inverseJoinColumns = @JoinColumn(name = "personne_id"))
+            name = "personne_occupe_fonction",
+            joinColumns = @JoinColumn(name = "fonction_id"),
+            inverseJoinColumns = @JoinColumn(name = "personne_id"))
     private List<Personne> occupationDePersonne;
-    
-    
+
     public Fonction(String libelle) {
         this.libelle = libelle;
+    }
+
+    public Fonction(String libelle, Departement departement) {
+        this.libelle = libelle;
+        this.departement =  departement;
     }
 
     public Fonction() {
@@ -112,13 +116,11 @@ public class Fonction implements Serializable {
     public void setOccupationDePersonne(List<Personne> occupationDePersonne) {
         this.occupationDePersonne = occupationDePersonne;
     }
-    
-    
-    
+
     @Override
     public String toString() {
-       
-            return libelle;
-       
+
+        return libelle;
+
     }
 }

@@ -22,7 +22,6 @@ import org.springframework.transaction.annotation.Transactional;
  */
 @Order(4)
 @Component
-@Profile("dev")
 public class DemoDepartement implements CommandLineRunner {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(DemoDepartement.class);
@@ -33,7 +32,6 @@ public class DemoDepartement implements CommandLineRunner {
     @Override
     @Transactional
     public void run(String... arg0) throws Exception {
-
         createDepartement("Ressources Humaines");
         createDepartement("Comptabilité");
         createDepartement("Informatique");
