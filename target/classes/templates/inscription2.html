@@ -41,7 +41,7 @@
                                 <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.libelle}"></option>
                             </select>
                         </div>-->
-                        <div class="input-field">
+                        <div class="input-field select">
                             <i class="bx bx-id-card"></i>
                             <select th:field="*{fonctions}" name="" id="fonction" multiple>
                                 <option value="0">Veuillez sélectionner une fonction</option>
