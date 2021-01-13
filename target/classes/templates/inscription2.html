@@ -37,6 +37,7 @@
                         <div class="input-field">
                             <i class="bx bxs-building"></i>
                             <select name="" id="" >
+                                <option value="0">Veuillez sélectionner un département</option>
                                 <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.libelle}"></option>
                             </select>
                         </div>

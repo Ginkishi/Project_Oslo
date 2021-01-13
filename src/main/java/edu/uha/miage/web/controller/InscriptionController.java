@@ -32,25 +32,25 @@ import org.springframework.web.bind.annotation.RequestMethod;
  *
  * @author victo
  */
-
 //@Profile("prod")
 @Controller
 @RequestMapping("/inscription")
 public class InscriptionController {
+
     private final Logger LOGGER = LoggerFactory.getLogger(InscriptionController.class);
-    
+
     @Autowired
     PersonneService personneService;
-    
-     @Autowired
+
+    @Autowired
     DepartementService departementService;
-    
+
     @Autowired
     CompteService compteService;
-    
+
     @Autowired
     RoleService roleService;
-    
+
     @RequestMapping(method = RequestMethod.GET)
     public String inscription(Model model) {
         model.addAttribute("inscription", new Inscription());
@@ -58,24 +58,25 @@ public class InscriptionController {
         //LOGGER.warn("ATTENTION GET FAIT SUR INSCRIPTION");
         return "inscription2";
     }
-    
+
     @RequestMapping(method = RequestMethod.POST)
-    public String inscrit(@Valid Inscription inscription,BindingResult br) {
+    public String inscrit(@Valid Inscription inscription, BindingResult br, Model model) {
         //LOGGER.warn("J'ai mis recu un post");
         PasswordEncoder encoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
         //Users user = new Users(inscription.getUsername(), "{noop}"+inscription.getPassword());
-        
-         if (br.hasErrors()) {
+
+        if (br.hasErrors()) {
+            model.addAttribute("departements", departementService.findAll());
             return "inscription2";
         }
-         
+
         //LOGGER.warn("Je suis la!!!");
-        Personne user = new Personne(inscription.getNom(), inscription.getPrenom(),inscription.getAdresse(),inscription.getEmail());
+        Personne user = new Personne(inscription.getNom(), inscription.getPrenom(), inscription.getAdresse(), inscription.getEmail());
         personneService.save(user);
         //LOGGER.warn("BB JAI SAVE LA PERSONNE");
-        Compte compte = new Compte(inscription.getUsername(),encoder.encode(inscription.getPassword()), user,roleService.findByLibelle("ROLE_COLLABORATEUR"));
+        Compte compte = new Compte(inscription.getUsername(), encoder.encode(inscription.getPassword()), user, roleService.findByLibelle("ROLE_COLLABORATEUR"));
         compteService.save(compte);
-        
+
         //LOGGER.warn("Super j'ai bien fini l'inscription");
         return "redirect:/login";
     }

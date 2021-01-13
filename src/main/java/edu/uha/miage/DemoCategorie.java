@@ -40,7 +40,7 @@ public class DemoCategorie implements CommandLineRunner {
 
         createCategorie("Informatique", null);
         createCategorie("RH", null);
-        //createCategorie("Périphérique & imprimante", "Informatique");
+        createCategorie("Périphérique & imprimante", categorieService.findByLibelle("Informatique"));
     }
 
     private void createCategorie(String name, Categorie parent) {
