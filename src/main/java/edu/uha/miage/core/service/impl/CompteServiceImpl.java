@@ -42,4 +42,9 @@ public class CompteServiceImpl implements CompteService{
     public Optional<Compte> findById(Long id) {
         return compteRepository.findById(id);
     }
+
+    @Override
+    public void delete(Long id) {
+        compteRepository.deleteById(id);
+    }
 }

@@ -18,4 +18,5 @@ public interface CompteService {
     Compte findByUsername(String username);
     List<Compte> findAll();
     Optional<Compte> findById(Long id);
+    void delete(Long id);
 }

@@ -15,6 +15,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.springframework.security.core.userdetails.UserDetails;
 
 /**
@@ -22,6 +24,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author victo
  */
 @Entity
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class Compte implements Serializable {
 
     @Id

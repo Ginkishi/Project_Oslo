@@ -17,6 +17,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -34,7 +36,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/demandeService")
 public class DemandeServiceController {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(DemandeServiceController.class);
     @Autowired
     DemandeServiceService demandeServiceService;
 
@@ -83,5 +85,22 @@ public class DemandeServiceController {
 
         model.addAttribute("demandes", demandes);
         return "demandeService/list.html";
+    }
+    
+    @GetMapping("/edit")
+    public String edit(@RequestParam(name = "id") Long id, Model model) {
+        model.addAttribute("demandeService", demandeServiceService.findById(id));
+        return "demandeService/edit";
+    }
+    
+    @PostMapping("/edit")
+    public String edited(@Valid DemandeServices ds, BindingResult br, Model model) {
+        DemandeServices deman = demandeServiceService.findById(ds.getId()).get();
+        
+        if(ds.getSujet().length() >= 2 && ds.getSujet().length() <= 50)     
+            deman.setSujet(ds.getSujet());
+        deman.setDescription(ds.getDescription());
+        demandeServiceService.save(deman);
+        return "redirect:/demandeService";
     }
 }

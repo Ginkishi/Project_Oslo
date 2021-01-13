@@ -49,6 +49,7 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
                 .antMatchers("/inscription").permitAll()
                 .antMatchers("/static/**").permitAll()
                 .antMatchers("/administration").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/personne").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/compte").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/categorie").hasAuthority("ROLE_ADMIN")
                 .antMatchers("/departement").hasAuthority("ROLE_ADMIN")
