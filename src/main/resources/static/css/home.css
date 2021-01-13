@@ -1,0 +1,31 @@
+.main .home-title{
+    text-align:center;
+    font-size: 2.5em;
+}
+.main .date{
+    text-transform: capitalize;
+}.main h2{
+    text-align:center;
+}
+.main .svc-container{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.svc-container .card{
+    margin-top: 20px;
+    box-shadow: 0px 0px 10px 2px grey;
+    border-radius: 10px;
+    padding: 20px;
+}
+.svc-container .card:hover{
+    box-shadow: 0px 0px 10px 2px black;
+}
+.svc-container .card .title-card{
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 10px;
+    color:black;
+}
