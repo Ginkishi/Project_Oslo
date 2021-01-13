@@ -5,12 +5,15 @@ import edu.uha.miage.core.entity.Services;
 import edu.uha.miage.core.service.CategorieService;
 import edu.uha.miage.core.service.ServiceService;
 import java.util.List;
+import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -54,14 +57,17 @@ public class CatalogueService {
         return "catalogue/list2";
     }
 
-    @GetMapping("/child/{id}")
+    @RequestMapping(value = "/child/{id}", method = RequestMethod.GET,
+            produces = "application/json; charset=utf-8")
     @ResponseBody
-    public String viewListChild(@PathVariable("id") Long id) {
+    public String viewListChild(@PathVariable("id") Long id, HttpServletResponse response) {
         List<Categorie> list = categorieSvc.findById(id).get().getEnfants();
+
         return explodeListOfCategory(list);
     }
 
-    @GetMapping("/catalogue/services/{id}")
+    @RequestMapping(value = "/catalogue/services/{id}", method = RequestMethod.GET,
+            produces = "application/json; charset=utf-8")
     @ResponseBody
     public String viewListServices(@PathVariable("id") Long id) {
         List<Services> list = serviceService.findByCategorie(categorieSvc.findById(id).get());

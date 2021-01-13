@@ -30,6 +30,7 @@ edu\uha\miage\core\service\impl\DemandeIncidentServiceImpl.class
 edu\uha\miage\core\repository\IncidentRepository.class
 edu\uha\miage\core\service\CategorieService.class
 edu\uha\miage\config\WebSecurityConfigProd.class
+edu\uha\miage\DemoDomaine.class
 edu\uha\miage\core\entity\Domaine.class
 edu\uha\miage\core\service\impl\IncidentServiceImpl.class
 edu\uha\miage\core\entity\Services.class
@@ -63,6 +64,7 @@ edu\uha\miage\core\entity\DemandeIncident.class
 edu\uha\miage\core\entity\Departement.class
 edu\uha\miage\Application.class
 edu\uha\miage\core\service\StatutDemandeService.class
+edu\uha\miage\DemoCategorie.class
 edu\uha\miage\core\entity\Compte.class
 edu\uha\miage\core\service\impl\DepartementServiceImpl.class
 edu\uha\miage\web\controller\IncidentController.class
