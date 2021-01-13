@@ -38,7 +38,7 @@ public class Categorie {
 
     @OneToMany(mappedBy = "parent")
     private List<Categorie> enfants;
-    
+
     @OneToMany(mappedBy = "categorie")
     private List<Services> services;
 
@@ -89,21 +89,19 @@ public class Categorie {
     public void setServices(List<Services> services) {
         this.services = services;
     }
-    
-    
 
     @Override
     public String toString() {
-       
+
         return libelle;
     }
-    
-    public String toJson(){
-        System.out.println(enfants);
-        if(enfants.size()<=0){
-                    return "{\"id\":"+id+", \"libelle\":"+"\""+libelle+"\", \"leaf\":true"+"}";
-        }else{
-            return "{\"id\":"+id+", \"libelle\":"+"\""+libelle+"\", \"leaf\":false"+"}";
+
+    public String toJson() {
+
+        if (enfants.size() <= 0) {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\", \"leaf\":true" + "}";
+        } else {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\", \"leaf\":false" + "}";
         }
 
     }

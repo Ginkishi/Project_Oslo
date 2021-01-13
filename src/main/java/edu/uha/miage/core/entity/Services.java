@@ -135,4 +135,10 @@ public class Services implements Serializable {
         return libelle;
     }
 
+    public String toJson() {
+
+        return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\"}";
+
+    }
+
 }

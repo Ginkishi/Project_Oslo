@@ -1,7 +1,4 @@
 const buttons = document.querySelectorAll("span");
-
-
-
 buttons.forEach(b => {
     b.addEventListener("click", (e) => {
         if (b == e.target) {
@@ -32,7 +29,6 @@ buttons.forEach(b => {
         }
     })
 });
-
 function genereTree(child) {
     let ul = document.createElement("ul");
     child.forEach(c => {
@@ -41,13 +37,12 @@ function genereTree(child) {
         let span = document.createElement("span");
         let i = document.createElement("i");
         a.setAttribute("cat_id", c.id);
-
         let text = document.createTextNode(" " + c.libelle);
         i.classList.add("bx");
         if (c.leaf) {
             a.classList.add("leaf");
             i.classList.add("bxs-circle");
-             span.addEventListener("click", findService);
+            span.addEventListener("click", findService);
         } else {
             a.classList.add("branch");
             a.classList.add("hide");
@@ -65,7 +60,6 @@ function genereTree(child) {
 
 function subTree(element) {
     let el = element.target;
-
     if (el.parentNode.classList.contains("branch")) {
         let i = el.querySelector("i");
         i.classList.toggle("bxs-folder");
@@ -92,8 +86,37 @@ function subTree(element) {
 
     element.stopPropagation();
 }
-function findService(element){
-    if(element.target.parentNode.classList.contains("leaf")){
-        console.log("recherche");
+function findService(element) {
+    let parent = element.target.parentNode;
+    if (parent.classList.contains("leaf")) {
+
+        fetch("/catalogue/services/" + parent.getAttribute("cat_id")).then(result => {
+            return result.json();
+        }).then(data => {
+            if (data.length <= 0) {
+                console.log("salut")
+            } else {
+                let container = document.querySelector("#services");
+                container.innerHTML = "";
+                data.forEach(d => {
+                    let card = document.createElement("a");
+                    card.classList.add("card");
+                    let logo = document.createElement("div");
+                    logo.classList.add("logo");
+                    let title = document.createElement("div");
+                    title.classList.add("title");
+                    let text = document.createTextNode(d.libelle);
+                    title.appendChild(text);
+                    let img = document.createElement("img");
+                    img.setAttribute("src", "static/img/data_collecting_monochromatic.svg");
+                    img.setAttribute("alt", "");
+                    logo.appendChild(img);
+                    card.setAttribute("href", "/demandeService/createDemandeServiceFromCatalogue?serviceName=" + d.libelle);
+                    card.appendChild(logo);
+                    card.appendChild(title);
+                    container.appendChild(card);
+                })
+            }
+        })
     }
 }
