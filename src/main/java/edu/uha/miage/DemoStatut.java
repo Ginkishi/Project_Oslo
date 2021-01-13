@@ -36,7 +36,6 @@ public class DemoStatut implements CommandLineRunner {
 
         createStatut("Ouvert");
         createStatut("En cours");
-        createStatut("Terminée");
         createStatut("Clôturée");
     }
 

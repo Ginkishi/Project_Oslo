@@ -39,7 +39,7 @@
                 
                 <div class="input-field">
                     <label for="fonction">Fonction</label>
-                    <select th:field="*{fonctionOccupe}" id="fonction">
+                    <select th:field="*{fonctionOccupe}" id="fonction" multiple>
                         <option th:each="fonction : ${fonctions}" th:value="${fonction.id}" th:text="${fonction.libelle}"></option>
                     </select>
                 </div>                        
