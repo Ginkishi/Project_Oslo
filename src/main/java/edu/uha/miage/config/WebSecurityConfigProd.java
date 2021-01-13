@@ -5,6 +5,7 @@
  */
 package edu.uha.miage.config;
 
+import edu.uha.miage.core.service.impl.UserDetailsServiceImpl;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -28,10 +29,14 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
     
     @Autowired
+    private UserDetailsServiceImpl userDetailService;
+    
+    @Autowired
     private DataSource dataSource;
     
     @Autowired
     public void configAuthentification(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailService);
         auth.jdbcAuthentication().passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder())
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, 'true' FROM compte WHERE username=?")
@@ -43,10 +48,11 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/inscription").permitAll()
                 .antMatchers("/static/**").permitAll()
+                .antMatchers("/administration").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/viewDemandes").hasAnyAuthority("ROLE_ADMIN", "ROLE_INTERVENANT")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
-                //.formLogin().permitAll()
                 .and()
                 .logout().permitAll();
     }
