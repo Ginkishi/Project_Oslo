@@ -105,5 +105,8 @@ public class Categorie {
         }
 
     }
+    public boolean isLeaf(){
+        return enfants.size() <= 0;
+    }
 
 }

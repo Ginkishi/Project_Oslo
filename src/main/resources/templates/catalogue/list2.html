@@ -14,8 +14,11 @@
             <div class="tree">
                 <ul>
                     <li th:each="cs : ${categories}">
-                        <div th:cat_id="${cs.id}"  th:cat_parent="test" class="branch hide">
+                        <div th:cat_id="${cs.id}"  th:cat_parent="test" class="branch hide" th:if="${!cs.leaf}">
                             <span><i class="bx bxs-folder"></i> <div th:text="${cs.libelle}" th:remove="tag"></div></span>
+                        </div>
+                         <div th:cat_id="${cs.id}"  th:cat_parent="test" class="leaf" th:if="${cs.leaf}">
+                            <span><i class="bx bxs-circle"></i> <div th:text="${cs.libelle}" th:remove="tag"></div></span>
                         </div>
                     </li>
                 </ul>

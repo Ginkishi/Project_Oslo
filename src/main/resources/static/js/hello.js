@@ -3,8 +3,13 @@ const buttons = document.querySelectorAll("span");
 buttons.forEach(b => {
     b.addEventListener("click", (e) => {
         if (b == e.target) {
+            findService(e);
             let target = e.target;
             let ul = target.querySelector("ul");
+            if (target.parentNode.classList.contains("leaf")) {
+
+                return;
+            }
             if (ul == null) {
                 target.parentNode.classList.toggle("hide");
                 let i = target.querySelector("i");
@@ -61,6 +66,7 @@ function genereTree(child) {
 }
 
 function subTree(element) {
+    findService(element);
     let el = element.target;
     if (el.parentNode.classList.contains("branch")) {
         let i = el.querySelector("i");
@@ -90,35 +96,37 @@ function subTree(element) {
 }
 function findService(element) {
     let parent = element.target.parentNode;
-    if (parent.classList.contains("leaf")) {
+    let container = document.querySelector("#services");
+    //if (parent.classList.contains("leaf")) {
 
-        fetch("/catalogue/services/" + parent.getAttribute("cat_id")).then(result => {
-            return result.json();
-        }).then(data => {
-            if (data.length <= 0) {
-                console.log("salut")
-            } else {
-                let container = document.querySelector("#services");
-                container.innerHTML = "";
-                data.forEach(d => {
-                    let card = document.createElement("a");
-                    card.classList.add("card");
-                    let logo = document.createElement("div");
-                    logo.classList.add("logo");
-                    let title = document.createElement("div");
-                    title.classList.add("title");
-                    let text = document.createTextNode(d.libelle);
-                    title.appendChild(text);
-                    let img = document.createElement("img");
-                    img.setAttribute("src", "static/img/data_collecting_monochromatic.svg");
-                    img.setAttribute("alt", "");
-                    logo.appendChild(img);
-                    card.setAttribute("href", "/demandeService/createDemandeServiceFromCatalogue?serviceName=" + d.libelle);
-                    card.appendChild(logo);
-                    card.appendChild(title);
-                    container.appendChild(card);
-                })
+    fetch("/catalogue/services/" + parent.getAttribute("cat_id")).then(result => {
+        return result.json();
+    }).then(data => {
+        if (data.length <= 0) {
+            if (parent.classList.contains("leaf")) {
+                container.innerHTML = "Aucun service trouvé";
             }
-        })
-    }
+        } else {
+            container.innerHTML = "";
+            data.forEach(d => {
+                let card = document.createElement("a");
+                card.classList.add("card");
+                let logo = document.createElement("div");
+                logo.classList.add("logo");
+                let title = document.createElement("div");
+                title.classList.add("title");
+                let text = document.createTextNode(d.libelle);
+                title.appendChild(text);
+                let img = document.createElement("img");
+                img.setAttribute("src", "static/img/data_collecting_monochromatic.svg");
+                img.setAttribute("alt", "");
+                logo.appendChild(img);
+                card.setAttribute("href", "/demandeService/createDemandeServiceFromCatalogue?serviceName=" + d.libelle);
+                card.appendChild(logo);
+                card.appendChild(title);
+                container.appendChild(card);
+            })
+        }
+    })
+    //}
 }
