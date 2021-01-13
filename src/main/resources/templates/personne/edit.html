@@ -1,18 +1,57 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+    <!-- V0.2 Avec th:include dans <head ... , le fragment <head>...</head> 
+    du fichier "fragments/common.html" devient le <head>...</head> de ce fichier.
+    -->
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <title>OSLO - Compte</title>
     <head/>
     <body>
-        <h1>Clients</h1>
-       
-        <form action="#" th:object="${personne}" method="post" role="form">
-           
-            <input type="hidden" th:field="*{id}"/>
-            <label for="name">Nom</label>
-            
-            <input id="nom" type="text" th:field="*{nom}" placeholder="(de 2 à 30 caractères) "/>
-            <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" />
-            <button type="submit" class="btn btn-success">Valider</button>
-            <a th:href="@{/personne}">Fermer</a>
-        </form>
+
+        <div th:replace="fragments/menu"></div>
+        <div class="main"><!-- V0.3 -->
+
+            <h1>Personne</h1>
+
+            <form  th:action="@{''}" th:object="${personne}" method="post" role="form">
+
+                <input type="hidden" th:field="*{id}"/>
+                
+                <!-- Nom -->
+                <div class="input-field">
+                    <label for="nom">Nom</label>
+                    <input id="nom" type="text" th:field="*{nom}" />
+                </div>
+                <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" />
+
+                <!-- Prénom -->
+                <div class="input-field">
+                    <label for="prenom">Prénom</label>
+                    <input id="prenom" type="text" th:field="*{prenom}" />
+                </div>
+                <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" />
+                
+                <!-- Adresse -->
+                <div class="input-field">
+                    <label for="adresse">Adresse</label>
+                    <input id="adresse" type="text" th:field="*{adresse}" />
+                </div>
+                <span th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}" />
+                
+                <!-- Email -->
+                <div class="input-field">
+                    <label for="email">Prénom</label>
+                    <input id="email" type="text" th:field="*{email}" />
+                </div>
+                <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" />
+                
+                <div class="buttons">
+                    <button type="submit" class="btn btn-success">Valider</button>
+                    <a th:href="@{/personne}" ><div class="btn btn-danger">Fermer</div></a>
+                </div>
+            </form>  
+        </div>       
     </body>
 </html>

@@ -10,8 +10,6 @@ import edu.uha.miage.core.service.CategorieService;
 import edu.uha.miage.core.service.ServiceService;
 import edu.uha.miage.core.service.StorageService;
 import javax.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -31,8 +29,6 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/service")
 public class ServiceController {
-    
-    private final Logger LOGGER = LoggerFactory.getLogger(ServiceController.class);
     @Autowired
     ServiceService serviceService;
 
@@ -68,9 +64,10 @@ public class ServiceController {
         }
         else
         {
+
             if(!file.isEmpty()) {
-                LOGGER.error("Got a file - File:");
-                LOGGER.error(file.getOriginalFilename());
+
+
                 storageService.store(file);
                 service.setImage(file.getOriginalFilename());
             }

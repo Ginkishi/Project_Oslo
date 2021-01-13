@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ProfilController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\ServiceRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DemandeIncidentServiceImpl.java
@@ -82,3 +83,88 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\DemandeServices.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\StatutDemandeService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\FonctionController.java
+=======
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Demande.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Fonction.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\CategorieRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DomaineRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\InscriptionController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\PersonneController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ProfilController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\WebSecurityConfigDev.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\Exception\StorageException.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\RoleServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DepartementController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\StorageProperties.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\IncidentController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\StatutDemandeServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Categorie.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeServiceRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\Application.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\SecurityUser.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\StorageService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Personne.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Services.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoDepartement.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\CatalogueService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\PersonneRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\CompteRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Departement.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\ServiceServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\UserDetailsServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Compte.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ServiceController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\DemandeIncident.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\WebSecurityConfigProd.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\RoleController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\CategorieService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DemandeServiceServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoRole.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\RoleService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeIncidentRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoCompte.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\IncidentRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\DemandeIncidentService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\PersonneServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\ServiceService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoPersonne.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\AdministrationController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DemandeIncidentController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\IncidentService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Role.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\SpringWebConfig.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DomaineController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\FonctionServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\StatutDemande.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\FonctionRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\ServiceRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DemandeIncidentServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\model\Inscription.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\DemoStatut.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\StorageServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\RootController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DepartementRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\FonctionService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\CategorieController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\IncidentServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\CompteService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\DepartementService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\UploadController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DepartementServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\Exception\StorageFileNotFoundException.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DomaineServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\StatutDemandeController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\StatutDemandeService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\StatutDemandeRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\DemandeServiceService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Domaine.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\RoleRepository.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\CompteServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\DomaineService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\PersonneService.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\CategorieServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\FonctionController.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Incident.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\DemandeServices.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DemandeServiceController.java
+>>>>>>> ac37d46de2ed82c9792500fc7adbe2235c26efec
