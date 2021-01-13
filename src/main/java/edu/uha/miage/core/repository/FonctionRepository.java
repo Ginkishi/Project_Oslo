@@ -22,6 +22,7 @@ public interface FonctionRepository extends JpaRepository<Fonction, Long> {
     Optional<Fonction> findById(Long id);
 
     List<Fonction> findAllByOrderByLibelle();
+    List<Fonction> findAllByOrderByDepartementAscLibelleAsc();
 
     public List<Fonction> findByDepartementOrderByLibelle(Departement departement);
                                       
