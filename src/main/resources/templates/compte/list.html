@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Comptes</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <h1>Liste des comptes</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom de compte</th>
+                        <th>Nom & Prenom</th>
+                        <th>Rôles</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="compte : ${comptes}">
+                        <td th:text="${compte.username}"></td>
+                        <td th:text="${compte.personne.nom + ' ' + compte.personne.prenom}"></td>
+                        <td th:text="${compte.role.libelle}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/compte/edit(id=${compte.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/compte/delete/' + ${compte.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>
+        </div>        
+    </body>
+</html>
+

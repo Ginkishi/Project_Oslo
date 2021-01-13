@@ -8,6 +8,8 @@ package edu.uha.miage.core.service.impl;
 import edu.uha.miage.core.entity.Compte;
 import edu.uha.miage.core.repository.CompteRepository;
 import edu.uha.miage.core.service.CompteService;
+import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,5 +31,15 @@ public class CompteServiceImpl implements CompteService{
     @Override
     public Compte findByUsername(String username) {
         return compteRepository.findByUsername(username);
+    }
+
+    @Override
+    public List<Compte> findAll() {
+        return compteRepository.findAll();
+    }
+
+    @Override
+    public Optional<Compte> findById(Long id) {
+        return compteRepository.findById(id);
     }
 }
