@@ -80,6 +80,10 @@ a {
     font-weight: 600;
     font-family: "Poppins", sans-serif;
 }
+.main form .input-field select[multiple]{
+    height:100px;
+}
+
 
 .main form .input-field textarea{
     height: 45px;

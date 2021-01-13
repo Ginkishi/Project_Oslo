@@ -5,6 +5,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DepartementServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DemandeServiceServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Demande.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\DemandeService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\StorageServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\StorageService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Categorie.java
@@ -31,6 +32,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\ServiceService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Compte.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Personne.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\DepartementService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\PersonneController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\CategorieController.java
@@ -46,6 +48,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\Exception\StorageException.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\StatutDemandeRepository.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\UploadController.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\DemandeServiceImpl.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\config\WebSecurityConfigProd.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\entity\StatutDemande.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\CompteServiceImpl.java
@@ -61,6 +64,7 @@ C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uh
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\DemandeIncidentService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoDomaine.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\DemoStatut.java
+C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DemandeController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\service\RoleService.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\web\controller\DepartementController.java
 C:\Users\victo\Desktop\Master M2\dev_appli_web\Project_Oslo\src\main\java\edu\uha\miage\core\repository\FonctionRepository.java
