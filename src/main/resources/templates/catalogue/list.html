@@ -3,29 +3,31 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Catalogue</title>
-        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
-        <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+
     <head/>
     <body>
         <div th:replace="fragments/menu"></div>
-        <div class="main">
-            <div class="card-container" th:if="${categories != null}">
-                <th:block th:each="cs : ${categories}">
-                    <a th:href="@{/catalogue(category=${parent}+','+${cs.libelle})}" class="card">
-                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
-                        <div class="title" th:text="${cs.libelle}"></div>
-                    </a>
-                </th:block>
+        <div class="catalog">
+            <div class="tree">
+                <ul>
+                    <li th:each="cs : ${categories}">
+                        <div th:cat_id="${cs.id}"  th:cat_parent="test" class="branch hide" th:if="${!cs.leaf}">
+                            <span><i class="bx bxs-folder"></i> <div th:text="${cs.libelle}" th:remove="tag"></div></span>
+                        </div>
+                         <div th:cat_id="${cs.id}"  th:cat_parent="test" class="leaf" th:if="${cs.leaf}">
+                            <span><i class="bx bxs-circle"></i> <div th:text="${cs.libelle}" th:remove="tag"></div></span>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            <div class="card-container" th:if="${services != null}">
-                <th:block th:each="cs : ${services}">
-                    <a th:href="@{/demandeService/createDemandeServiceFromCatalogue(serviceName=${cs.libelle})}" class="card">
-                        <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
-                        <div class="title" th:text="${cs.libelle}"></div>
-                    </a>
-                </th:block>
+            <div id="services" class="card-container">
+                
             </div>
-        </div>        
+        </div> 
+        <script th:src="@{static/js/hello.js}"></script>
     </body>
 </html>
 

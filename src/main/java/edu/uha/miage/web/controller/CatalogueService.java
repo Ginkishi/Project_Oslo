@@ -30,31 +30,13 @@ public class CatalogueService {
     @Autowired
     CategorieService categorieSvc;
 
+    
     @GetMapping("/catalogue")
-    public String viewListCategory(@RequestParam(required = false, name = "category") List<String> categories, Model model) {
-        if (categories != null) {
-            model.addAttribute("parent", explode(categories));
-
-            List<Categorie> nextCategories = categorieSvc.findByLibelle(categories.get(categories.size() - 1)).getEnfants();
-            if (!nextCategories.isEmpty()) {
-                model.addAttribute("categories", nextCategories);
-            } else {
-                model.addAttribute("services", serviceService.findByCategorie(categorieSvc.findByLibelle(categories.get(categories.size() - 1))));
-            }
-        } else {
-            model.addAttribute("parent", "null");
-            model.addAttribute("categories", categorieSvc.findByParent(null));
-        }
-
-        return "catalogue/list";
-    }
-
-    @GetMapping("/catalogue2")
     public String viewListCategory2(Model model) {
 
         model.addAttribute("categories", categorieSvc.findByParent(null));
 
-        return "catalogue/list2";
+        return "catalogue/list";
     }
 
     @RequestMapping(value = "/child/{id}", method = RequestMethod.GET,
