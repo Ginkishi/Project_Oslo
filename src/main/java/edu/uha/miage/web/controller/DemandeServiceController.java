@@ -83,19 +83,24 @@ public class DemandeServiceController {
     
     @GetMapping("/edit")
     public String edit(@RequestParam(name = "id") Long id, Model model) {
-        model.addAttribute("demandeService", demandeServiceService.findById(id));
-        return "demandeService/edit";
+        DemandeServices d = demandeServiceService.findById(id).get();
+        if (d.getDate_cloture() == null) {
+            model.addAttribute("demandeService", demandeServiceService.findById(id));
+            return "demandeService/edit";
+        }
+        return "redirect:/home";
     }
     
     @PostMapping("/edit")
     public String edited(@Valid DemandeServices ds, BindingResult br, Model model) {
         DemandeServices deman = demandeServiceService.findById(ds.getId()).get();
-        
-        // One trick little pony
-        if(ds.getSujet().length() >= 2 && ds.getSujet().length() <= 50)     
-            deman.setSujet(ds.getSujet());
-        deman.setDescription(ds.getDescription());
-        demandeServiceService.save(deman);
+        if (deman.getDate_cloture() == null) {
+            // One trick little pony
+            if(ds.getSujet().length() >= 2 && ds.getSujet().length() <= 50)     
+                deman.setSujet(ds.getSujet());
+            deman.setDescription(ds.getDescription());
+            demandeServiceService.save(deman);
+        }
         return "redirect:/demandeService";
     }
 }
