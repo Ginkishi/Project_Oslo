@@ -17,8 +17,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -36,8 +34,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/demandeService")
 public class DemandeServiceController {
-
-    private final Logger LOGGER = LoggerFactory.getLogger(DemandeServiceController.class);
 
     @Autowired
     DemandeServiceService demandeServiceService;
@@ -69,7 +65,6 @@ public class DemandeServiceController {
     @PostMapping("/create")
     public String create(@Valid DemandeServices ds, BindingResult br, Model model) {
         if (br.hasErrors()) {
-            LOGGER.error(br.getAllErrors().toString());
             return "redirect:catalogue/list.html";
         } else {
             Optional<Services> svc = serviceService.findById(ds.getService().getId());
