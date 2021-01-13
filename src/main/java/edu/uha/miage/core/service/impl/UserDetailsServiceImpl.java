@@ -28,7 +28,6 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        LOGGER.error("LOL JSUIS LA");
         if(username == null || username.isEmpty()) {
             throw new UsernameNotFoundException("Username is empty");
         }

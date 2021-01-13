@@ -15,6 +15,7 @@ D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\i
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Categorie.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\DemandeServiceRepository.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\Application.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\config\SecurityUser.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\StorageService.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Personne.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Services.java
@@ -24,6 +25,7 @@ D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repositor
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\repository\CompteRepository.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Departement.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\ServiceServiceImpl.java
+D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\service\impl\UserDetailsServiceImpl.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\Compte.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\web\controller\ServiceController.java
 D:\Cours\M2\ProjetSpring\Project_Oslo\src\main\java\edu\uha\miage\core\entity\DemandeIncident.java
