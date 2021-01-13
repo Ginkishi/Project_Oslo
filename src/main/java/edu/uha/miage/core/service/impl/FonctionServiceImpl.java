@@ -36,7 +36,7 @@ public class FonctionServiceImpl implements FonctionService {
 
     @Override
     public List<Fonction> findAll() {
-        return (List<Fonction>) fonctionRepository.findAllByOrderByLibelle();
+        return (List<Fonction>) fonctionRepository.findAllByOrderByDepartementAscLibelleAsc();
     }
 
     @Override

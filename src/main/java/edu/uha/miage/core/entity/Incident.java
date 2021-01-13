@@ -6,11 +6,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.JoinColumn;
+
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -21,6 +26,8 @@ import javax.validation.constraints.Size;
  * @author Quentin
  */
 @Entity
+@Table(uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"libelle"})})
 public class Incident implements Serializable {
     
     @Id
@@ -29,7 +36,7 @@ public class Incident implements Serializable {
     
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Fonction
+
     private String libelle;
     
     @NotNull
@@ -40,8 +47,13 @@ public class Incident implements Serializable {
     @ManyToOne
     private Domaine domaine;
     
-    @OneToOne(mappedBy = "incident")
-    private DemandeServices demande_incident;
+
+    /*@ManyToMany(mappedBy = "typeIncidents")
+    List<Fonction> fonctions;*/
+
+    @OneToMany(mappedBy = "incident")
+    private List<DemandeIncident> demandeIncidents;
+
     
     @ManyToMany
     @JoinTable(
@@ -49,6 +61,7 @@ public class Incident implements Serializable {
         joinColumns = @JoinColumn(name = "incident_id"), 
         inverseJoinColumns = @JoinColumn(name = "fonction_id"))
     private List<Fonction> fonctionOccupe;
+
     
     public Incident() {}
     
@@ -90,6 +103,20 @@ public class Incident implements Serializable {
         this.domaine = domaine;
     }
 
+    
+    @Override
+    public String toString() {
+        return this.libelle;
+    }
+
+   /* public List<Fonction> getFonctions() {
+        return fonctions;
+    }
+
+    public void setFonctions(List<Fonction> fonctions) {
+        this.fonctions = fonctions;
+*/
+
     public List<Fonction> getFonctionOccupe() {
         return fonctionOccupe;
     }
@@ -97,14 +124,16 @@ public class Incident implements Serializable {
     public void setFonctionOccupe(List<Fonction> fonctionOccupe) {
         this.fonctionOccupe = fonctionOccupe;
     }
-
-    public DemandeServices getDemande_incident() {
-        return demande_incident;
+    
+    public List<DemandeIncident> getDemandeIncidents() {
+        return demandeIncidents;
     }
 
-    public void setDemande_incident(DemandeServices demande_incident) {
-        this.demande_incident = demande_incident;
+    public void setDemandeIncidents(List<DemandeIncident> demandeIncidents) {
+        this.demandeIncidents = demandeIncidents;
     }
+
+   
     
     
 }

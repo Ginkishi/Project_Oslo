@@ -21,7 +21,7 @@ import javax.validation.constraints.Size;
  */
 @Entity
 public class Domaine implements Serializable{
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

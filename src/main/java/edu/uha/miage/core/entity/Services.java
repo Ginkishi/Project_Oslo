@@ -5,6 +5,7 @@
  */
 package edu.uha.miage.core.entity;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -15,7 +16,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
@@ -30,8 +32,9 @@ import javax.validation.constraints.Size;
 @Entity
 @Table(uniqueConstraints = {
     @UniqueConstraint(columnNames = {"libelle"})})
-public class Services implements Serializable{
-     @Id
+public class Services implements Serializable {
+
+    @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
@@ -39,38 +42,39 @@ public class Services implements Serializable{
     @Size(min = 2, max = 50)
     // Nom de la Fonction
     private String libelle;
-    
+
     @NotNull
     @Min(1)
     @Max(10)
     private int priorite;
-    
-    //private String image;
-    
-    @NotNull
-     private String placeholder;
 
-    @OneToOne(mappedBy = "service")
-    private DemandeServices demande_service;
-    
+    private String image;
+
+    @NotNull
+    private String placeholder;
+
+    @OneToMany(mappedBy = "service")
+    private List<DemandeServices> demande_service;
+
     @ManyToOne
     private Categorie categorie;
 
     @ManyToMany
     @JoinTable(
-        name = "fonction_occupe_service", 
-        joinColumns = @JoinColumn(name = "services_id"), 
-        inverseJoinColumns = @JoinColumn(name = "fonction_id"))
+            name = "fonction_occupe_service",
+            joinColumns = @JoinColumn(name = "services_id"),
+            inverseJoinColumns = @JoinColumn(name = "fonction_id"))
     private List<Fonction> fonctionOccupe;
-    
+
     public Services() {
     }
 
-    public Services(String libelle, int priorite, String placeholder, Categorie categorie) {
+    public Services(String libelle, int priorite, String placeholder, String image, Categorie categorie) {
         this.libelle = libelle;
         this.priorite = priorite;
         this.placeholder = placeholder;
         this.categorie = categorie;
+        this.image = image;
     }
 
     public Long getId() {
@@ -97,6 +101,14 @@ public class Services implements Serializable{
         this.priorite = priorite;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+
     public String getPlaceholder() {
         return placeholder;
     }
@@ -121,22 +133,27 @@ public class Services implements Serializable{
         this.fonctionOccupe = fonctionOccupe;
     }
 
-    public DemandeServices getDemande_service() {
+    public List<DemandeServices> getDemande_service() {
         return demande_service;
     }
 
-    public void setDemande_service(DemandeServices demande_service) {
+    public void setDemande_service(List<DemandeServices> demande_service) {
         this.demande_service = demande_service;
     }
-    
-    
 
     @Override
     public String toString() {
         return libelle;
     }
-    
-    
-    
-    
+
+    public String toJson() {
+        if (image != null) {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\",\"image\":\"" + image + "\"}";
+        } else {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\",\"image\":\"" + "null" + "\"}";
+
+        }
+
+    }
+
 }

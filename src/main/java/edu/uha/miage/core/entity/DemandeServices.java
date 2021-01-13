@@ -9,7 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 /**
  *
@@ -18,7 +18,7 @@ import javax.persistence.OneToOne;
 @Entity
 public class DemandeServices extends Demande implements Serializable{
     
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "services_id", referencedColumnName = "id")
     private Services service;
 
@@ -36,6 +36,4 @@ public class DemandeServices extends Demande implements Serializable{
     public void setService(Services service) {
         this.service = service;
     }
-    
-    
 }

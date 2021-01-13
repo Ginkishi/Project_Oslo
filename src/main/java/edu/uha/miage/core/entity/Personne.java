@@ -7,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
@@ -40,6 +41,9 @@ public class Personne implements Serializable {
 
     @ManyToMany(mappedBy = "occupationDePersonne")
     private List<Fonction> occupations;
+    
+        @OneToMany(mappedBy = "createur")
+    private List<Demande> demandes;
     
     public Personne(String nom, String prenom, String adresse, String email) {
         this.nom = nom;
@@ -91,6 +95,13 @@ public class Personne implements Serializable {
         this.email = email;
     }    
 
+
+    @Override
+    public String toString() {
+        return nom + " " + prenom;
+    }
+    
+
     public List<Fonction> getOccupations() {
         return occupations;
     }
@@ -98,6 +109,15 @@ public class Personne implements Serializable {
     public void setOccupations(List<Fonction> occupations) {
         this.occupations = occupations;
     }
+
+    public List<Demande> getDemandes() {
+        return demandes;
+    }
+
+    public void setDemandes(List<Demande> demandes) {
+        this.demandes = demandes;
+    }
+
     
     
 

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Incidents</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <head/>
+    <body>
+
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <h1>Listes des incidents</h1>
+            <a th:href="@{/incident/create}">
+                <div class="btn btn-primary">Ajouter un nouvel incident
+                </div>
+            </a>
+            <table class="table fluid">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Domaine</th>
+                        <th>Priorité</th>
+                        <th>Action</th>
+                        <th>Fonction</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="incident : ${incidents}">
+                        <td th:text="${incident}"></td>
+                        <td th:text="${incident.domaine}"></td>
+                        <td th:text="${incident.priorite}"></td>
+                        <td th:text="${incident.fonctionOccupe}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/incident/edit(id=${incident.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <a  th:href="@{'/incident/delete/' + ${incident.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>        
+        </div>        
+    </body>
+</html>
+

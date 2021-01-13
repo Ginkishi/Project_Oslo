@@ -38,6 +38,6 @@ public class ProfilController {
     public String profil(Model model) {
         Compte cpt = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName());
         model.addAttribute("compte", cpt);
-        return "/profil/index";
+        return "profil/index";
     }
 }

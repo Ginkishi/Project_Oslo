@@ -12,4 +12,6 @@ public interface IncidentService {
     Incident save(Incident entity);
     List<Incident> findAll();
     Optional<Incident> findByLibelle(String libelle);
+    Optional<Incident> findById(Long id);
+    void delete(Long id);
 }

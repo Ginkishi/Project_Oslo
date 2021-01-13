@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Administration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{static/css/admin.css}" />
+</head>
+<body>
+    <div th:replace="fragments/menu"></div>
+
+<div class="main">
+            <h1>Listes</h1>
+            <div class="card-container">
+                <a th:href="@{/categorie}" class="card">
+                    <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                    <div class="title">Catégories</div>
+                </a>
+                <a th:href="@{/administration}" class="card">
+                    <div class="logo"><img th:src="@{static/img/data_organization_monochromatic.svg}"  alt=""></div>
+                    <div class="title">Comptes</div>
+                </a>
+                <a th:href="@{/departement}" class="card">
+                    <div class="logo"><img th:src="@{static/img/manager_.svg}"  alt=""></div>
+                    <div class="title">Départements</div>
+                </a>
+                <a th:href="@{/domaine}" class="card">
+                    <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                    <div class="title">Domaines</div>
+                </a>
+                <a th:href="@{/fonction}" class="card">
+                    <div class="logo"><img th:src="@{static/img/ceo.svg}"  alt=""></div>
+                    <div class="title">Fonctions</div>
+                </a>
+                <a th:href="@{/incident}" class="card">
+                    <div class="logo"><img th:src="@{static/img/it_support.svg}"  alt=""></div>
+                    <div class="title">Incidents</div>
+                </a>
+                <a th:href="@{/role}" class="card">
+                    <div class="logo"><img th:src="@{static/img/user_group.svg}"  alt=""></div>
+                    <div class="title">Rôles</div>
+                </a>
+                <a th:href="@{/service}" class="card">
+                    <div class="logo"><img th:src="@{static/img/customer_service.svg}"  alt=""></div>
+                    <div class="title">Services</div>
+                </a>
+                <a th:href="@{/statutDemande}" class="card">
+                    <div class="logo"><img th:src="@{static/img/completed_task_.svg}"  alt=""></div>
+                    <div class="title">Statut des demandes</div>
+                </a>
+            </div>
+        </div>
+</body>
+</html>

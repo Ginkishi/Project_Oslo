@@ -66,7 +66,7 @@ a {
     justify-content: center;
 }
 .main form .input-field input,
-.main form .input-field select {
+.main form .input-field select{
     height: 45px;
     outline: none;
     padding: 5px 10px;
@@ -80,6 +80,24 @@ a {
     font-weight: 600;
     font-family: "Poppins", sans-serif;
 }
+
+.main form .input-field textarea{
+    height: 45px;
+    outline: none;
+    padding: 5px 10px;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+    min-width: 320px;
+    width: 700px;
+    min-height: 200px;
+    height: 200px;
+    color: #7952b3;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+}
+
 .main form .input-field label {
     color: #1d1d1ddc;
     font-size: 1.3rem;
@@ -182,6 +200,7 @@ td > .buttons > a .btn.btn-danger:hover {
 .table tbody td {
     border-bottom: 1px solid gray;
     padding: 10px 30px;
+    text-align: center;
 }
 
 .table tbody tr:nth-child(even) {
@@ -210,6 +229,18 @@ td > .buttons > a .btn.btn-danger:hover {
 .main a:hover .btn.btn-primary {
     background-color: #0d47a1;
 }
+
+.catalog{
+    display: flex;
+    margin-top: 75px;
+    padding: 0px 5px;
+}
+.tree{
+    min-width: 355px;
+    box-shadow: 0px 0px 10px 2px black;
+    min-height: 90vh;
+}
+
 @media screen and (max-width: 720px) {
     .main form .input-field {
         grid-template-columns: 320px;
