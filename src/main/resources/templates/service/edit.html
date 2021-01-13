@@ -15,7 +15,7 @@
 
             <h1>Services</h1>
 
-            <form  th:action="@{''}" th:object="${service}" method="post" role="form">
+            <form  th:action="@{''}" th:object="${service}" method="post" role="form" enctype="multipart/form-data">
 
                 <input type="hidden" th:field="*{id}" />
                 <div class="input-field">
@@ -33,7 +33,17 @@
                     <select th:field="*{categorie}" id="categorie">
                         <option th:each="categorie : ${categories}" th:value="${categorie.id}" th:text="${categorie.libelle}"></option>
                     </select>
-                </div>                        
+                </div>
+                
+                <div class="input-field">
+                    <label for="image">Image</label>
+                    <input type="file" name="file"/>
+                    <div class="logo" th:if="*{image != null}">
+                        <img th:src="@{'~/upload/' + *{image}}"  alt="" width='200' height='200'>
+                        <a th:href="@{'/service/deleteIMG/' + *{id}}"><div class="btn btn-danger">Supprimer image</div></a>
+                    </div>
+                </div>
+                
                 <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></span>
                 <div class="input-field">
                     <label for="categorie">Priorité</label>

@@ -16,27 +16,28 @@
                         <h2 class="title">Inscription</h2>
                         <div class="input-field">
                             <i class="bx bxs-user"></i>
-                            <input type="text"  th:field="*{nom}"  id="nom" placeholder="Nom">
+                            <input type="text"  th:field="*{nom}"  id="nom" placeholder="Nom *">
                         </div>
                         <span th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}" class="error-msg" />  
                         <div class="input-field">
                             <i class="bx bxs-user"></i>
-                            <input type="text" placeholder="Prenom" th:field="*{prenom}"  id="prenom">                          
+                            <input type="text" placeholder="Prenom *" th:field="*{prenom}"  id="prenom">                          
                         </div>
                         <span th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}" class="error-msg" />  
                         <div class="input-field">
                             <i class="bx bxs-map"></i>
-                            <input type="text" placeholder="Adresse" th:field="*{adresse}"  id="adresse">                           
+                            <input type="text" placeholder="Adresse *" th:field="*{adresse}"  id="adresse">                           
                         </div>
                         <span th:if="${#fields.hasErrors('adresse')}" th:errors="*{adresse}" class="error-msg" />  
                         <div class="input-field">
                             <i class="bx bxs-map"></i>
-                            <input type="text" placeholder="Email" th:field="*{email}"  id="email">                           
+                            <input type="text" placeholder="Email *" th:field="*{email}"  id="email">                           
                         </div>
                         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-msg" />
                         <div class="input-field">
                             <i class="bx bxs-building"></i>
                             <select name="" id="" >
+                                <option value="0">Veuillez sélectionner un département</option>
                                 <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.libelle}"></option>
                             </select>
                         </div>
@@ -48,17 +49,17 @@
                         </div>
                         <div class="input-field">
                             <i class="bx bxs-user"></i>
-                            <input type="text" placeholder="Nom d'utilisateur" th:field="*{username}"  id="username">
+                            <input type="text" placeholder="Nom d'utilisateur *" th:field="*{username}"  id="username">
                         </div>
                         <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" class="error-msg" />
                         <div class="input-field">
                             <i class="bx bxs-lock"></i>
-                            <input type="password" placeholder="Mot de passe" th:field="*{password}"  id="password">
+                            <input type="password" placeholder="Mot de passe *" th:field="*{password}"  id="password">
                         </div>
                         <span th:if="${#fields.hasErrors('password')}" th:errors="*{password}" class="error-msg" />
                         <div class="input-field">
                             <i class="bx bxs-lock"></i>
-                            <input type="password" placeholder="Confirmer le mot de passe" th:field="*{confirmPassword}"  id="confirmPassword">
+                            <input type="password" placeholder="Confirmer le mot de passe *" th:field="*{confirmPassword}"  id="confirmPassword">
                         </div>
                         <span th:if="${#fields.hasErrors('confirmPassword')}" th:errors="*{confirmPassword}" class="error-msg" />
                         <input type="submit" value="S'inscrire" class="btn solid">
