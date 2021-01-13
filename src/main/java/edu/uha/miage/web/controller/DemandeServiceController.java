@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.DemandeServices;
@@ -17,8 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -36,7 +29,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 @RequestMapping("/demandeService")
 public class DemandeServiceController {
-    private static final Logger LOGGER = LoggerFactory.getLogger(DemandeServiceController.class);
     @Autowired
     DemandeServiceService demandeServiceService;
 
@@ -97,6 +89,7 @@ public class DemandeServiceController {
     public String edited(@Valid DemandeServices ds, BindingResult br, Model model) {
         DemandeServices deman = demandeServiceService.findById(ds.getId()).get();
         
+        // One trick little pony
         if(ds.getSujet().length() >= 2 && ds.getSujet().length() <= 50)     
             deman.setSujet(ds.getSujet());
         deman.setDescription(ds.getDescription());
