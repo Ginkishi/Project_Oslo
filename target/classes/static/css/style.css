@@ -229,6 +229,13 @@ td > .buttons > a .btn.btn-danger:hover {
 .main a:hover .btn.btn-primary {
     background-color: #0d47a1;
 }
+
+.catalog{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 75px;
+    padding: 10px 20px;
+}
 @media screen and (max-width: 720px) {
     .main form .input-field {
         grid-template-columns: 320px;

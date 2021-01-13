@@ -1,0 +1,99 @@
+const buttons = document.querySelectorAll("span");
+
+
+
+buttons.forEach(b => {
+    b.addEventListener("click", (e) => {
+        if (b == e.target) {
+            let target = e.target;
+            let ul = target.querySelector("ul");
+            if (ul == null) {
+                target.parentNode.classList.toggle("hide");
+                let i = target.querySelector("i");
+                i.classList.toggle("bxs-folder");
+                i.classList.toggle("bxs-folder-open");
+                let parent = target.parentNode;
+                let cat_id = parent.getAttribute("cat_id");
+                fetch("/child/" + cat_id).then(result => {
+                    return result.json();
+                }).then(data => {
+                    if (data.length <= 0) {
+                        console.log("vide")
+                    } else {
+                        target.appendChild(genereTree(data));
+                    }
+                })
+            } else {
+                target.parentNode.classList.toggle("hide");
+                let i = target.querySelector("i");
+                i.classList.toggle("bxs-folder");
+                i.classList.toggle("bxs-folder-open");
+            }
+        }
+    })
+});
+
+function genereTree(child) {
+    let ul = document.createElement("ul");
+    child.forEach(c => {
+        let li = document.createElement("li");
+        let a = document.createElement("div");
+        let span = document.createElement("span");
+        let i = document.createElement("i");
+        a.setAttribute("cat_id", c.id);
+
+        let text = document.createTextNode(" " + c.libelle);
+        i.classList.add("bx");
+        if (c.leaf) {
+            a.classList.add("leaf");
+            i.classList.add("bxs-circle");
+             span.addEventListener("click", findService);
+        } else {
+            a.classList.add("branch");
+            a.classList.add("hide");
+            i.classList.add("bxs-folder");
+            span.addEventListener("click", subTree);
+        }
+        span.appendChild(i);
+        span.appendChild(text);
+        a.appendChild(span);
+        li.appendChild(a);
+        ul.appendChild(li);
+    });
+    return ul;
+}
+
+function subTree(element) {
+    let el = element.target;
+
+    if (el.parentNode.classList.contains("branch")) {
+        let i = el.querySelector("i");
+        i.classList.toggle("bxs-folder");
+        i.classList.toggle("bxs-folder-open");
+        //el = el.parentNode;
+        let ul = el.querySelector("ul");
+        if (ul == null) {
+            el.parentNode.classList.toggle("hide");
+            let parent = el.parentNode;
+            let cat_id = parent.getAttribute("cat_id");
+            fetch("/child/" + cat_id).then(result => {
+                return result.json();
+            }).then(data => {
+                if (data.length <= 0) {
+                    console.log("salut")
+                } else {
+                    el.appendChild(genereTree(data));
+                }
+            })
+        } else {
+            el.parentNode.classList.toggle("hide");
+        }
+    }
+
+    element.stopPropagation();
+}
+function findService(element){
+    if(element.target.parentNode.classList.contains("leaf")){
+        console.log("recherche");
+    }
+}

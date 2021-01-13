@@ -97,5 +97,15 @@ public class Categorie {
        
         return libelle;
     }
+    
+    public String toJson(){
+        System.out.println(enfants);
+        if(enfants.size()<=0){
+                    return "{\"id\":"+id+", \"libelle\":"+"\""+libelle+"\", \"leaf\":true"+"}";
+        }else{
+            return "{\"id\":"+id+", \"libelle\":"+"\""+libelle+"\", \"leaf\":false"+"}";
+        }
+
+    }
 
 }
