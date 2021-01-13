@@ -18,14 +18,14 @@
                     <tr>
                         <th>Nom</th>
 
-                        <th>Action</th>
+                        <!--<th>Action</th>-->
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="statutDemande : ${statutDemandes}">
                         <td th:text="${statutDemande.libelle}"></td>
 
-                        <td>
+                        <!--<td>
                             <div class="buttons">
                                 <a th:href="@{/statutDemande/edit(id=${statutDemande.id})}">
                                     <div class="btn btn-warning">Editer</div>
@@ -34,7 +34,7 @@
                                     <div class="btn btn-danger">Supprimer</div>
                                 </a>
                             </div>
-                        </td>
+                        </td>-->
                     </tr>                   
                 </tbody>
             </table>

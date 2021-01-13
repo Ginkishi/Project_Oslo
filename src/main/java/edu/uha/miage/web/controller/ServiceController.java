@@ -7,6 +7,7 @@ package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Services;
 import edu.uha.miage.core.service.CategorieService;
+import edu.uha.miage.core.service.FonctionService;
 import edu.uha.miage.core.service.ServiceService;
 import edu.uha.miage.core.service.StorageService;
 import javax.validation.Valid;
@@ -29,17 +30,21 @@ import org.springframework.web.multipart.MultipartFile;
 @Controller
 @RequestMapping("/service")
 public class ServiceController {
+
     @Autowired
     ServiceService serviceService;
 
     @Autowired
     CategorieService categorieService;
-    
+
+    @Autowired
+    FonctionService fonctionService;
+
     private final StorageService storageService;
-    
+
     @Autowired
     public ServiceController(StorageService storageService) {
-            this.storageService = storageService;
+        this.storageService = storageService;
     }
 
     @RequestMapping(method = RequestMethod.GET)
@@ -53,26 +58,23 @@ public class ServiceController {
         Services service = new Services();
         model.addAttribute("service", service);
         model.addAttribute("categories", categorieService.findByEnfantsIsNull());
+        model.addAttribute("fonctions", fonctionService.findAll());
         return "service/edit";
     }
 
     @PostMapping("/create")
-    public String created(@RequestParam(name = "file", required=false) MultipartFile file, @Valid Services service, BindingResult br, Model model) {        
+    public String created(@RequestParam(name = "file", required = false) MultipartFile file, @Valid Services service, BindingResult br, Model model) {
         if (br.hasErrors()) {
             model.addAttribute("categories", categorieService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
             return "service/edit";
-        }
-        else
-        {
+        } else {
 
-            if(!file.isEmpty()) {
-
+            if (!file.isEmpty()) {
 
                 storageService.store(file);
                 service.setImage(file.getOriginalFilename());
-            }
-            else
-            {
+            } else {
                 service.setImage(null);
             }
         }
@@ -84,26 +86,26 @@ public class ServiceController {
     public String edit(@RequestParam(name = "id") Long id, Model model) {
         model.addAttribute("service", serviceService.findById(id).get());
         model.addAttribute("categories", categorieService.findAll());
+        model.addAttribute("fonctions", fonctionService.findAll());
         return "service/edit";
     }
 
     @PostMapping("/edit")
-    public String edited(@RequestParam(name = "file", required=false) MultipartFile file, @Valid Services service, BindingResult br, Model model) {
+    public String edited(@RequestParam(name = "file", required = false) MultipartFile file, @Valid Services service, BindingResult br, Model model) {
         if (br.hasErrors()) {
             model.addAttribute("categories", categorieService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
             return "service/edit";
-        }
-        else {
+        } else {
             // Si on a recu une image
-            if(!file.isEmpty()) {
+            if (!file.isEmpty()) {
                 storageService.store(file);
                 service.setImage(file.getOriginalFilename());
-            }
-            else {
+            } else {
                 Services s = serviceService.findById(service.getId()).get();
                 service.setImage(s.getImage());
             }
-             
+
             serviceService.save(service);
             return "redirect:/service";
         }
@@ -114,13 +116,13 @@ public class ServiceController {
         serviceService.delete(id);
         return "redirect:/service";
     }
-    
+
     @GetMapping("/deleteIMG/{id}")
     public String deleteIMG(@PathVariable("id") Long id) {
         Services s = serviceService.findById(id).get();
         s.setImage(null);
         serviceService.save(s);
-        
+
         return "redirect:/service/edit?id=" + id;
     }
 }
