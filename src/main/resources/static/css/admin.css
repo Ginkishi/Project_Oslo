@@ -51,3 +51,16 @@
 .branch>span>ul {
     margin-left: 30px;
 }
+.tree span{
+    cursor: pointer;
+}
+
+.catalog .card-container .card .logo{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.catalog .card-container .card .logo img{
+    width: 180px;
+    height: 180px;
+}
