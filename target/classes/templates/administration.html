@@ -13,50 +13,50 @@ and open the template in the editor.
 <body>
     <div th:replace="fragments/menu"></div>
 
-<div class="main">
-            <h1>Listes</h1>
-            <div class="card-container">
-                <a th:href="@{/categorie}" class="card">
-                    <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
-                    <div class="title">Catégories</div>
-                </a>
-                <a th:href="@{/personne}" class="card">
-                    <div class="logo"><img th:src="@{static/img/personal_data_.svg}"  alt=""></div>
-                    <div class="title">Personne</div>
-                </a>
-                <a th:href="@{/compte}" class="card">
-                    <div class="logo"><img th:src="@{static/img/data_organization_monochromatic.svg}"  alt=""></div>
-                    <div class="title">Comptes</div>
-                </a>
-                <a th:href="@{/departement}" class="card">
-                    <div class="logo"><img th:src="@{static/img/manager_.svg}"  alt=""></div>
-                    <div class="title">Départements</div>
-                </a>
-                <a th:href="@{/domaine}" class="card">
-                    <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
-                    <div class="title">Domaines</div>
-                </a>
-                <a th:href="@{/fonction}" class="card">
-                    <div class="logo"><img th:src="@{static/img/ceo.svg}"  alt=""></div>
-                    <div class="title">Fonctions</div>
-                </a>
-                <a th:href="@{/incident}" class="card">
-                    <div class="logo"><img th:src="@{static/img/it_support.svg}"  alt=""></div>
-                    <div class="title">Incidents</div>
-                </a>
-                <a th:href="@{/role}" class="card">
-                    <div class="logo"><img th:src="@{static/img/user_group.svg}"  alt=""></div>
-                    <div class="title">Rôles</div>
-                </a>
-                <a th:href="@{/service}" class="card">
-                    <div class="logo"><img th:src="@{static/img/customer_service.svg}"  alt=""></div>
-                    <div class="title">Services</div>
-                </a>
-                <a th:href="@{/statutDemande}" class="card">
-                    <div class="logo"><img th:src="@{static/img/completed_task_.svg}"  alt=""></div>
-                    <div class="title">Statut des demandes</div>
-                </a>
-            </div>
+    <div class="main">
+        <h1>Adminstration</h1>
+        <div class="card-container">
+            <a th:href="@{/categorie}" class="card">
+                <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                <div class="title">Catégories</div>
+            </a>
+            <a th:href="@{/compte}" class="card">
+                <div class="logo"><img th:src="@{static/img/data_organization_monochromatic.svg}"  alt=""></div>
+                <div class="title">Comptes</div>
+            </a>
+            <a th:href="@{/departement}" class="card">
+                <div class="logo"><img th:src="@{static/img/manager_.svg}"  alt=""></div>
+                <div class="title">Départements</div>
+            </a>
+            <a th:href="@{/domaine}" class="card">
+                <div class="logo"><img th:src="@{static/img/data_collecting_monochromatic.svg}"  alt=""></div>
+                <div class="title">Domaines</div>
+            </a>
+            <a th:href="@{/fonction}" class="card">
+                <div class="logo"><img th:src="@{static/img/ceo.svg}"  alt=""></div>
+                <div class="title">Fonctions</div>
+            </a>
+            <a th:href="@{/incident}" class="card">
+                <div class="logo"><img th:src="@{static/img/it_support.svg}"  alt=""></div>
+                <div class="title">Incidents</div>
+            </a>
+            <a th:href="@{/personne}" class="card">
+                <div class="logo"><img th:src="@{static/img/personal_data_.svg}"  alt=""></div>
+                <div class="title">Personne</div>
+            </a>
+            <a th:href="@{/role}" class="card">
+                <div class="logo"><img th:src="@{static/img/user_group.svg}"  alt=""></div>
+                <div class="title">Rôles</div>
+            </a>
+            <a th:href="@{/service}" class="card">
+                <div class="logo"><img th:src="@{static/img/customer_service.svg}"  alt=""></div>
+                <div class="title">Services</div>
+            </a>
+            <a th:href="@{/statutDemande}" class="card">
+                <div class="logo"><img th:src="@{static/img/completed_task_.svg}"  alt=""></div>
+                <div class="title">Statut des demandes</div>
+            </a>
         </div>
+    </div>
 </body>
 </html>
