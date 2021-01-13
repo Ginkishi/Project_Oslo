@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.config;
 
+import edu.uha.miage.core.service.impl.UserDetailsServiceImpl;
 import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
@@ -19,7 +15,7 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 /**
  *
  * @author victo
- * @Modified Quentin
+ * @Modified Psyrkoz
  */
 @Configuration
 @EnableWebSecurity
@@ -28,10 +24,14 @@ import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
     
     @Autowired
+    private UserDetailsServiceImpl userDetailService;
+    
+    @Autowired
     private DataSource dataSource;
     
     @Autowired
     public void configAuthentification(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailService);
         auth.jdbcAuthentication().passwordEncoder(PasswordEncoderFactories.createDelegatingPasswordEncoder())
                 .dataSource(dataSource)
                 .usersByUsernameQuery("SELECT username, password, 'true' FROM compte WHERE username=?")
@@ -43,10 +43,22 @@ public class WebSecurityConfigProd extends WebSecurityConfigurerAdapter {
         http.authorizeRequests()
                 .antMatchers("/inscription").permitAll()
                 .antMatchers("/static/**").permitAll()
+                .antMatchers("/administration").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/personne").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/compte").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/categorie").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/departement").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/domaine").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/fonction").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/incident").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/role").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/service").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/statutDemande").hasAuthority("ROLE_ADMIN")
+                .antMatchers("/viewDemandes").hasAnyAuthority("ROLE_ADMIN", "ROLE_INTERVENANT")
+                .antMatchers("/demandes/**/cloture").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
-                //.formLogin().permitAll()
                 .and()
                 .logout().permitAll();
     }

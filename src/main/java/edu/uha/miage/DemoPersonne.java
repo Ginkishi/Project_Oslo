@@ -12,9 +12,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
-@Order(2)
+@Order(4)
 @Component
 public class DemoPersonne implements CommandLineRunner {
 

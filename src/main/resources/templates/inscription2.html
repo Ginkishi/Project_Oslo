@@ -34,17 +34,18 @@
                             <input type="text" placeholder="Email *" th:field="*{email}"  id="email">                           
                         </div>
                         <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}" class="error-msg" />
-                        <div class="input-field">
+                        <!--<div class="input-field">
                             <i class="bx bxs-building"></i>
-                            <select name="" id="" >
+                            <select name="" id="departement" >
                                 <option value="0">Veuillez sélectionner un département</option>
                                 <option th:each="departement : ${departements}" th:value="${departement.id}" th:text="${departement.libelle}"></option>
                             </select>
-                        </div>
-                        <div class="input-field">
+                        </div>-->
+                        <div class="input-field select">
                             <i class="bx bx-id-card"></i>
-                            <select name="" id="" >
-                                <option value="">Secrétaire</option>
+                            <select th:field="*{fonctions}" name="" id="fonction" multiple>
+                                <option value="0">Veuillez sélectionner une fonction</option>
+                                <option th:each="fonction : ${fonctions}" th:value="${fonction.id}" th:text="${fonction.full}"></option>
                             </select>
                         </div>
                         <div class="input-field">
@@ -77,5 +78,6 @@
                 </div>
             </div>
         </div>
+        <script th:src="@{static/js/register.js}"></script>
     </body>
 </html>

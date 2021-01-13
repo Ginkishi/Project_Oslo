@@ -2,7 +2,9 @@ package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,7 +15,6 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Max;
@@ -23,7 +24,7 @@ import javax.validation.constraints.Size;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Entity
 @Table(uniqueConstraints = {
@@ -48,18 +49,18 @@ public class Incident implements Serializable {
     private Domaine domaine;
     
 
-    /*@ManyToMany(mappedBy = "typeIncidents")
-    List<Fonction> fonctions;*/
-
+    
     @OneToMany(mappedBy = "incident")
     private List<DemandeIncident> demandeIncidents;
 
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
         name = "fonction_occupe_incident", 
-        joinColumns = @JoinColumn(name = "incident_id"), 
-        inverseJoinColumns = @JoinColumn(name = "fonction_id"))
+        joinColumns = @JoinColumn(name = "incident_id",referencedColumnName = "id",
+                            nullable = false), 
+        inverseJoinColumns = @JoinColumn(name = "fonction_id",referencedColumnName = "id",
+                            nullable = false))
     private List<Fonction> fonctionOccupe;
 
     
@@ -109,13 +110,7 @@ public class Incident implements Serializable {
         return this.libelle;
     }
 
-   /* public List<Fonction> getFonctions() {
-        return fonctions;
-    }
-
-    public void setFonctions(List<Fonction> fonctions) {
-        this.fonctions = fonctions;
-*/
+   
 
     public List<Fonction> getFonctionOccupe() {
         return fonctionOccupe;

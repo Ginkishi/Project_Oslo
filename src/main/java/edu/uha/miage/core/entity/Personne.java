@@ -8,35 +8,29 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 public class Personne implements Serializable {
 
-    // #### V0.0 Pour définir l'identifiant de la table.
     @Id
-    // #### V0.0 Pour laisser à Spring le soin de générer un identifiant unique.
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Personne
     private String nom;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Prénom de la Personne
     private String prenom;
 
 
-    // Adresse de la Personne
     private String adresse;
 
-    // Email de la Personne
     private String email;
 
     @ManyToMany(mappedBy = "occupationDePersonne")
@@ -45,6 +39,10 @@ public class Personne implements Serializable {
         @OneToMany(mappedBy = "createur")
     private List<Demande> demandes;
     
+        
+    @ManyToMany(mappedBy = "intervenants")
+    List<Demande> demandeIntervenu;
+        
     public Personne(String nom, String prenom, String adresse, String email) {
         this.nom = nom;
         this.prenom = prenom;
@@ -116,6 +114,14 @@ public class Personne implements Serializable {
 
     public void setDemandes(List<Demande> demandes) {
         this.demandes = demandes;
+    }
+
+    public List<Demande> getDemandeIntervenu() {
+        return demandeIntervenu;
+    }
+
+    public void setDemandeIntervenu(List<Demande> demandeIntervenu) {
+        this.demandeIntervenu = demandeIntervenu;
     }
 
     

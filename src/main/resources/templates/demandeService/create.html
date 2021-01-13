@@ -18,6 +18,12 @@
                 <input id="service" type="text" th:field="*{service}" hidden/>
                 
                 <div class="input-field">
+                    <label for="servicename">
+                    <input id="servicename" type="text" th:field="*{service.libelle}" disabled/>
+                </div>
+                
+                
+                <div class="input-field">
                     <label for="sujet">Sujet</label>
                     <input id="sujet" type="text" th:field="*{sujet}" />
                 </div>

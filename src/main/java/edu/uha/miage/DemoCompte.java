@@ -17,9 +17,9 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
-@Order(3)
+@Order(5)
 @Component
 public class DemoCompte implements CommandLineRunner {
 

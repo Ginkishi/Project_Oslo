@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.DemandeServices;
@@ -17,8 +12,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import javax.validation.Valid;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -31,14 +24,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author quentin
+ * @author Psyrkoz
  */
 @Controller
+
+// ("/demandes/service")
+
 @RequestMapping("/demandeService")
 public class DemandeServiceController {
-
-    private final Logger LOGGER = LoggerFactory.getLogger(DemandeServiceController.class);
-
     @Autowired
     DemandeServiceService demandeServiceService;
 
@@ -69,7 +62,6 @@ public class DemandeServiceController {
     @PostMapping("/create")
     public String create(@Valid DemandeServices ds, BindingResult br, Model model) {
         if (br.hasErrors()) {
-            LOGGER.error(br.getAllErrors().toString());
             return "redirect:catalogue/list.html";
         } else {
             Optional<Services> svc = serviceService.findById(ds.getService().getId());
@@ -81,6 +73,8 @@ public class DemandeServiceController {
         return "home.html";
     }
 
+   
+    
     @GetMapping
     public String mesDemandes(Model model) {
         Personne userPersonne = compteService.findByUsername(SecurityContextHolder.getContext().getAuthentication().getName()).getPersonne();
@@ -88,5 +82,28 @@ public class DemandeServiceController {
 
         model.addAttribute("demandes", demandes);
         return "demandeService/list.html";
+    }
+    
+    @GetMapping("/edit")
+    public String edit(@RequestParam(name = "id") Long id, Model model) {
+        DemandeServices d = demandeServiceService.findById(id).get();
+        if (d.getDate_cloture() == null) {
+            model.addAttribute("demandeService", demandeServiceService.findById(id));
+            return "demandeService/edit";
+        }
+        return "redirect:/home";
+    }
+    
+    @PostMapping("/edit")
+    public String edited(@Valid DemandeServices ds, BindingResult br, Model model) {
+        DemandeServices deman = demandeServiceService.findById(ds.getId()).get();
+        if (deman.getDate_cloture() == null) {
+            // One trick little pony
+            if(ds.getSujet().length() >= 2 && ds.getSujet().length() <= 50)     
+                deman.setSujet(ds.getSujet());
+            deman.setDescription(ds.getDescription());
+            demandeServiceService.save(deman);
+        }
+        return "redirect:/demandeService";
     }
 }

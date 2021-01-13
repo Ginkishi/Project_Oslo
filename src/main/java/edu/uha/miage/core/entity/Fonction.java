@@ -1,13 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,18 +28,12 @@ public class Fonction implements Serializable {
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Fonction
     private String libelle;
 
     @ManyToOne
     private Departement departement;
 
-    @ManyToMany
-    @JoinTable(
-            name = "occupeIncident",
-            joinColumns = @JoinColumn(name = "fonction_id"),
-            inverseJoinColumns = @JoinColumn(name = "incident_id"))
-    List<Incident> typeIncidents;
+    
 
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Services> occupeServices;
@@ -50,11 +41,13 @@ public class Fonction implements Serializable {
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Incident> occupeIncident;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "personne_occupe_fonction",
-            joinColumns = @JoinColumn(name = "fonction_id"),
-            inverseJoinColumns = @JoinColumn(name = "personne_id"))
+            joinColumns = @JoinColumn(name = "fonction_id",referencedColumnName = "id",
+                            nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "personne_id",referencedColumnName = "id",
+                            nullable = false))
     private List<Personne> occupationDePersonne;
 
     public Fonction(String libelle) {
@@ -63,7 +56,7 @@ public class Fonction implements Serializable {
 
     public Fonction(String libelle, Departement departement) {
         this.libelle = libelle;
-        this.departement =  departement;
+        this.departement = departement;
     }
 
     public Fonction() {
@@ -122,5 +115,13 @@ public class Fonction implements Serializable {
 
         return libelle;
 
+    }
+    
+    public String getFull(){
+         return departement +" - "+ libelle;
+    }
+
+    public String toJson() {
+        return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\"}";
     }
 }

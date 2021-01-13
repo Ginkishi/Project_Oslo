@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.entity;
 
+import edu.uha.miage.config.SecurityUser;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,12 +10,16 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+import org.springframework.security.core.userdetails.UserDetails;
 
 /**
  *
  * @author victo
  */
 @Entity
+@OnDelete(action = OnDeleteAction.CASCADE)
 public class Compte implements Serializable {
 
     @Id
@@ -28,12 +28,10 @@ public class Compte implements Serializable {
 
     @NotNull
     @Size(max = 25)
-    // Nom d'utilisateur
     private String username;
 
     @NotNull
     @Size(min = 8)
-    // Mot de passe
     private String password;
     
     @ManyToOne
@@ -95,5 +93,7 @@ public class Compte implements Serializable {
         this.role = role;
     }
 
-    
+    public UserDetails currentDetails() {
+        return SecurityUser.create(this);
+    }
 }

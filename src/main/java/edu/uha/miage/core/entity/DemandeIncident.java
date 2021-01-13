@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
@@ -14,17 +9,18 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 import javax.validation.constraints.NotNull;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 /**
  *
- * @author Lilian
+ * @author GreyFox
  */
 @Entity
 public class DemandeIncident extends Demande implements Serializable {
 
     @NotNull
     private String localisation;
-
 
 
     @ManyToOne

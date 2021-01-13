@@ -1,19 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.DemandeIncident;
-import edu.uha.miage.core.entity.Incident;
 import edu.uha.miage.core.service.CompteService;
 import edu.uha.miage.core.service.DemandeIncidentService;
 import edu.uha.miage.core.service.DomaineService;
 import edu.uha.miage.core.service.FonctionService;
 import edu.uha.miage.core.service.IncidentService;
 import edu.uha.miage.core.service.StatutDemandeService;
-import java.time.LocalDate;
 import java.util.Date;
 import java.util.List;
 import javax.validation.Valid;
@@ -22,10 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.FieldError;
-import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -36,6 +26,9 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Kalictong
  */
 @Controller
+
+// ("/demandes/incident")
+
 @RequestMapping("/demande/incident")
 public class DemandeIncidentController {
 
@@ -92,11 +85,15 @@ public class DemandeIncidentController {
 
     @GetMapping("/edit")
     public String edit(@RequestParam(name = "id") Long id, Model model) {
-        model.addAttribute("demandeIncident", demandeIncidentService.findById(id).get());
-        model.addAttribute("incidents", incidentService.findAll());
-        model.addAttribute("domaines", domaineService.findAll());
-        model.addAttribute("fonctions", fonctionService.findAll());
-        return "demande/edit";
+        DemandeIncident d = demandeIncidentService.findById(id).get();
+        if (d.getDate_cloture() == null) {
+            model.addAttribute("demandeIncident", demandeIncidentService.findById(id).get());
+            model.addAttribute("incidents", incidentService.findAll());
+            model.addAttribute("domaines", domaineService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
+            return "demande/edit";
+        }
+        return "redirect:/home";
     }
 
     @PostMapping("/edit")
@@ -107,14 +104,10 @@ public class DemandeIncidentController {
             model.addAttribute("fonctions", fonctionService.findAll());
             return "demande/edit";
         }
-
-        demandeIncidentService.save(demandeIncident);
+        
+        if (demandeIncident.getDate_cloture() == null) 
+            demandeIncidentService.save(demandeIncident);
         return "redirect:/demande/incident";
     }
 
-    @GetMapping("/cloture/{id}")
-    public String cloture(@PathVariable("id") Long id) {
-        demandeIncidentService.cloture(id);
-        return "redirect:/demande/incident";
-    }
 }

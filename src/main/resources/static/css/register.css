@@ -120,6 +120,13 @@ form.sign-up-form {
     font-size: 1.1rem;
     color: #333;
 }
+.input-field.select {
+        height: 85px;
+}
+
+.input-field select[multiple] {
+     height: 85px;
+}
 .input-field input::placeholder {
     color: #aaa;
     font-weight: 500;

@@ -1,12 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package edu.uha.miage.model;
 
+import edu.uha.miage.core.entity.Fonction;
 import edu.uha.miage.core.entity.Role;
 import java.io.Serializable;
+import java.util.List;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -19,15 +16,15 @@ import org.passay.PasswordData;
 public class Inscription implements Serializable {
 
     @NotNull
-    @Size(min = 2, max = 25, message ="Le nom d'utilisateur doit être entre 2 et 25 caractères")
+    @Size(min = 2, max = 25, message = "Le nom d'utilisateur doit être entre 2 et 25 caractères")
     private String username;
 
     @NotNull
-    @Size(min = 8, message ="Le mot de passe doit être de minimum 8 caractères")
+    @Size(min = 8, message = "Le mot de passe doit être de minimum 8 caractères")
     private String password;
 
     @NotNull
-    @Size(min = 8, message ="Le mot de passe doit être pareil")
+    @Size(min = 8, message = "Le mot de passe doit être pareil")
 
     private String confirmPassword;
 
@@ -35,24 +32,22 @@ public class Inscription implements Serializable {
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Personne
     private String nom;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Prénom de la Personne
     private String prenom;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Adresse de la Personne
     private String adresse;
 
     @Email
     @NotNull
     @Size(min = 2, max = 50)
-    // Email de la Personne
     private String email;
+
+    private List<Fonction> fonctions;
 
     public boolean isSafe() {
         passwordData = new PasswordData(username, password);
@@ -121,5 +116,15 @@ public class Inscription implements Serializable {
     public void setEmail(String email) {
         this.email = email;
     }
+
+    public List<Fonction> getFonctions() {
+        return fonctions;
+    }
+
+    public void setFonctions(List<Fonction> fonctions) {
+        this.fonctions = fonctions;
+    }
+    
+    
 
 }

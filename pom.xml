@@ -86,7 +86,14 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
+        
+        <!-- Spring thymeleaf extra -->
+        <dependency>
+            <groupId>org.thymeleaf.extras</groupId>
+            <artifactId>thymeleaf-extras-springsecurity5</artifactId>
+            <version>3.0.4.RELEASE</version>
+        </dependency>
+        
         <!-- JPA -->
         <dependency><!-- OK -->
             <groupId>org.springframework.boot</groupId>

@@ -18,18 +18,18 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Controller
 @RequestMapping("/incident")
 public class IncidentController {
-    
+
     @Autowired
     IncidentService incidentService;
 
     @Autowired
     DomaineService domaineService;
-    
+
     @Autowired
     FonctionService fonctionService;
 
@@ -71,6 +71,7 @@ public class IncidentController {
     public String edited(@Valid Incident incident, BindingResult br, Model model) {
         if (br.hasErrors()) {
             model.addAttribute("categories", domaineService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
             return "service/edit";
         }
 

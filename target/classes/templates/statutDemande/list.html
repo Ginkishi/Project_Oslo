@@ -3,12 +3,12 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Statuts des demandes</title>
-        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
         <div th:replace="fragments/menu"></div>
         <div class="main">
-             <h1>Listes des statuts de demande</h1>
+            <h1>Listes des statuts de demande</h1>
             <a th:href="@{/statutDemande/create}">
                 <div class="btn btn-primary">Ajouter un statut de demande
                 </div>
@@ -18,23 +18,14 @@
                     <tr>
                         <th>Nom</th>
 
-                        <th>Action</th>
+
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="statutDemande : ${statutDemandes}">
                         <td th:text="${statutDemande.libelle}"></td>
 
-                        <td>
-                            <div class="buttons">
-                                <a th:href="@{/statutDemande/edit(id=${statutDemande.id})}">
-                                    <div class="btn btn-warning">Editer</div>
-                                </a>
-                                <a  th:href="@{'/statutDemande/delete/' + ${statutDemande.id}}">
-                                    <div class="btn btn-danger">Supprimer</div>
-                                </a>
-                            </div>
-                        </td>
+
                     </tr>                   
                 </tbody>
             </table>
