@@ -20,6 +20,7 @@
         <java.version>1.8</java.version>
         <jaxb.version>2.3.0</jaxb.version>
         <project.name>Project_Oslo</project.name>
+        <start-class>edu.uha.miage.Application</start-class>
     </properties>
     
     <profiles>

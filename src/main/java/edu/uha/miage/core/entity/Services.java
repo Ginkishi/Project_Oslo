@@ -5,6 +5,7 @@
  */
 package edu.uha.miage.core.entity;
 
+import java.io.File;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.Entity;
@@ -47,7 +48,8 @@ public class Services implements Serializable {
     @Max(10)
     private int priorite;
 
-    //private String image;
+    private String image;
+
     @NotNull
     private String placeholder;
 
@@ -67,11 +69,12 @@ public class Services implements Serializable {
     public Services() {
     }
 
-    public Services(String libelle, int priorite, String placeholder, Categorie categorie) {
+    public Services(String libelle, int priorite, String placeholder, String image, Categorie categorie) {
         this.libelle = libelle;
         this.priorite = priorite;
         this.placeholder = placeholder;
         this.categorie = categorie;
+        this.image = image;
     }
 
     public Long getId() {
@@ -96,6 +99,14 @@ public class Services implements Serializable {
 
     public void setPriorite(int priorite) {
         this.priorite = priorite;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public String getPlaceholder() {
@@ -136,8 +147,12 @@ public class Services implements Serializable {
     }
 
     public String toJson() {
+        if (image != null) {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\",\"image\":\"" + image + "\"}";
+        } else {
+            return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\",\"image\":\"" + "null" + "\"}";
 
-        return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\"}";
+        }
 
     }
 

@@ -118,7 +118,12 @@ function findService(element) {
                 let text = document.createTextNode(d.libelle);
                 title.appendChild(text);
                 let img = document.createElement("img");
-                img.setAttribute("src", "static/img/data_collecting_monochromatic.svg");
+                if (d.image == "null") {
+                    img.setAttribute("src", "static/img/data_collecting_monochromatic.svg");
+                } else {
+                    img.setAttribute("src", "/upload/" + d.image);
+                }
+
                 img.setAttribute("alt", "");
                 logo.appendChild(img);
                 card.setAttribute("href", "/demandeService/createDemandeServiceFromCatalogue?serviceName=" + d.libelle);
