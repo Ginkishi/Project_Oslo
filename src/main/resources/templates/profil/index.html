@@ -3,7 +3,7 @@
     <head>
     <div th:replace="fragments/common :: [//div[@id='head']]"></div>
     <title>OSLO - Accueil</title>
-            <link rel="stylesheet" type="text/css" th:href="@{/static/css/profil.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/static/css/profil.css}" />
     <head/>
     <body>
         <div th:replace="fragments/menu"></div>
@@ -32,15 +32,15 @@
                     </a> -->
                 </div>
             </div>
-                      <!--  <h2>FONCTION(S)</h2>
-  <div class="fonction-container">
+            <h2>FONCTION(S)</h2>
+            <div class="fonction-container">
                 <div class="flex">
-                    <div class="fonction">
+                    <div class="fonction"  th:each="fonction : ${compte.personne.occupations}">
                         <div class="img"><img th:src="@{static/img/hero_employee_.svg}"  alt=""></div>
-                        Developpeur
+                        <span th:remove="tag" th:text="${fonction.libelle}"></span>
                     </div>
                 </div>
-            </div> -->
+            </div> 
         </div>
     </body>
 </html>
