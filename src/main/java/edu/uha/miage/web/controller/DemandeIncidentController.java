@@ -83,11 +83,15 @@ public class DemandeIncidentController {
 
     @GetMapping("/edit")
     public String edit(@RequestParam(name = "id") Long id, Model model) {
-        model.addAttribute("demandeIncident", demandeIncidentService.findById(id).get());
-        model.addAttribute("incidents", incidentService.findAll());
-        model.addAttribute("domaines", domaineService.findAll());
-        model.addAttribute("fonctions", fonctionService.findAll());
-        return "demande/edit";
+        DemandeIncident d = demandeIncidentService.findById(id).get();
+        if (d.getDate_cloture() == null) {
+            model.addAttribute("demandeIncident", demandeIncidentService.findById(id).get());
+            model.addAttribute("incidents", incidentService.findAll());
+            model.addAttribute("domaines", domaineService.findAll());
+            model.addAttribute("fonctions", fonctionService.findAll());
+            return "demande/edit";
+        }
+        return "redirect:/home";
     }
 
     @PostMapping("/edit")
@@ -98,14 +102,10 @@ public class DemandeIncidentController {
             model.addAttribute("fonctions", fonctionService.findAll());
             return "demande/edit";
         }
-
-        demandeIncidentService.save(demandeIncident);
+        
+        if (demandeIncident.getDate_cloture() == null) 
+            demandeIncidentService.save(demandeIncident);
         return "redirect:/demande/incident";
     }
 
-    @GetMapping("/cloture/{id}")
-    public String cloture(@PathVariable("id") Long id) {
-        demandeIncidentService.cloture(id);
-        return "redirect:/demande/incident";
-    }
 }
