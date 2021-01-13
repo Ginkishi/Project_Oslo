@@ -7,7 +7,9 @@ package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -45,11 +47,13 @@ public class Fonction implements Serializable {
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Incident> occupeIncident;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
             name = "personne_occupe_fonction",
-            joinColumns = @JoinColumn(name = "fonction_id"),
-            inverseJoinColumns = @JoinColumn(name = "personne_id"))
+            joinColumns = @JoinColumn(name = "fonction_id",referencedColumnName = "id",
+                            nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "personne_id",referencedColumnName = "id",
+                            nullable = false))
     private List<Personne> occupationDePersonne;
 
     public Fonction(String libelle) {
@@ -58,7 +62,7 @@ public class Fonction implements Serializable {
 
     public Fonction(String libelle, Departement departement) {
         this.libelle = libelle;
-        this.departement =  departement;
+        this.departement = departement;
     }
 
     public Fonction() {
@@ -117,5 +121,13 @@ public class Fonction implements Serializable {
 
         return libelle;
 
+    }
+    
+    public String getFull(){
+         return departement +" - "+ libelle;
+    }
+
+    public String toJson() {
+        return "{\"id\":" + id + ", \"libelle\":" + "\"" + libelle + "\"}";
     }
 }

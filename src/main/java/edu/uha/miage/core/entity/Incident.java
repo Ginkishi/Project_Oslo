@@ -2,7 +2,9 @@ package edu.uha.miage.core.entity;
 
 import java.io.Serializable;
 import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -53,11 +55,13 @@ public class Incident implements Serializable {
     private List<DemandeIncident> demandeIncidents;
 
     
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.PERSIST)
     @JoinTable(
         name = "fonction_occupe_incident", 
-        joinColumns = @JoinColumn(name = "incident_id"), 
-        inverseJoinColumns = @JoinColumn(name = "fonction_id"))
+        joinColumns = @JoinColumn(name = "incident_id",referencedColumnName = "id",
+                            nullable = false), 
+        inverseJoinColumns = @JoinColumn(name = "fonction_id",referencedColumnName = "id",
+                            nullable = false))
     private List<Fonction> fonctionOccupe;
 
     

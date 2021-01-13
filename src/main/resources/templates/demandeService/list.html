@@ -33,10 +33,14 @@
                         <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
-                                <a th:href="@{/demande/edit(id=${demande.id})}">
+                                <a th:href="@{/demandeService/edit(id=${demande.id})}">
                                     <div class="btn btn-warning">Editer</div>
                                 </a>
+<<<<<<< HEAD
+                                <a  th:href="@{'/demandeService/cloturer/' + ${demande.id}}">
+=======
                                 <a  th:href="@{'/demandes/' + ${demande.id} + '/cloture'}">
+>>>>>>> 5f9a242217e7adb2b47bc400ea36a0e5ecad1030
                                     <div class="btn btn-danger">Clôturer</div>
                                 </a>
                             </div>

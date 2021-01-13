@@ -1,6 +1,7 @@
 package edu.uha.miage.web.controller;
 
 import edu.uha.miage.core.entity.Personne;
+import edu.uha.miage.core.service.CompteService;
 import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,29 +22,14 @@ public class PersonneController {
 
     @Autowired
     PersonneService personneService;
+    
+    @Autowired
+    CompteService compteService;
 
     @RequestMapping(method = RequestMethod.GET)
     public String findAll(Model model) {
         model.addAttribute("personnes", personneService.findAll());
         return "personne/list";
-    }
-
-    @GetMapping("/create")
-    public String create(Model model) {
-        Personne personne = new Personne();
-        model.addAttribute("personne", personne);
-        return "personne/edit";
-    }
-
-
-    @PostMapping("/create")
-    public String created(@Valid Personne personne, BindingResult br) {
-
-        if (br.hasErrors()) {
-            return "personne/edit";
-        }
-        personneService.save(personne);
-        return "redirect:/personne";
     }
 
     @GetMapping("/edit")

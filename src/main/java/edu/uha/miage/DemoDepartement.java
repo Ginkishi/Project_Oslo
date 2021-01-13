@@ -20,7 +20,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author victo
  */
-@Order(4)
+@Order(2)
 @Component
 public class DemoDepartement implements CommandLineRunner {
 

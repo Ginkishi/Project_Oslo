@@ -1,18 +1,46 @@
 <!DOCTYPE HTML>
 <html xmlns:th="http://www.thymeleaf.org">
+    <head>
+    <div th:replace="fragments/common :: [//div[@id='head']]"></div>
+    <title>OSLO - Comptes</title>
+        <link rel="stylesheet" type="text/css" th:href="@{/static/css/style.css}" />
     <head/>
     <body>
-        <h1>Personne</h1>
-        <ul>
-            <!-- V0.0 La liste d'items des clients est créée à l'aide de th:each -->
-            <!-- V0.0 qui parcourt les clients (la liste envoyée par le modèle) -->
-            <li th:each="personne : ${personnes}">
-                <span th:text="${personne.nom +' '+personne.prenom}"></span>
-                <a th:href="@{/personne/edit(id=${personne.id})}">[Modifier]</a>
-                <a th:href="@{'/personne/delete/' + ${personne.id}}">[Supprimer]</a>
-            </li>
-        </ul>
-        <!-- V0.0 Un bouton pour ouvrir la page de création de clients -->
-        <a th:href="@{/personne/create}">Créer un nouveau client</a>
+      
+        <div th:replace="fragments/menu"></div>
+
+        <div class="main">          
+            <h1>Liste des personnes</h1>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Adresse</th>
+                        <th>Email</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="personne : ${personnes}">
+                        <td th:text="${personne.nom}"></td>
+                        <td th:text="${personne.prenom}"></td>
+                        <td th:text="${personne.adresse}"></td>
+                        <td th:text="${personne.email}"></td>
+                        <td>
+                            <div class="buttons">
+                                <a th:href="@{/personne/edit(id=${personne.id})}">
+                                    <div class="btn btn-warning">Editer</div>
+                                </a>
+                                <!--<a  th:href="@{'/personne/delete/' + ${personne.id}}">
+                                    <div class="btn btn-danger">Supprimer</div>
+                                </a>-->
+                            </div>
+                        </td>
+                    </tr>                   
+                </tbody>
+            </table>
+        </div>        
     </body>
 </html>
+

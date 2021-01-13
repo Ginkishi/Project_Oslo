@@ -22,7 +22,7 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author victo
  */
-@Order(5)
+@Order(3)
 @Component
 public class DemoFonction implements CommandLineRunner {
 
@@ -40,6 +40,7 @@ public class DemoFonction implements CommandLineRunner {
         createFonction("Comptable", "Comptabilité");
         createFonction("Développeur", "Informatique");
         createFonction("Administrateur réseau", "Informatique");
+        createFonction("Administrateur", "Informatique");
         createFonction("Agent de sécurité", "Sécurité");
     }
 
