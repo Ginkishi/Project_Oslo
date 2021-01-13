@@ -1,4 +1,5 @@
 const buttons = document.querySelectorAll("span");
+
 buttons.forEach(b => {
     b.addEventListener("click", (e) => {
         if (b == e.target) {
@@ -31,6 +32,7 @@ buttons.forEach(b => {
 });
 function genereTree(child) {
     let ul = document.createElement("ul");
+    console.log(child);
     child.forEach(c => {
         let li = document.createElement("li");
         let a = document.createElement("div");
