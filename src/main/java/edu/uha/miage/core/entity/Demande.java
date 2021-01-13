@@ -6,12 +6,16 @@
 package edu.uha.miage.core.entity;
 
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Inheritance;
 import javax.persistence.InheritanceType;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
@@ -55,7 +59,16 @@ public class Demande {
     
     @ManyToOne
     private Personne createur;
+    
+    @ManyToMany
+    @JoinTable(
+            name = "intervient",
+            joinColumns = @JoinColumn(name = "demande_id"),
+            inverseJoinColumns = @JoinColumn(name = "personne_id"))
+    List<Personne> intervenants;
 
+    
+    
     public Demande() {
     }
 
@@ -127,6 +140,14 @@ public class Demande {
 
     public void setCreateur(Personne createur) {
         this.createur = createur;
+    }
+
+    public List<Personne> getIntervenants() {
+        return intervenants;
+    }
+
+    public void setIntervenants(List<Personne> intervenants) {
+        this.intervenants = intervenants;
     }
     
     

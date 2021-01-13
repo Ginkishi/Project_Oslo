@@ -39,12 +39,7 @@ public class Fonction implements Serializable {
     @ManyToOne
     private Departement departement;
 
-    @ManyToMany
-    @JoinTable(
-            name = "occupeIncident",
-            joinColumns = @JoinColumn(name = "fonction_id"),
-            inverseJoinColumns = @JoinColumn(name = "incident_id"))
-    List<Incident> typeIncidents;
+    
 
     @ManyToMany(mappedBy = "fonctionOccupe")
     private List<Services> occupeServices;
