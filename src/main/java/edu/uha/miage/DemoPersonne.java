@@ -12,7 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Order(4)
 @Component

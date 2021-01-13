@@ -19,7 +19,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  *
- * @author quentin
+ * @author Psyrkoz
  */
 @Controller
 public class CatalogueService {

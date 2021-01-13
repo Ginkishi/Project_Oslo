@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
- * @author Quentin
+ * @author Psyrkoz
  */
 @Order(5)
 @Component

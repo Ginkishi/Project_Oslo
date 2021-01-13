@@ -16,27 +16,21 @@ import org.hibernate.annotations.OnDeleteAction;
 @Entity
 public class Personne implements Serializable {
 
-    // #### V0.0 Pour définir l'identifiant de la table.
     @Id
-    // #### V0.0 Pour laisser à Spring le soin de générer un identifiant unique.
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Nom de la Personne
     private String nom;
 
     @NotNull
     @Size(min = 2, max = 50)
-    // Prénom de la Personne
     private String prenom;
 
 
-    // Adresse de la Personne
     private String adresse;
 
-    // Email de la Personne
     private String email;
 
     @ManyToMany(mappedBy = "occupationDePersonne")

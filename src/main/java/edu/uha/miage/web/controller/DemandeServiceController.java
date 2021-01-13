@@ -24,9 +24,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 /**
  *
- * @author quentin
+ * @author Psyrkoz
  */
 @Controller
+
+// ("/demandes/service")
+
 @RequestMapping("/demandeService")
 public class DemandeServiceController {
     @Autowired
