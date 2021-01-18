@@ -22,13 +22,13 @@
                 <input type="hidden" th:field="*{personne.id}"/>
                 
                 <div class="input-field">
-                    <label for="nom_de_compte">Nom de la catégorie</label>
+                    <label for="nom_de_compte">Nom du compte</label>
                     <input id="nom_de_compte" type="text" th:field="*{username}" />
                 </div>
                 <span th:if="${#fields.hasErrors('username')}" th:errors="*{username}" />
 
                 <div class="input-field">
-                    <label for="roles">Nom de la catégorie parente</label>
+                    <label for="roles">Rôle du compte</label>
                     <select th:field="*{role}" id="roles">
                         <option th:each="r : ${roles}" th:value="${r.id}" th:text="${r.libelle}"></option>
                     </select>
