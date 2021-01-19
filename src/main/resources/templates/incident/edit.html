@@ -31,7 +31,7 @@
                 <span th:if="${#fields.hasErrors('libelle')}" th:errors="*{libelle}"></span>
                 
                 <div class="input-field">
-                    <label for="categorie">Priorité</label>
+                    <label for="categorie">Priorité (1>10)</label>
                     <select th:field="*{priorite}" id="priorite">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>

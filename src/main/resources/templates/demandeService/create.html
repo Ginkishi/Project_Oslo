@@ -38,7 +38,7 @@
                 
                 
                 <div class="input-field">
-                    <label for="importance">Importance</label>
+                    <label for="importance">Importance (1>10)</label>
                     <select th:field="*{importance}" id="importance">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
@@ -46,7 +46,7 @@
                 
                 <div class="input-field">
                     <label for="description">Description</label>
-                    <textarea id="description" type="text" th:field="*{description}"></textarea>
+                    <textarea id="description" type="text" th:field="*{description}" th:placeholder="${placeholder}"></textarea>
                 </div>
                 <span th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
                 
