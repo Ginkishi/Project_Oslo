@@ -50,9 +50,11 @@ public class DemandeServiceController {
         Services svc = serviceService.findByLibelle(serviceName);
         demande.setService(svc);
         demande.setImportance(svc.getPriorite());
+        
 
         demande.setDate_creation(new Date());
         model.addAttribute("demandeService", demande);
+        model.addAttribute("placeholder", svc.getPlaceholder());
         return "demandeService/create.html";
     }
 

@@ -51,7 +51,7 @@
                 <span th:if="${#fields.hasErrors('localisation')}" th:errors="*{localisation}"></span>
                 
                 <div class="input-field">
-                    <label for="domaine">Importance</label>
+                    <label for="domaine">Importance (1>10)</label>
                     <select th:field="*{importance}" id="priorite">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
@@ -65,7 +65,7 @@
                 
                 <div class="buttons">
                     <button type="submit" class="btn btn-success">Valider</button>
-                    <a th:href="@{/demande/incident}" ><div class="btn btn-danger">Fermer</div></a>
+                    <a th:href="@{/demande/incident}" ><div class="btn btn-danger">Annuler</div></a>
                 </div>
             </form>  
         </div>
