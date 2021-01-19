@@ -38,7 +38,7 @@
                 
                 
                 <div class="input-field">
-                    <label for="importance">Importance</label>
+                    <label for="importance">Importance (1>10)</label>
                     <select th:field="*{importance}" id="importance" disabled>
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
@@ -52,7 +52,7 @@
                 
                 <div class="buttons">
                     <button type="submit" class="btn btn-success">Valider</button>
-                    <a th:href="@{/demande/service}" ><div class="btn btn-danger">Fermer</div></a>
+                    <a th:href="@{/demande/service}" ><div class="btn btn-danger">Annuler</div></a>
                 </div>
             </form>  
         </div>

@@ -46,7 +46,7 @@
                 
                 <span th:if="${#fields.hasErrors('categorie')}" th:errors="*{categorie}"></span>
                 <div class="input-field">
-                    <label for="categorie">Priorité</label>
+                    <label for="categorie">Priorité (1>10)</label>
                     <select th:field="*{priorite}" id="priorite">
                         <option th:each="i : ${#numbers.sequence( 1, 10)}" th:value="${i}" th:text="${i}"></option>
                     </select>
@@ -61,7 +61,7 @@
                 <span th:if="${#fields.hasErrors('fonctionOccupe')}" th:errors="*{fonctionOccupe}"></span>
                 <div class="buttons">
                     <button type="submit" class="btn btn-success">Valider</button>
-                    <a th:href="@{/service}" ><div class="btn btn-danger">Fermer</div></a>
+                    <a th:href="@{/service}" ><div class="btn btn-danger">Annuler</div></a>
                 </div>
             </form>  
         </div>       
