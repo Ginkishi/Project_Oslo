@@ -72,7 +72,7 @@
                         <td th:text="${demande.statut_demande}"></td>
                         <td>
                             <div class="buttons">
-                                 <a th:href="@{/demande/${demande.id}/intervient}">
+                                 <a th:href="@{'/demandes/'+${demande.id}+'/intervient'}">
                                     <div class="btn btn-primary">Intervenir</div>
                                 </a>
                                 <a th:href="@{/demande/service/edit(id=${demande.id})}">
